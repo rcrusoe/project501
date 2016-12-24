@@ -11,6 +11,6 @@ class AddDetailsToUser < ActiveRecord::Migration
     add_column :users, :github_url, :string
     add_column :users, :dribbble_url, :string
     add_column :users, :website_url, :string
-    add_column :users, :approved, :binary
+    add_column :users, :approved, :boolean, default: false
   end
 end
