@@ -20,6 +20,16 @@
   <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
 <% end %>
 
+<!-- check to see if the current user is affiliated with an approved organization -->
+<% if current_user && current_user.memberships.count > 0 %>
+  <% current_user.memberships.each do |membership| %>
+    <% if Organization.find_by_id(membership.organization_id).approved == true %>
+        This user is affiliated with an organization that has been approved
+    <% end %>
+  <% end %>
+<% end %>
+
+
 <%= yield %>
 
 </body>

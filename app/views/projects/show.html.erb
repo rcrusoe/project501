@@ -28,6 +28,17 @@
   <% end %>
 </ul>
 
+<!-- Identifying the Project Owner -->
+<% @project.roles.each do |role| %>
+  <% if role.status == "Owner" %>
+    <% if current_user == User.find_by_id(role.user_id) %>
+      <p>The current user is the project owner.</p>
+    <% else %>
+    <% end %>
+  <% else %>
+  <% end %>
+<% end %>
+
 <%= link_to 'Apply', apply_project_path(@project) %> |
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
