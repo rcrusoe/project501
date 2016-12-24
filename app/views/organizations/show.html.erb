@@ -33,5 +33,17 @@
   <% end %>
 </ul>
 
+<p>Projects</p>
+<ul>
+  <% @organization.memberships.each do |membership| %>
+    <% User.find_by_id(membership.user_id).roles.each do |role| %>
+      <% if role.status == "Owner" %>
+        <li><%= Project.find_by_id(role.project_id).title %></li>
+      <% end %>
+    <% end %>
+  <% end %>
+</ul>
+
+
 <%= link_to 'Edit', edit_organization_path(@organization) %> |
 <%= link_to 'Back', organizations_path %>

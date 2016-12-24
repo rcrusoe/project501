@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_project, only: [:show, :edit, :update, :destroy, :submit_application]
 
   # GET /projects
   # GET /projects.json
@@ -60,6 +60,20 @@ class ProjectsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def submit_application
+    @role = @project.roles.build(user_id: current_user.id, status: "Applicant")
+    respond_to do |format|
+      if @role.save
+        format.html { redirect_to @project, notice: 'Project was successfully created.' }
+        format.json { render :show, status: :created, location: @project }
+      else
+        format.html { render :new }
+        format.json { render json: @project.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
