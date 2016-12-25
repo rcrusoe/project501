@@ -1,3 +1,5 @@
+<%= render(:partial => 'shared/navbar')%>
+
 <div class="section cards">
     <div class="container">
 
@@ -60,7 +62,7 @@
                 <%= link_to "Meet the Experts", users_path, class: "button-secondary"%>
             </div>
 
-            <div class="seven columns home-expert-photos">
+            <div class="seven columns home-expert-photos large-screen-only">
                 <%= image_tag("expert2.png", class: "home-expert-photo expert-photo-2") %>
                 <%= image_tag("expert1.png", class: "home-expert-photo") %>
                 <%= image_tag("expert4.png", class: "home-expert-photo") %>

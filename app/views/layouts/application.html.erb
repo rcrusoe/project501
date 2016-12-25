@@ -16,8 +16,6 @@
 </head>
 <body>
 
-<%= render(:partial => 'shared/navbar')%>
-
 <!-- check to see if the current user is affiliated with an approved organization -->
 <% if current_user && current_user.memberships.count > 0 %>
   <% current_user.memberships.each do |membership| %>

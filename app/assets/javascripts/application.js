@@ -14,3 +14,10 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+// small script allowing me to use my styled primary links instead of submit inputs
+$('.submit').click(function(){
+  $('form').submit();
+  return false;
+});

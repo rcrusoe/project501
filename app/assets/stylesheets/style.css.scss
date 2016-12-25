@@ -17,8 +17,8 @@ h4 {
   font-weight: 500;
 }
 
-h1 { font-size: 4rem; line-height: 1.35;}
-h2 { font-size: 3rem; line-height: 1.4; margin: 0;}
+h1 { font-size: 2.8rem; line-height: 1.35;}
+h2 { font-size: 2.4rem; line-height: 1.4; margin: 0;}
 h3 { font-size: 2rem; line-height: 1.5; margin: 0 0 1rem;}
 h4 { font-size: 1.6rem; line-height: 1.5;}
 
@@ -30,12 +30,21 @@ h4 { font-size: 1.6rem; line-height: 1.5;}
   h4 { font-size: 1.6rem; }
 }
 
-p {
+p,
+input,
+em {
   color: $gray-80;
   font-family: 'vollkorn', serif;
   font-size: 1.8rem;
   line-height: 2.8rem;
+}
+
+p {
   margin: 2rem 0;
+}
+
+em {
+  font-style: italic;
 }
 
 a {
@@ -54,9 +63,23 @@ a {
   }
 }
 
-.section-header {
+.basic-link {
+  &:hover {
+    background-image: none;
+  }
+}
+
+.centered-text {
   text-align: center;
+}
+
+.centered-object {
+  margin: auto;
+}
+
+.section-header {
   margin-bottom: 6rem;
+  text-align: center;
 }
 
 
@@ -66,13 +89,18 @@ a {
   padding: 10rem 0;
 }
 
+.small-section {
+  padding: 2rem 0;
+}
+
 
 // Buttons and Links
 
 .button-primary,
 .button-secondary {
   color: $black;
-  display: inline-block;
+  width: auto;
+  display: table;
   font-family: "brandon-grotesque", sans-serif;
   font-size: 2rem;
   font-weight: 500;
@@ -80,7 +108,7 @@ a {
   text-decoration: none;
 }
 
-.button-primary {
+.button-primary, {
   background: $yellow;
   margin: 7px 0 0 7px;
   padding: 3px 20px 12px 10px;
@@ -104,6 +132,10 @@ a {
   padding: 6px 15px;
 }
 
+.submit {
+  margin: 4rem auto;
+}
+
 
 // Cards
 
@@ -116,6 +148,7 @@ a {
 .card {
   background: $white;
   box-shadow: 2rem 2rem 0 0 $blue-60;
+  margin-bottom: 4rem;
   width: calc(100% - 2rem);
 
   .content {
@@ -127,6 +160,43 @@ a {
   background-color: $blue-60;
   height: .5rem;
   width: 5rem;
+}
+
+
+// From Elements
+
+label {
+  font-size: 2rem;
+  line-height: 1.5;
+  margin: 0 0 1rem;
+}
+
+input {
+  border: 2px solid $black;
+  border-radius: 5px;
+  height: 5rem;
+  padding-left: 2rem;
+  width: calc(100% - 2rem);
+
+  &:focus {
+    background-color: $blue-20;
+    outline: none;
+  }
+}
+
+.field {
+  margin-bottom: 2rem;
+}
+
+
+// Responsiveness
+
+.large-screen-only {
+  display: none;
+
+  @media (min-width: 780px){
+    display: inline-block;
+  }
 }
 
 
