@@ -1,4 +1,4 @@
-<div class="cards">
+<div class="section cards">
     <div class="container">
 
         <div class="row">
@@ -41,8 +41,88 @@
                 </div>
             </div>
 
-
         </div>
 
     </div>
 </div>
+
+<div class="section">
+    <div class="container">
+        <div class="row home-experts">
+
+            <div class="five columns">
+                <h2>
+                    A community of 30,000 experts
+                </h2>
+                <p>
+                    Connect with a community of business specialists, designers, and software developers who are willing and able to lend a hand to organizations in need.
+                </p>
+                <%= link_to "Meet the Experts", users_path, class: "button-secondary"%>
+            </div>
+
+            <div class="seven columns home-expert-photos">
+                <%= image_tag("expert2.png", class: "home-expert-photo expert-photo-2") %>
+                <%= image_tag("expert1.png", class: "home-expert-photo") %>
+                <%= image_tag("expert4.png", class: "home-expert-photo") %>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="section cards">
+    <div class="container">
+        <h2 class="section-header">Past Projects</h2>
+
+        <div class="row home-past-projects">
+
+            <div class="four columns">
+                <div class="card">
+                    <div class="content">
+                        <h3>
+                            Example Project
+                        </h3>
+                        <div class="divider"></div>
+                        <p>
+                            Descriptive subtitle text displayed on the card to give ya a little more info!
+                        </p>
+                        <%= link_to "View Project", root_path, class: "button-secondary"%>
+                    </div>
+                </div>
+            </div>
+
+            <div class="four columns">
+                <div class="card">
+                    <div class="content">
+                        <h3>
+                            Example Project
+                        </h3>
+                        <div class="divider"></div>
+                        <p>
+                            Descriptive subtitle text displayed on the card to give ya a little more info!
+                        </p>
+                        <%= link_to "View Project", root_path, class: "button-secondary"%>
+                    </div>
+                </div>
+            </div>
+
+            <div class="four columns">
+                <div class="card">
+                    <div class="content">
+                        <h3>
+                            Example Project
+                        </h3>
+                        <div class="divider"></div>
+                        <p>
+                            Descriptive subtitle text displayed on the card to give ya a little more info!
+                        </p>
+                        <%= link_to "View Project", root_path, class: "button-secondary"%>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<%= render(:partial => 'shared/footer')%>
