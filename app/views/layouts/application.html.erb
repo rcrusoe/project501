@@ -9,20 +9,14 @@
   <!-- Mobile Viewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!-- Typography -->
+  <script src="https://use.typekit.net/nyl6rxg.js"></script>
+  <script>try{Typekit.load({ async: false });}catch(e){}</script>
+
 </head>
 <body>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-
-<% if user_signed_in? %>
-  Logged in as <strong><%= current_user.email %></strong>.
-  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-<% else %>
-  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-<% end %>
+<%= render(:partial => 'shared/navbar')%>
 
 <!-- check to see if the current user is affiliated with an approved organization -->
 <% if current_user && current_user.memberships.count > 0 %>
@@ -32,7 +26,6 @@
     <% end %>
   <% end %>
 <% end %>
-
 
 <%= yield %>
 

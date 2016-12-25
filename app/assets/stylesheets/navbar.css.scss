@@ -1,0 +1,28 @@
+.nav {
+  height: 7.6rem;
+}
+
+.navbar {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.8rem 0;
+}
+
+.logo {
+  display: inline-block;
+  height: 2.8rem;
+}
+
+.right {
+  float: right;
+
+  a {
+    display: inline-block;
+    margin-right: 3rem;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+}

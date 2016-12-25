@@ -1,4 +1,48 @@
-<h2>Hello World</h2>
-<p>
-  The time is now: <%= Time.now %>
-</p>
+<div class="cards">
+    <div class="container">
+
+        <div class="row">
+            <div class="twelve columns">
+                <h1>
+                    Volunteer your expertise to help non-profit organizations tackle their most pressing challenges.
+                </h1>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="six columns">
+                <div class="card">
+                    <div class="content">
+                        <h3>
+                            Find help for your organiziation
+                        </h3>
+                        <div class="divider"></div>
+                        <p>
+                            Connect with expert willing and able to volunteer their expertise to help your non-profit organization.
+                        </p>
+                        <%= link_to "Join as an Organization", new_organization_path, class: "button-primary"%>
+                    </div>
+                </div>
+            </div>
+
+            <div class="six columns">
+                <div class="card">
+                    <div class="content">
+                        <h3>
+                            Volunteer your expertise
+                        </h3>
+                        <div class="divider"></div>
+                        <p>
+                            Apply to join as an expert to volunteer your expertise to non-profit organizations that need your help.
+                        </p>
+                        <%= link_to "Join as an Expert", edit_user_registration_path, class: "button-primary"%>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+</div>

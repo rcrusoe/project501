@@ -1,0 +1,120 @@
+html {
+  font-family: "brandon-grotesque", sans-serif;
+  font-size: 62.5%;
+}
+
+
+// Colors
+$black: #2a2f2f;
+$blue-100: #28586f;
+$blue-60: #bdd6dd;
+$blue-20: #f7f7fb;
+$yellow: #fbd96d;
+$red: #ff6f3d;
+$gray-80: #a9a9a9;
+$gray-20: #f4f4f4;
+$beige: #f5f1ed;
+$white: #fff;
+
+
+// Typography
+h1,
+h2,
+h3,
+h4 {
+  color: $black;
+  font-family: "brandon-grotesque", sans-serif;
+  font-weight: 500;
+}
+
+h1 { font-size: 4rem; line-height: 1.35;}
+h2 { font-size: 3rem; line-height: 1.4;}
+h3 { font-size: 2rem; line-height: 1.5; margin: 0 0 1rem;}
+h4 { font-size: 1.6rem; line-height: 1.5;}
+
+// Larger than phablet
+@media (min-width: 550px) {
+  h1 { font-size: 4rem; }
+  h2 { font-size: 3rem; }
+  h3 { font-size: 2rem; }
+  h4 { font-size: 1.6rem; }
+}
+
+p {
+  color: $gray-80;
+  font-family: 'vollkorn', serif;
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+  margin: 2rem 0;
+}
+
+a {
+  color: $black;
+  font-size: 2rem;
+  line-height: 1.5;
+  text-decoration: none;
+}
+
+
+// Buttons and Links
+
+.button-primary,
+.button-secondary {
+  color: $black;
+  display: inline-block;
+  font-family: "brandon-grotesque", sans-serif;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.button-primary {
+  background: $yellow;
+  margin: 7px 0 0 7px;
+  padding: 3px 20px 12px 10px;
+  position: relative;
+
+  &:before {
+    background: transparent;
+    border: 2px solid $black;
+    content: '';
+    display: block;
+    height: calc(100% - 3px);
+    left: -5px;
+    position: absolute;
+    top: -5px;
+    width: calc(100% - 3px);
+  }
+}
+
+.button-secondary {
+  border: 2px solid $black;
+  padding: 6px 15px;
+}
+
+
+// Cards
+
+.cards {
+  background: $gray-20;
+  display: inline-block;
+  padding: 8rem 0 12rem;
+  width: 100%;
+}
+
+.card {
+  background: $white;
+  box-shadow: 2rem 2rem 0 0 $blue-60;
+  width: calc(100% - 2rem);
+
+  .content {
+    padding: 5rem 4rem 4rem;
+  }
+}
+
+.divider {
+  background-color: $blue-60;
+  height: .5rem;
+  width: 5rem;
+}
