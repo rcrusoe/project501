@@ -1,0 +1,90 @@
+<div class="row">
+  <div class="twelve columns">
+    <h2>
+      <%= @project.title %>
+    </h2>
+    <div class="divider"></div>
+
+    <p>
+      <%= @project.description %>
+    </p>
+
+    <p>
+      Target deadline for this project: <%= @project.deadline %>
+    </p>
+
+    <% @project.roles.each do |role| %>
+      <% if role.status == "Owner" %>
+        <% User.find_by_id(role.user_id).memberships.each do |membership| %>
+          <h3>
+            <%= link_to Organization.find_by_id(membership.organization_id).name, organization_path(Organization.find_by_id(membership.organization_id).id), class: "animated-underline"%>
+          </h3>
+        <% end %>
+      <% end %>
+    <% end %>
+
+    <% @project.roles.each do |role| %>
+      <% if role.status == "Owner" %>
+        <% User.find_by_id(role.user_id).memberships.each do |membership| %>
+          <p>
+            <%= Organization.find_by_id(membership.organization_id).description %>
+          </p>
+        <% end %>
+      <% end %>
+    <% end %>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="spacer"></div>
+  <div class="twelve columns">
+    <h3>
+      Review Candidates
+    </h3>
+    <div class="divider"></div>
+    <p>
+      View their profiles and request a phone call to determine who may be a good fit for this project.
+    </p>
+  </div>
+</div>
+
+<div class="row">
+  <% @project.roles.each do |role| %>
+    <% if role.status == "Volunteer" %>
+      <div class="four columns">
+        <div class="card dark">
+          <div class="content">
+            <h3>
+              <%= User.find_by_id(role.user_id).first_name %> <%= User.find_by_id(role.user_id).last_name %>
+            </h3>
+            <div class="divider"></div>
+            <p>
+              <%= User.find_by_id(role.user_id).tagline %>
+            </p>
+            <h3>
+              <%= link_to "View Profile", project_path(Project.find_by_id(role.project_id).id), class: "animated-underline"%>
+            </h3>
+          </div>
+        </div>
+      </div>
+    <% elsif role.status == "Applicant" %>
+      <div class="four columns">
+        <div class="card">
+          <div class="content">
+            <h3>
+              <%= User.find_by_id(role.user_id).first_name %> <%= User.find_by_id(role.user_id).last_name %>
+            </h3>
+            <div class="divider"></div>
+            <p>
+              <%= User.find_by_id(role.user_id).tagline %>
+            </p>
+            <h3>
+              <%= link_to "View Profile", project_path(Project.find_by_id(role.project_id).id), class: "animated-underline"%>
+            </h3>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

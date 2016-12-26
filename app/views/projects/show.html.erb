@@ -1,44 +1,36 @@
-<p id="notice"><%= notice %></p>
+<%= render(:partial => 'shared/navbar')%>
 
-<p>
-  <strong>Title:</strong>
-  <%= @project.title %>
-</p>
+<div class="section cards">
+  <div class="container">
 
-<p>
-  <strong>Description:</strong>
-  <%= @project.description %>
-</p>
+    <!-- Determine which view to render based on current user project role -->
+    <% @project.roles.each do |role| %>
 
-<p>
-  <strong>Category:</strong>
-  <%= @project.category %>
-</p>
+      <!-- If the current user is the project owner... -->
+      <% if role.status == "Owner" %>
+        <% if User.find_by_id(role.user.id) == current_user %>
+          <%= render(:partial => 'projectOwnerView') %>
+        <% end %>
 
-<p>
-  <strong>Deadline:</strong>
-  <%= @project.deadline %>
-</p>
+      <!-- If the current user has applied to the project -->
+      <% elsif role.status == "Applicant" %>
+        <% if User.find_by_id(role.user.id) == current_user %>
+          <%= render(:partial => 'projectApplicantView') %>
+        <% end %>
 
-<p>Roles</p>
-<ul>
-  <% @project.roles.each do |role| %>
-    <li><%= role.status %></li>
-    <li><%= User.find_by_id(role.user_id).email %></li>
-  <% end %>
-</ul>
+      <!-- If the current user has been selectd for the project -->
+      <% elsif role.status == "Volunteer" %>
+        <% if User.find_by_id(role.user.id) == current_user %>
+          <%= render(:partial => 'projectVolunteerView') %>
+        <% end %>
 
-<!-- Identifying the Project Owner -->
-<% @project.roles.each do |role| %>
-  <% if role.status == "Owner" %>
-    <% if current_user == User.find_by_id(role.user_id) %>
-      <p>The current user is the project owner.</p>
-    <% else %>
+      <!-- If the current user is not yet associated with the project -->
+      <% else %>
+        <% if User.find_by_id(role.user.id) == current_user %>
+          <%= render(:partial => 'projectVisitorView') %>
+        <% end %>
+
+      <% end %>
     <% end %>
-  <% else %>
-  <% end %>
-<% end %>
-
-<%= link_to 'Apply', apply_project_path(@project) %> |
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+  </div>
+</div>

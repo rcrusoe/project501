@@ -1,0 +1,58 @@
+<div class="row">
+
+
+  <div class="eight columns">
+    <h2>
+      <%= @project.title %>
+    </h2>
+    <div class="divider"></div>
+
+    <p>
+      <%= @project.description %>
+    </p>
+
+    <p>
+      Target deadline for this project: <%= @project.deadline %>
+    </p>
+
+    <% @project.roles.each do |role| %>
+      <% if role.status == "Owner" %>
+        <% User.find_by_id(role.user_id).memberships.each do |membership| %>
+          <h3>
+            <%= link_to Organization.find_by_id(membership.organization_id).name, organization_path(Organization.find_by_id(membership.organization_id).id), class: "animated-underline"%>
+          </h3>
+        <% end %>
+      <% end %>
+    <% end %>
+
+    <% @project.roles.each do |role| %>
+      <% if role.status == "Owner" %>
+        <% User.find_by_id(role.user_id).memberships.each do |membership| %>
+          <p>
+            <%= Organization.find_by_id(membership.organization_id).description %>
+          </p>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+
+
+  <div class="four columns">
+    <div class="card">
+      <div class="content">
+        <h3>
+          Interested in helping with this?
+        </h3>
+        <div class="divider"></div>
+        <p>
+            Send a quick introductory message to express your interest in helping this organization.
+        </p>
+        <h3>
+          Introduce yourself:
+        </h3>
+        <textarea class="message-input" placeholder="This functionality isn't built yet, but experts will soon be able to start discussions with organizations."></textarea>
+        <%= link_to 'Apply to Project', apply_project_path(@project), class: "button-secondary" %>
+      </div>
+    </div>
+  </div>
+</div>
