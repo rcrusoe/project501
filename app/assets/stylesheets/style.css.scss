@@ -1,5 +1,14 @@
 @import 'colors.css.scss';
 
+@mixin prefix($property, $value, $prefixes: ()) {
+  @each $prefix in $prefixes {
+    #{'-' + $prefix + '-' + $property}: $value;
+  }
+
+  // Output standard non-prefixed declaration
+  #{$property}: $value;
+}
+
 
 html {
   font-family: "brandon-grotesque", sans-serif;
@@ -20,7 +29,7 @@ h4 {
 h1 { font-size: 2.8rem; line-height: 1.35;}
 h2 { font-size: 2.4rem; line-height: 1.4; margin: 0;}
 h3 { font-size: 2rem; line-height: 1.5; margin: 0 0 1rem;}
-h4 { font-size: 1.6rem; line-height: 1.5;}
+h4, select { font-size: 1.6rem; line-height: 1.5;}
 
 // Larger than phablet
 @media (min-width: 550px) {
@@ -32,7 +41,10 @@ h4 { font-size: 1.6rem; line-height: 1.5;}
 
 p,
 input,
-em {
+textarea,
+em,
+i,
+li {
   color: $gray-80;
   font-family: 'vollkorn', serif;
   font-size: 1.8rem;
@@ -43,16 +55,30 @@ p {
   margin: 2rem 0;
 }
 
-em {
+.dark-paragraph {
+  color: $black;
+}
+
+em,
+i {
   font-style: italic;
 }
 
 a {
-  background-size: 0 100%;
   color: $black;
   font-size: 2rem;
   line-height: 1.5;
   text-decoration: none;
+}
+
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+p a,
+.animated-underline,
+.button-secondary {
+  background-size: 0 100%;
 
   &:hover {
     background-image: linear-gradient(180deg, transparent 65%, $yellow 0);
@@ -60,12 +86,6 @@ a {
     background-size: 100% 100%;
     cursor: pointer;
     transition: background-size .4s ease;
-  }
-}
-
-.basic-link {
-  &:hover {
-    background-image: none;
   }
 }
 
@@ -78,7 +98,7 @@ a {
 }
 
 .section-header {
-  margin-bottom: 6rem;
+  margin-bottom: 4rem;
   text-align: center;
 }
 
@@ -90,7 +110,7 @@ a {
 }
 
 .small-section {
-  padding: 2rem 0;
+  padding: 4rem 0 2rem;
 }
 
 
@@ -193,6 +213,10 @@ a {
   }
 }
 
+.dark {
+  box-shadow: 2rem 2rem 0 0 $blue-100;
+}
+
 .divider {
   background-color: $blue-60;
   height: .5rem;
@@ -209,11 +233,23 @@ label {
 }
 
 input {
+  height: 5rem;
+}
+
+textarea {
+  height: 15rem;
+  max-width: 100%;
+  min-width: 100%;
+}
+
+input,
+textarea {
+
+  @include prefix(box-sizing, border-box, forwards moz ms o webkit);
   border: 2px solid $black;
   border-radius: 5px;
-  height: 5rem;
-  padding-left: 2rem;
-  width: calc(100% - 2rem);
+  padding-left: 1rem;
+  width: 100%;
 
   &:focus {
     background-color: $blue-20;
@@ -234,6 +270,29 @@ input {
   @media (min-width: 780px){
     display: inline-block;
   }
+}
+
+// Errors
+
+#error_explanation {
+
+  li {
+    color: $red;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+}
+
+.alert {
+  color: $red;
+  text-align: center;
+}
+
+// User Profile
+
+.links {
+  margin-bottom: 2rem;
 }
 
 

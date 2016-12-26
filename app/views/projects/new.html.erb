@@ -1,5 +1,19 @@
-<h1>New Project</h1>
+<%= render(:partial => 'shared/navbar')%>
+
+<div class="small-section cards">
+  <div class="container">
+    <div class="row">
+      <div class="six offset-by-three columns">
+        <h3>
+          Describe your organization's need
+        </h3>
+        <div class="divider"></div>
+        <p class="dark-paragraph">
+          Describe what your organization needs help with and get matched with experts willing and able to help.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <%= render 'form' %>
-
-<%= link_to 'Back', projects_path %>

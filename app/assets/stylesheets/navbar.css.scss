@@ -15,7 +15,13 @@
 }
 
 .right {
-  float: right;
+  align-items: center;
+  display: flex;
+
+  .avatar {
+    position: relative;
+    top: 4px;
+  }
 
   a {
     display: inline-block;

@@ -5,7 +5,10 @@ Rails.application.routes.draw do
     end
   end
   resources :organizations
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => :registrations }
   resources :users, :only => [:show, :index]
   root 'home#index'
+  authenticated :user do
+    root to: 'users#show', as: :authenticated_root
+  end
 end
