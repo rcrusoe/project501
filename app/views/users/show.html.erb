@@ -49,15 +49,53 @@
 
             </div>
             <div class="eight columns">
+
+                <!-- Index of Filled Positions -->
+                <% @user.roles.each do |role| %>
+                    <% if role.status == "Volunteer" %>
+                        <div class="card dark">
+                            <div class="content">
+                                <h3 class="clamped-text one-line">
+                                    <%= link_to Project.find_by_id(role.project_id).title, project_path(Project.find_by_id(role.project_id).id), class: "animated-underline"%>
+                                </h3>
+                                <div class="divider"></div>
+                                <p class="clamped-text four-lines">
+                                    <%= Project.find_by_id(role.project_id).description %>
+                                </p>
+                                <%= link_to "View Project", project_path(Project.find_by_id(role.project_id).id), class: "button-secondary"%>
+                            </div>
+                        </div>
+                    <% end %>
+                <% end %>
+
+                <!-- Index of Applications -->
                 <% @user.roles.each do |role| %>
                     <% if role.status == "Applicant" %>
                         <div class="card">
                             <div class="content">
-                                <h3>
-                                    <%= Project.find_by_id(role.project_id).title %>
+                                <h3 class="clamped-text one-line">
+                                    <%= link_to Project.find_by_id(role.project_id).title, project_path(Project.find_by_id(role.project_id).id), class: "animated-underline"%>
                                 </h3>
                                 <div class="divider"></div>
-                                <p>
+                                <p class="clamped-text four-lines">
+                                    <%= Project.find_by_id(role.project_id).description %>
+                                </p>
+                                <%= link_to "View Project", project_path(Project.find_by_id(role.project_id).id), class: "button-secondary"%>
+                            </div>
+                        </div>
+                    <% end %>
+                <% end %>
+
+                <!-- Index of Owned Projects -->
+                <% @user.roles.each do |role| %>
+                    <% if role.status == "Owner" %>
+                        <div class="card">
+                            <div class="content">
+                                <h3 class="clamped-text one-line">
+                                    <%= link_to Project.find_by_id(role.project_id).title, project_path(Project.find_by_id(role.project_id).id), class: "animated-underline"%>
+                                </h3>
+                                <div class="divider"></div>
+                                <p class="clamped-text four-lines">
                                     <%= Project.find_by_id(role.project_id).description %>
                                 </p>
                                 <%= link_to "View Project", project_path(Project.find_by_id(role.project_id).id), class: "button-secondary"%>

@@ -223,6 +223,21 @@ p a,
   width: 5rem;
 }
 
+.clamped-text {
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden;
+}
+
+.four-lines {
+  -webkit-line-clamp: 4;
+}
+
+.one-lines,
+.one-line {
+  -webkit-line-clamp: 1;
+}
+
 
 // From Elements
 
