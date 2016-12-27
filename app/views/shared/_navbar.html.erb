@@ -4,6 +4,7 @@
             <%= link_to image_tag("logo1.png", class: "logo basic-link"), root_path %>
             <div class="right">
                 <% if user_signed_in? %>
+                    <%= link_to "Projects", projects_path, class: "animated-underline" %>
                     <%= link_to "Post Project", new_project_path, class: "button-primary"%>
                     <%= link_to image_tag("avatar.svg", class: "avatar"), current_user %>
                 <% else %>

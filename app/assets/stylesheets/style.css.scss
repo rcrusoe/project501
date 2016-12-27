@@ -244,6 +244,15 @@ p a,
   -webkit-line-clamp: 1;
 }
 
+.floated-avatar {
+  float: left;
+  margin-right: 1rem;
+
+  + h3 {
+    margin-top: .4rem;
+  }
+}
+
 
 // From Elements
 
@@ -320,6 +329,33 @@ textarea {
 
 .message-input {
   margin-bottom: 2rem;
+}
+
+// Project Index
+
+.invitation-cta {
+  align-items: center;
+  display: flex;
+}
+
+.invite-organizations {
+  align-items: center;
+  background-color: $blue-100;
+  display: flex;
+
+  h2 {
+    color: $blue-20;
+  }
+
+  .button-secondary {
+    border-color: $blue-20;
+    color: $blue-20;
+  }
+}
+
+.invitation {
+  height: 25rem;
+  float: right;
 }
 
 
