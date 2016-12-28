@@ -1,11 +1,11 @@
-<%= render(:partial => 'shared/secondaryNavbar')%>
+<%= render 'shared/secondaryNavbar' %>
 
 <div class="small-section">
 <div class="container">
   <div class="row">
     <div class="six offset-by-three columns">
 
-      <h2 class="section-header">Login to an existing account.</h2>
+      <h2 class="section-header centered-text">Login to an existing account.</h2>
       <p class="alert"><%= alert %></p>
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>

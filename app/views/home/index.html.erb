@@ -1,4 +1,4 @@
-<%= render(partial: 'shared/navbar')%>
+<%= render 'shared/navbar' %>
 
 <div class="section cards">
     <div class="container">
@@ -74,7 +74,7 @@
 
 <div class="section cards">
     <div class="container">
-        <h2 class="section-header">Past Projects</h2>
+        <h2 class="section-header centered-text">Sample Projects</h2>
 
         <div class="row home-past-projects">
 
@@ -82,11 +82,11 @@
                 <div class="card">
                     <div class="content">
                         <h3>
-                            Example Project
+                            Fundraising
                         </h3>
                         <div class="divider"></div>
                         <p>
-                            Descriptive subtitle text displayed on the card to give ya a little more info!
+                            Develop and execute on an effective strategy for raising the funds required to continue operations.
                         </p>
                         <%= link_to "View Project", root_path, class: "button-secondary"%>
                     </div>
@@ -97,11 +97,11 @@
                 <div class="card">
                     <div class="content">
                         <h3>
-                            Example Project
+                            Marketing
                         </h3>
                         <div class="divider"></div>
                         <p>
-                            Descriptive subtitle text displayed on the card to give ya a little more info!
+                            Define and deliver an inspiring message that helps your organization increase its reach into new communities.
                         </p>
                         <%= link_to "View Project", root_path, class: "button-secondary"%>
                     </div>
@@ -112,11 +112,11 @@
                 <div class="card">
                     <div class="content">
                         <h3>
-                            Example Project
+                            Web Design
                         </h3>
                         <div class="divider"></div>
                         <p>
-                            Descriptive subtitle text displayed on the card to give ya a little more info!
+                            Design delightful web experiences to help your organization connect with and mobilize your supporters.
                         </p>
                         <%= link_to "View Project", root_path, class: "button-secondary"%>
                     </div>
@@ -127,4 +127,4 @@
     </div>
 </div>
 
-<%= render(:partial => 'shared/footer')%>
+<%= render 'shared/footer' %>

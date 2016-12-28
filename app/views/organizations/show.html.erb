@@ -1,7 +1,9 @@
-<%= render(partial: 'shared/navbar')%>
+<%= render 'shared/navbar' %>
 
 <div class="section cards">
     <div class="container">
+
+
 
         <div class="row">
           <div class="one-card column">
@@ -19,37 +21,21 @@
                         <%= link_to "Visit Website", @organization.website, target: "_blank", class: "animated-underline" %>
                     <% end %>
                 </div>
-                <% @organization.memberships.each do |membership| %>
-                  <% if User.find_by_id(membership.user_id) == current_user %>
-                    <%= link_to "Edit Organization Profile", edit_organization_path, class: "button-secondary"%>
-                  <% end %>
+                <% if Membership.where(user_id: current_user.id, organization_id: @organization.id).exists? %>
+                  <%= link_to "Edit Organization Profile", edit_organization_path, class: "button-secondary"%>
                 <% end %>
               </div>
             </div>
           </div
         </div>
 
-        <div class="row">
 
+
+        <div class="row">
           <% @organization.memberships.each do |membership| %>
             <% User.find_by_id(membership.user_id).roles.each do |role| %>
               <% if role.status == "Owner" %>
-
-                <div class="three-cards columns">
-                  <div class="card">
-                    <div class="content">
-                      <h3 class="clamped-text one-line">
-                          <%= link_to Project.find_by_id(role.project_id).title, project_path(Project.find_by_id(role.project_id).id), class: "animated-underline"%>
-                      </h3>
-                      <div class="divider"></div>
-                      <p class="clamped-text four-lines">
-                          <%= Project.find_by_id(role.project_id).description %>
-                      </p>
-                      <%= link_to "View Project", project_path(Project.find_by_id(role.project_id).id), class: "button-secondary"%>
-                    </div>
-                  </div>
-                </div>
-
+                <%= render 'projectCard', role: role %>
               <% end %>
             <% end %>
           <% end %>

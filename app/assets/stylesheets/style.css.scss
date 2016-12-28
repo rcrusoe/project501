@@ -97,11 +97,6 @@ p a,
   margin: auto;
 }
 
-.section-header {
-  margin-bottom: 4rem;
-  text-align: center;
-}
-
 
 // Spacing
 
@@ -117,6 +112,10 @@ p a,
   display: inline-block;
   height: 2rem;
   width: 100%;
+}
+
+.section-header {
+  margin-bottom: 4rem;
 }
 
 
@@ -236,11 +235,13 @@ p a,
 }
 
 .four-lines {
+  height: 11.2rem;
   -webkit-line-clamp: 4;
 }
 
 .one-lines,
 .one-line {
+  height: 2.8rem;
   -webkit-line-clamp: 1;
 }
 
