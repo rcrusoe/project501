@@ -3,8 +3,7 @@
 <div class="section cards">
     <div class="container">
         <div class="row">
-            <div class="four columns">
-
+            <div class="one-card column">
                 <div class="card dark">
                     <div class="content">
                         <h3>
@@ -46,31 +45,14 @@
                         <% end %>
                     </div>
                 </div>
-
             </div>
-            <div class="eight columns">
+        </div>
 
-                <!-- Index of Filled Positions -->
-                <% @user.roles.each do |role| %>
-                    <% if role.status == "Volunteer" %>
-                        <div class="card dark">
-                            <div class="content">
-                                <h3 class="clamped-text one-line">
-                                    <%= link_to Project.find_by_id(role.project_id).title, project_path(Project.find_by_id(role.project_id).id), class: "animated-underline"%>
-                                </h3>
-                                <div class="divider"></div>
-                                <p class="clamped-text four-lines">
-                                    <%= Project.find_by_id(role.project_id).description %>
-                                </p>
-                                <%= link_to "View Project", project_path(Project.find_by_id(role.project_id).id), class: "button-secondary"%>
-                            </div>
-                        </div>
-                    <% end %>
-                <% end %>
-
-                <!-- Index of Applications -->
-                <% @user.roles.each do |role| %>
-                    <% if role.status == "Applicant" %>
+        <div class="row">
+            <!-- Index of Filled Positions -->
+            <% @user.roles.each do |role| %>
+                <% if role.status == "Volunteer" %>
+                    <div class="three-cards columns">
                         <div class="card">
                             <div class="content">
                                 <h3 class="clamped-text one-line">
@@ -83,12 +65,10 @@
                                 <%= link_to "View Project", project_path(Project.find_by_id(role.project_id).id), class: "button-secondary"%>
                             </div>
                         </div>
-                    <% end %>
-                <% end %>
+                    </div>
 
-                <!-- Index of Owned Projects -->
-                <% @user.roles.each do |role| %>
-                    <% if role.status == "Owner" %>
+                <% elsif role.status == "Applicant" %>
+                    <div class="three-cards columns">
                         <div class="card">
                             <div class="content">
                                 <h3 class="clamped-text one-line">
@@ -101,11 +81,25 @@
                                 <%= link_to "View Project", project_path(Project.find_by_id(role.project_id).id), class: "button-secondary"%>
                             </div>
                         </div>
-                    <% end %>
+                    </div>
+
+                <% elsif role.status == "Owner" %>
+                    <div class="three-cards columns">
+                        <div class="card">
+                            <div class="content">
+                                <h3 class="clamped-text one-line">
+                                    <%= link_to Project.find_by_id(role.project_id).title, project_path(Project.find_by_id(role.project_id).id), class: "animated-underline"%>
+                                </h3>
+                                <div class="divider"></div>
+                                <p class="clamped-text four-lines">
+                                    <%= Project.find_by_id(role.project_id).description %>
+                                </p>
+                                <%= link_to "View Project", project_path(Project.find_by_id(role.project_id).id), class: "button-secondary"%>
+                            </div>
+                        </div>
+                    </div>
                 <% end %>
-            </div>
-
-
+            <% end %>
         </div>
     </div>
 </div>

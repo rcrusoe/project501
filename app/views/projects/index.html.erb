@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row">
       <% @projects.each do |project| %>
-        <div class="four columns">
+        <div class="three-cards columns" style="float: none; display: inline-block;">
           <div class="card">
             <div class="content">
               <h3 class="clamped-text one-line">
@@ -36,7 +36,7 @@
           <%= link_to "Browse Organizations", organizations_path, class: "button-secondary"%>
       </div>
 
-      <div class="seven columns">
+      <div class="seven columns large-screen-only">
         <%= image_tag("invitation.png", class: "invitation") %>
       </div>
     </div>

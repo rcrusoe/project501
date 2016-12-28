@@ -2,8 +2,9 @@
 
 <div class="section cards">
     <div class="container">
+
         <div class="row">
-          <div class="twelve columns">
+          <div class="one-card column">
             <div class="card dark">
               <div class="content">
                 <h3>
@@ -29,30 +30,31 @@
         </div>
 
         <div class="row">
-            <!-- Index of Organization's Projects -->
-            <% @organization.memberships.each do |membership| %>
-              <% User.find_by_id(membership.user_id).roles.each do |role| %>
-                <% if role.status == "Owner" %>
-                  <div class="four columns">
-                    <div class="card">
-                      <div class="content">
-                        <h3 class="clamped-text one-line">
-                            <%= link_to Project.find_by_id(role.project_id).title, project_path(Project.find_by_id(role.project_id).id), class: "animated-underline"%>
-                        </h3>
-                        <div class="divider"></div>
-                        <p class="clamped-text four-lines">
-                            <%= Project.find_by_id(role.project_id).description %>
-                        </p>
-                        <%= link_to "View Project", project_path(Project.find_by_id(role.project_id).id), class: "button-secondary"%>
-                      </div>
+
+          <% @organization.memberships.each do |membership| %>
+            <% User.find_by_id(membership.user_id).roles.each do |role| %>
+              <% if role.status == "Owner" %>
+
+                <div class="three-cards columns">
+                  <div class="card">
+                    <div class="content">
+                      <h3 class="clamped-text one-line">
+                          <%= link_to Project.find_by_id(role.project_id).title, project_path(Project.find_by_id(role.project_id).id), class: "animated-underline"%>
+                      </h3>
+                      <div class="divider"></div>
+                      <p class="clamped-text four-lines">
+                          <%= Project.find_by_id(role.project_id).description %>
+                      </p>
+                      <%= link_to "View Project", project_path(Project.find_by_id(role.project_id).id), class: "button-secondary"%>
                     </div>
                   </div>
-                <% end %>
+                </div>
+
               <% end %>
             <% end %>
-          </div>
-
+          <% end %>
         </div>
+
     </div>
 </div>
 
