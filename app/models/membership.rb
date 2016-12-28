@@ -1,4 +1,4 @@
 class Membership < ActiveRecord::Base
-  belongs_to :organizations
+  belongs_to :organization
   belongs_to :user
 end

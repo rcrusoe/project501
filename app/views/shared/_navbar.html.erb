@@ -1,6 +1,7 @@
 <div class="container nav">
     <div class="row">
         <div class="twelve columns navbar">
+
             <% if user_signed_in? %>
                 <%= link_to image_tag("logo1.png", class: "logo basic-link"), current_user %>
                 <div class="right">
@@ -8,6 +9,7 @@
                     <%= link_to "Post Project", new_project_path, class: "button-primary"%>
                     <%= link_to image_tag("avatar.svg", class: "avatar"), current_user %>
                 </div>
+
             <% else %>
                 <%= link_to image_tag("logo1.png", class: "logo basic-link"), root_path %>
                 <div class="right">
