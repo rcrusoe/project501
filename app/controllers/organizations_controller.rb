@@ -1,14 +1,7 @@
 class OrganizationsController < ApplicationController
   before_action :set_organization, only: [:show, :edit, :update, :destroy]
 
-  before_filter :auth_user
-
-  def auth_user
-    unless user_signed_in?
-      store_location_for(:user, request.fullpath)
-      redirect_to new_user_registration_url
-    end
-  end
+  before_filter :authenticate_user!
 
   # GET /organizations
   # GET /organizations.json
