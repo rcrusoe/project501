@@ -50,7 +50,19 @@
         <h3>
           Introduce yourself:
         </h3>
-        <textarea class="message-input" placeholder="This functionality isn't built yet, but experts will soon be able to start discussions with organizations."></textarea>
+        <%= form_for @personal_message do |f| %>
+          <% @project.roles.each do |role| %>
+            <% if role.status == "Owner" %>
+              <%= hidden_field_tag 'receiver_id', User.find_by_id(role.user_id).id %>
+            <% end %>
+          <% end %>
+
+          <%= f.text_area :body, placeholder: "Briefly describe your background and why you are interested in this project." %>
+
+          <div class="actions application-button">
+            <%= f.submit "Apply to Project"%>
+          </div>
+        <% end %>
         <%= link_to 'Apply to Project', apply_project_path(@project), class: "button-secondary" %>
       </div>
     </div>

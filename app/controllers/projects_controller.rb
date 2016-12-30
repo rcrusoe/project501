@@ -10,6 +10,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+    @personal_message = current_user.personal_messages.build
   end
 
   # GET /projects/new
