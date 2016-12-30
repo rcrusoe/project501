@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   end
 
   resources :organizations
+  resources :personal_messages, only: [:new, :create]
+  resources :conversations, only: [:index, :show]
 end

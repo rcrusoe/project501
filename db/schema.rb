@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161224172648) do
+ActiveRecord::Schema.define(version: 20161230042314) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "conversations", force: :cascade do |t|
+    t.integer  "author_id"
+    t.integer  "receiver_id"
+    t.integer  "project_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["author_id"], name: "index_conversations_on_author_id", using: :btree
+    t.index ["project_id"], name: "index_conversations_on_project_id", using: :btree
+    t.index ["receiver_id"], name: "index_conversations_on_receiver_id", using: :btree
+  end
 
   create_table "memberships", force: :cascade do |t|
     t.integer  "user_id"
@@ -32,6 +42,16 @@ ActiveRecord::Schema.define(version: 20161224172648) do
     t.boolean  "boolean",     default: false
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+  end
+
+  create_table "personal_messages", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "conversation_id"
+    t.integer  "user_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["conversation_id"], name: "index_personal_messages_on_conversation_id", using: :btree
+    t.index ["user_id"], name: "index_personal_messages_on_user_id", using: :btree
   end
 
   create_table "projects", force: :cascade do |t|
@@ -80,10 +100,12 @@ ActiveRecord::Schema.define(version: 20161224172648) do
     t.string   "dribbble_url"
     t.string   "website_url"
     t.boolean  "approved",               default: false
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-
+  add_foreign_key "conversations", "projects"
+  add_foreign_key "personal_messages", "conversations"
+  add_foreign_key "personal_messages", "users"
 end
