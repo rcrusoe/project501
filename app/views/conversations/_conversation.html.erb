@@ -1,8 +1,12 @@
-<div>
-  Chatting with <%= conversation.with(current_user).name %>
-  <br>
-  <em><%= conversation.personal_messages.last.body.truncate(50) %></em>
-  <br>
-  <%= link_to 'View conversation', conversation_path(conversation) %>
-  <hr>
-</div>
+<%= link_to conversation_path(conversation), class: "conversation" do %>
+    <div class="person">
+        <%= image_tag "avatar.svg", class: "floated-avatar" %>
+        <h3><%= conversation.with(current_user).name %></h3>
+    </div>
+    <div class="conversation-details">
+        <p class="clamped-text one-line conversation-project"><%= Project.find_by_id(conversation.project_id).title %></p>
+        <p class="timestamp"><%= time_ago_in_words(conversation.personal_messages.last.updated_at) %> ago</p>
+        <p class="last-message-preview clamped-text one-line"><%= conversation.personal_messages.last.body %></p>
+    </div>
+<% end %>
+

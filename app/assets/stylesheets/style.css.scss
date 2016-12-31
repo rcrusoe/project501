@@ -76,8 +76,7 @@ h2 a,
 h3 a,
 h4 a,
 p a,
-.animated-underline,
-.button-secondary {
+.animated-underline {
   background-size: 0 100%;
 
   &:hover {
@@ -150,11 +149,18 @@ p a,
     top: -5px;
     width: calc(100% - 3px);
   }
+
 }
 
 .button-secondary {
   border: 2px solid $black;
   padding: 6px 15px;
+
+  &:hover {
+    background-color: $yellow;
+    cursor: pointer;
+    transition: background-color .4s ease;
+  }
 }
 
 .actions {
@@ -249,12 +255,17 @@ p a,
   -webkit-line-clamp: 1;
 }
 
+.small-avatar {
+  height: 3rem;
+}
+
 .floated-avatar {
   float: left;
   margin-right: 1rem;
 
   + h3 {
-    margin-top: .4rem;
+    position: relative;
+    top: .6rem;
   }
 }
 
@@ -283,6 +294,7 @@ textarea {
   @include prefix(box-sizing, border-box, forwards moz ms o webkit);
   border: 2px solid $black;
   border-radius: 5px;
+  color: $black;
   padding-left: 1rem;
   width: 100%;
 
@@ -361,6 +373,107 @@ textarea {
 .invitation {
   height: 25rem;
   float: right;
+}
+
+
+// conversations
+
+.conversation {
+  align-items: top;
+  border-bottom: 2px solid $gray-20;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 2rem;
+
+  .person,
+  .conversation-details {
+    display: block;
+    float: left;
+    width: 100%;
+  }
+
+  .conversation-details {
+    margin-top: .7rem;
+  }
+
+  .conversation-project {
+    color: $black;
+    display: inline-block;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .timestamp {
+    display: none;
+  }
+
+  .last-message-preview {
+    width: 100%;
+  }
+
+  &:last-child {
+    border: 0;
+  }
+
+  @media (min-width: 780px) {
+    padding: 1rem 4rem;
+    flex-direction: row;
+
+    .conversation-details {
+      width: calc(100% - 25rem);
+    }
+
+    .person {
+      width: 25rem;
+    }
+
+    .timestamp {
+      display: inline-block;
+      float: right;
+      font-style: italic;
+      text-align: right;
+    }
+  }
+}
+
+.back-arrow {
+  float: left;
+  margin-right: 1rem;
+  position: relative;
+  top: 1rem;
+}
+
+.personal-message {
+
+  .message-heading {
+    align-items: center;
+    display: flex;
+
+    h3,
+    p {
+      display: inline-block;
+    }
+
+    .timestamp {
+      font-style: italic;
+      margin: 0 0 0 1rem;
+      position: relative;
+      top: .3rem;
+    }
+  }
+
+  .message-body {
+    color: $black;
+    display: block;
+    margin: .5rem 0 2rem 4rem;
+    width: calc(100% - 4rem);
+  }
+}
+
+.message-reply {
+  height: 6.6rem;
 }
 
 

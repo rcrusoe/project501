@@ -1,5 +1,15 @@
-<h1>Your conversations</h1>
+<%= render 'shared/navbar' %>
 
-<div id="conversations">
-  <%= render @conversations %>
+<div class="cards small-section">
+    <div class="container">
+        <div class="row">
+            <div class="one-card column">
+                <div class="card">
+                    <div id="conversations">
+                      <%= render @conversations %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

@@ -1,15 +1,42 @@
-<h1>Chatting with <%= @conversation.with(current_user).name %></h1>
+<%= render 'shared/navbar' %>
 
-<div id="conversation-main">
-  <div id="conversation-body">
-    <%= render @conversation.personal_messages %>
-  </div>
+<div class="cards small-section">
+    <div class="container">
+        <%= image_tag ("arrow.svg"), class: "back-arrow" %>
+        <h3>
+            <%= link_to "Back to all conversations", conversations_path %>
+        </h3>
+        <div class="spacer"></div>
+        <div class="row">
+            <div class="four columns">
+                <div class="card">
+                    <div class="content">
+                      <h3 class="clamped-text one-line">
+                        <%= link_to Project.find_by_id(@conversation.project_id).title, project_path(Project.find_by_id(@conversation.project_id)), class: "animated-underline" %>
+                      </h3>
+                      <div class="divider"></div>
+                      <p class="clamped-text four-lines">
+                        <%= Project.find_by_id(@conversation.project_id).description %>
+                      </p>
+                      <%= link_to "View Project", project_path(Project.find_by_id(@conversation.project_id)), class: "button-secondary" %>
+                    </div>
+                </div>
+            </div>
 
-  <%= form_for @personal_message do |f| %>
-    <%= hidden_field_tag 'conversation_id', @conversation.id %>
-    <%= f.label :body %>
-    <%= f.text_area :body %>
+            <div class="seven columns offset-by-one">
+                <div id="conversation-body">
+                    <%= render @conversation.personal_messages %>
+                </div>
 
-    <%= f.submit %>
-  <% end %>
+                <%= form_for @personal_message do |f| %>
+                    <%= hidden_field_tag 'conversation_id', @conversation.id %>
+                    <%= f.text_area :body, class: "message-reply" %>
+
+                    <div class="actions application-button">
+                        <%= f.submit "Send Message"%>
+                      </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
 </div>

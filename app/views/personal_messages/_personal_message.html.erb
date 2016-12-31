@@ -1,4 +1,8 @@
-<p><%= personal_message.body %></p>
-<p>at <strong><%= personal_message.created_at %></strong><br>
-  by <strong><%= personal_message.user.name %></strong></p>
-<hr>
+<div class="personal-message">
+    <div class="message-heading">
+        <%= image_tag ("avatar.svg"), class: "floated-avatar small-avatar" %>
+        <h3><%= personal_message.user.name %></h3>
+        <p class="timestamp"><%= time_ago_in_words(personal_message.created_at) %> ago</p>
+    </div>
+    <p class="message-body"><%= personal_message.body %></p>
+</div>
