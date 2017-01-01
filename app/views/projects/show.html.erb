@@ -10,11 +10,14 @@
         <%= render(:partial => 'projectApplicantView') %>
       <% elsif Role.where(user_id: current_user.id, project_id: @project.id).first.status == "Volunteer" %>
         <%= render(:partial => 'projectVolunteerView') %>
-      <% else %>
       <% end %>
     <% else %>
-      <%= render(:partial => 'projectVisitorView') %>
+      <% if current_user.approved? %>
+        <%= render(:partial => 'projectVisitorView') %>
+      <% else %>
+        <%= render(:partial => 'unapprovedVisitorView') %>
+      <% end %>
     <% end %>
 
   </div>
-</div>
+</div>`

@@ -1,31 +1,6 @@
 <div class="row">
   <div class="twelve columns">
-    <h2>
-      <%= @project.title %>
-    </h2>
-    <div class="divider"></div>
-
-    <p>
-      <%= @project.description %>
-    </p>
-
-    <p>
-      Target deadline for this project: <%= @project.deadline %>
-    </p>
-
-    <% @project.roles.each do |role| %>
-      <% if role.status == "Owner" %>
-        <% User.find_by_id(role.user_id).memberships.each do |membership| %>
-          <h3>
-            <%= link_to Organization.find_by_id(membership.organization_id).name, organization_path(Organization.find_by_id(membership.organization_id).id), class: "animated-underline"%>
-          </h3>
-          <p>
-            <%= Organization.find_by_id(membership.organization_id).description %>
-          </p>
-        <% end %>
-      <% end %>
-    <% end %>
-
+    <%= render 'projectDetails' %>
   </div>
 </div>
 

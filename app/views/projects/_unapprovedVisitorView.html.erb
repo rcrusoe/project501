@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="eight columns">
+    <%= render 'projectDetails' %>
+  </div>
+
+
+  <div class="three-cards columns">
+    <div class="card">
+      <div class="content">
+        <h3>
+          Complete your profile to apply to this project
+        </h3>
+        <div class="divider"></div>
+        <p>
+            Your expert profile has not yet been approved. Complete your profile to unlock the ability to contact organizations about this project.
+        </p>
+        <%= link_to "Complete Profile", edit_user_registration_path, class: "button-secondary"%>
+      </div>
+    </div>
+  </div>
+</div>

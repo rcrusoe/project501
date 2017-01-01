@@ -32,3 +32,14 @@
     }
   }
 }
+
+@media (max-width: 550px) {
+  .mobile-hidden {
+    display: none;
+  }
+  .centered-logo {
+    margin: auto;
+    position: relative;
+    top: .4rem;
+  }
+}
