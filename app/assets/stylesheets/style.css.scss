@@ -417,7 +417,7 @@ textarea {
   border-bottom: 2px solid $gray-20;
   display: flex;
   flex-direction: column;
-  padding: 1rem 2rem;
+  padding: 1.5rem 2rem;
 
   .person,
   .conversation-details {
@@ -452,7 +452,7 @@ textarea {
   }
 
   @media (min-width: 780px) {
-    padding: 1rem 4rem;
+    padding: 1.5rem 4rem;
     flex-direction: row;
 
     .conversation-details {

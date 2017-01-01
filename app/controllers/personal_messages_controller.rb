@@ -12,7 +12,10 @@ class PersonalMessagesController < ApplicationController
                                         receiver_id: @receiver.id, project_id: @project.id)
     @personal_message = current_user.personal_messages.build(personal_message_params)
     @personal_message.conversation_id = @conversation.id
-    @personal_message.save!
+    if @personal_message.save!
+      # Deliver the notification email
+      UserNotifier.send_signup_email(@receiver).deliver
+    end
 
     flash[:success] = "Your message was sent!"
     if @project
