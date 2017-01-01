@@ -14,15 +14,15 @@ class PersonalMessagesController < ApplicationController
     @personal_message.conversation_id = @conversation.id
     if @personal_message.save!
       # Deliver the notification email
-      UserNotifier.send_signup_email(@receiver).deliver
+      UserNotifierMailer.send_signup_email(@receiver).deliver
     end
 
-    flash[:success] = "Your message was sent!"
     if @project
       redirect_to apply_project_path(@project)
     else
       redirect_to conversation_path(@conversation)
     end
+    flash[:success] = "Your message was sent!"
   end
 
   private
@@ -44,6 +44,7 @@ class PersonalMessagesController < ApplicationController
       redirect_to(conversations_path) and return unless @receiver
     else
       @conversation = Conversation.find_by(id: params[:conversation_id])
+      @receiver = User.find_by_id(@conversation.receiver_id)
       redirect_to(conversations_path) and return unless @conversation && @conversation.participates?(current_user)
     end
   end
