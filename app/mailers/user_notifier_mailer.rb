@@ -9,6 +9,6 @@ class UserNotifierMailer < ApplicationMailer
     @topic = topic
     @personal_message = personal_message
     mail( :to => @receiver.email,
-    :subject => "New message from " + @author.name )
+    :subject => "New message 7 " + @author.name )
   end
 end
