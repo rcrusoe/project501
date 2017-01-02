@@ -71,9 +71,12 @@ i {
 
 a {
   color: $black;
-  font-size: 1.8rem;
   line-height: 1.5;
   text-decoration: none;
+}
+
+.standard-link {
+  font-size: 1.8rem;
 }
 
 h1 a,
@@ -352,6 +355,15 @@ textarea {
         margin-left: 4%;
       }
     }
+  }
+}
+
+.user-profile-cta {
+  background-color: $blue-20;
+  padding: 2rem;
+
+  p {
+    color: $red;
   }
 }
 

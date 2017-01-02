@@ -5,7 +5,7 @@
             <% if user_signed_in? %>
                 <%= link_to image_tag("logo1.png", class: "logo"), current_user, class: "centered-logo" %>
                 <div class="right mobile-hidden">
-                    <%= link_to "Projects", projects_path, class: "animated-underline" %>
+                    <%= link_to "Projects", projects_path, class: "animated-underline standard-link" %>
                     <%= link_to "Post Project", new_project_path, class: "button-primary"%>
                     <%= link_to image_tag("inbox.svg", class: "avatar"), conversations_path %>
                     <%= link_to image_tag("avatar.svg", class: "avatar"), current_user %>
@@ -14,7 +14,7 @@
             <% else %>
                 <%= link_to image_tag("logo1.png", class: "logo"), root_path %>
                 <div class="right">
-                    <%= link_to "Login", new_user_session_path, class: "animated-underline"%>
+                    <%= link_to "Login", new_user_session_path, class: "animated-underline standard-link"%>
                     <%= link_to "Join", new_user_registration_path, class: "button-primary"%>
                 </div>
             <% end %>

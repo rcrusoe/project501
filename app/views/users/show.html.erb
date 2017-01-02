@@ -14,9 +14,23 @@
                             <%= @user.tagline %>
                         </p>
                         <div class="links">
-                            <p>
-                                Elsewhere:
-                            </p>
+                            <% if @user.linkedin_url? ||
+                                  @user.twitter_url? ||
+                                  @user.medium_url? ||
+                                  @user.github_url? ||
+                                  @user.github_url? ||
+                                  @user.dribbble_url? ||
+                                  @user.website_url? %>
+                                <p>
+                                    Elsewhere:
+                                </p>
+                            <% else %>
+                                <div class="user-profile-cta">
+                                    <p>
+                                        Your profile is looking pretty empty. Complete your profile to unlock the ability to reach out to organizations and apply to projects.
+                                    </p>
+                                </div>
+                            <% end %>
                             <% if @user.catalant_url? %>
                                 <p>
                                 <%= link_to "Catalant", @user.catalant_url, target: "_blank" %>
