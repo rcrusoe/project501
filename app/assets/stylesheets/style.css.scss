@@ -71,7 +71,7 @@ i {
 
 a {
   color: $black;
-  font-size: 2rem;
+  font-size: 1.8rem;
   line-height: 1.5;
   text-decoration: none;
 }
@@ -91,6 +91,10 @@ p a,
     cursor: pointer;
     transition: background-size .4s ease;
   }
+}
+
+.inline-link {
+  border-bottom: 2px solid $black;
 }
 
 .centered-text {
@@ -374,6 +378,20 @@ textarea {
 
 .links {
   margin-bottom: 2rem;
+
+  p {
+    display: inline;
+    margin: 1rem 1rem 0 0;
+  }
+}
+
+.current-user-links {
+  display: block;
+
+  .edit-profile {
+    display: inline-block;
+    margin: 2rem 1rem 0 0;
+  }
 }
 
 // Messaging

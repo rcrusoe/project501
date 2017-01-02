@@ -3,13 +3,25 @@
 <div class="cards small-section">
     <div class="container">
         <div class="row">
-            <div class="one-card column">
-                <div class="card">
-                    <div id="conversations">
-                      <%= render @conversations %>
+            <% if @conversations.count > 0 %>
+                <div class="one-card column">
+                    <div class="card">
+                        <div id="conversations">
+                            <%= render @conversations %>
+                        </div>
                     </div>
                 </div>
-            </div>
+            <% else %>
+                <div class="six offset-by-three columns">
+                    <h3>
+                        Your inbox is empty
+                    </h3>
+                    <div class="divider"></div>
+                    <p class="dark-paragraph">
+                        It looks like you haven't struck up a conversation with anyone yet. <%= link_to "Post a project", new_project_path, class: "inline-link" %> to connect with expert volunteers or <%= link_to "browse active projects", projects_path, class: "inline-link" %> to volunteer your expertise.
+                    </p>
+                </div>
+            <% end %>
         </div>
     </div>
 </div>

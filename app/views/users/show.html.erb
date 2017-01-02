@@ -13,36 +13,56 @@
                         <p>
                             <%= @user.tagline %>
                         </p>
-                        <p style="margin-bottom: 0">
-                            Elsewhere:
-                        </p>
                         <div class="links">
+                            <p>
+                                Elsewhere:
+                            </p>
                             <% if @user.catalant_url? %>
-                                <%= link_to "Catalant", @user.catalant_url, target: "_blank", class: "animated-underline" %>
+                                <p>
+                                <%= link_to "Catalant", @user.catalant_url, target: "_blank" %>
+                                </p>
                             <% end %>
                             <% if @user.linkedin_url? %>
-                                <%= link_to "LinkedIn", @user.linkedin_url, target: "_blank", class: "animated-underline" %>
+                                <p>
+                                <%= link_to "LinkedIn", @user.linkedin_url, target: "_blank" %>
+                                </p>
                             <% end %>
                             <% if @user.twitter_url? %>
-                                <%= link_to "Twitter", @user.twitter_url, target: "_blank", class: "animated-underline" %>
+                                <p>
+                                <%= link_to "Twitter", @user.twitter_url, target: "_blank" %>
+                                </p>
                             <% end %>
                             <% if @user.medium_url? %>
-                                <%= link_to "Medium", @user.medium_url, target: "_blank", class: "animated-underline" %>
+                                <p>
+                                <%= link_to "Medium", @user.medium_url, target: "_blank" %>
+                                </p>
                             <% end %>
                             <% if @user.github_url? %>
-                                <%= link_to "Github", @user.github_url, target: "_blank", class: "animated-underline" %>
+                                <p>
+                                <%= link_to "Github", @user.github_url, target: "_blank" %>
+                                </p>
                             <% end %>
                             <% if @user.dribbble_url? %>
-                                <%= link_to "Dribbble", @user.dribbble_url, target: "_blank", class: "animated-underline" %>
+                                <p>
+                                <%= link_to "Dribbble", @user.dribbble_url, target: "_blank" %>
+                                </p>
                             <% end %>
                             <% if @user.website_url? %>
-                                <%= link_to "Website", @user.website_url, target: "_blank", class: "animated-underline" %>
+                                <p>
+                                <%= link_to "Website", @user.website_url, target: "_blank" %>
+                                </p>
                             <% end %>
+
+                            <div class="current-user-links">
+                                <% if @user == current_user %>
+                                    <%= link_to "Edit Profile", edit_user_registration_path, class: "button-secondary edit-profile"%>
+                                    <p>
+                                        <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "animated-underline"  %>
+                                    </p>
+                                <% end %>
+                            </div>
+
                         </div>
-                        <% if @user == current_user %>
-                            <%= link_to "Edit Profile", edit_user_registration_path, class: "button-secondary"%>
-                            <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "animated-underline"  %>
-                        <% end %>
                     </div>
                 </div>
             </div>
