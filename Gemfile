@@ -6,10 +6,6 @@ gem 'devise', '~> 4.2'
 # simple tool to manage environment variables
 gem 'figaro'
 
-# griddler used to process incoming emails
-gem 'griddler'
-gem 'griddler-sendgrid'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
 # Use postgresql as the database for Active Record
