@@ -13,7 +13,7 @@
 
         <div class="row">
 
-            <div class="six columns">
+            <div class="two-cards columns">
                 <div class="card">
                     <div class="content">
                         <h3>
@@ -21,14 +21,14 @@
                         </h3>
                         <div class="divider"></div>
                         <p>
-                            Connect with expert willing and able to volunteer their expertise to help your non-profit organization.
+                            Connect with experts willing and able to volunteer their expertise to help your non-profit organization.
                         </p>
                         <%= link_to "Join as an Organization", new_organization_path, class: "button-primary"%>
                     </div>
                 </div>
             </div>
 
-            <div class="six columns">
+            <div class="two-cards columns">
                 <div class="card">
                     <div class="content">
                         <h3>
@@ -50,6 +50,53 @@
 
 <div class="section">
     <div class="container">
+        <div class="row">
+            <h2 class="centered-text">
+                How It Works
+            </h2>
+            <div class="how-it-works-section">
+                <div class="six columns">
+                    <h3 class="centered-text">Describe what your organization needs</h3>
+                    <p class="centered-text">
+                        Describe what your organization needs help with by posting a project. Projects may vary in size and scope from small community outreach exercises to large mobile app development efforts.
+                    </p>
+                </div>
+                <div class="six columns">
+                    <%= image_tag "post-project.png", class: "centered-object how-it-works-image" %>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="how-it-works-section">
+                <div class="six columns">
+                    <%= image_tag "expert-pitch.png", class: "centered-object how-it-works-image" %>
+                </div>
+                <div class="six columns">
+                    <h3 class="centered-text">Experts introduce themselves</h3>
+                    <p class="centered-text">
+                        Once your project has been published to the community, experts interested in the project will begin to introduce themselves.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="how-it-works-section">
+                <div class="six columns">
+                    <h3 class="centered-text">Chat to find the right match</h3>
+                    <p class="centered-text">
+                        You'll be able to review the profile and past experience of every expert that reaches out to you. Chat with the expert or setup a phone call to determine whether they are the right expert for the project.
+                    </p>
+                </div>
+                <div class="six columns">
+                    <%= image_tag "conversation.png", class: "centered-object how-it-works-image" %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section cards">
+    <div class="container">
         <div class="row home-experts">
 
             <div class="five columns">
@@ -57,7 +104,7 @@
                     A community of 30,000 experts
                 </h2>
                 <p>
-                    Connect with a community of business specialists, designers, and software developers who are willing and able to lend a hand to organizations in need.
+                    Connect with a community of business specialists, designers, and software developers who are willing and able to lend a hand to your organization.
                 </p>
                 <%= link_to "Post a Project", new_organization_path, class: "button-secondary"%>
             </div>
@@ -69,57 +116,90 @@
             </div>
 
         </div>
-    </div>
-</div>
-
-<div class="section cards">
-    <div class="container">
-        <h2 class="section-header centered-text">Find the expertise you need.</h2>
 
         <div class="row home-past-projects">
-
-            <div class="four columns">
+            <div class="three-cards columns">
                 <div class="card">
                     <div class="content">
                         <h3>
                             Fundraising
                         </h3>
                         <div class="divider"></div>
-                        <p>
-                            Develop and execute on an effective strategy for raising the funds required to continue operations.
+                        <p clamped-text four-lines>
+                            Identify and apply for grant applications to help your organization find the funds it needs to continue operations.
                         </p>
                     </div>
                 </div>
             </div>
 
-            <div class="four columns">
+            <div class="three-cards columns">
                 <div class="card">
                     <div class="content">
                         <h3>
                             Marketing
                         </h3>
                         <div class="divider"></div>
-                        <p>
+                        <p clamped-text four-lines>
                             Define and deliver an inspiring message that helps your organization increase its reach into new communities.
                         </p>
                     </div>
                 </div>
             </div>
 
-            <div class="four columns">
+            <div class="three-cards columns">
                 <div class="card">
                     <div class="content">
                         <h3>
                             Web Design
                         </h3>
                         <div class="divider"></div>
-                        <p>
-                            Design delightful web experiences to help your organization connect with and mobilize your supporters.
+                        <p clamped-text four-lines>
+                            Design a delightful web experience that helps mobilize your community of supporters and spread your message.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="three-cards columns">
+                <div class="card">
+                    <div class="content">
+                        <h3>
+                            Mobile Development
+                        </h3>
+                        <div class="divider"></div>
+                        <p clamped-text four-lines>
+                            Develop a powerful mobile experience to help you track the progress your organization has made in key areas.
                         </p>
                     </div>
                 </div>
             </div>
 
+            <div class="three-cards columns">
+                <div class="card">
+                    <div class="content">
+                        <h3>
+                            Operations
+                        </h3>
+                        <div class="divider"></div>
+                        <p clamped-text four-lines>
+                            Develop a internal system to help your organization scale effectively as the team grows in size.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="three-cards columns">
+                <div class="card">
+                    <div class="content">
+                        <h3>
+                            Writing
+                        </h3>
+                        <div class="divider"></div>
+                        <p clamped-text four-lines>
+                            Build up a library of collateral to help with community outreach, social media marketing, grant applications, and more.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
