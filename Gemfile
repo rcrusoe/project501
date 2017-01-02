@@ -1,7 +1,13 @@
 source 'https://rubygems.org'
 
+# standard user authentication gem
 gem 'devise', '~> 4.2'
+
+# simple tool to manage environment variables
 gem 'figaro'
+
+# griddler used to process incoming emails
+gem 'griddler'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
