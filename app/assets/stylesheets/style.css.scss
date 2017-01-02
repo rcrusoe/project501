@@ -301,7 +301,7 @@ p a,
 }
 
 
-// From Elements
+// Form Elements
 
 label {
   font-size: 2rem;
@@ -337,6 +337,22 @@ textarea {
 
 .field {
   margin-bottom: 2rem;
+}
+
+.profile-fields {
+  .field {
+    width: 100%;
+
+    @media (min-width: 550px) {
+      width: 48%;
+      display: inline-block;
+      float: left;
+
+      &:nth-of-type(2n) {
+        margin-left: 4%;
+      }
+    }
+  }
 }
 
 

@@ -31,63 +31,83 @@
 
           <div class="field">
             <%= f.label :first_name %><br />
-            <%= f.text_field :first_name, autofocus: true %>
+            <%= f.text_field :first_name, autofocus: true, placeholder: "Elon" %>
           </div>
 
           <div class="field">
             <%= f.label :last_name %><br />
-            <%= f.text_field :last_name, autofocus: true %>
+            <%= f.text_field :last_name, autofocus: true, placeholder: "Musk" %>
           </div>
 
           <div class="field">
             <%= f.label :tagline %><br />
-            <%= f.text_field :tagline, autofocus: true %>
+            <%= f.text_field :tagline, autofocus: true, placeholder: "Tinkerer passionate about space travel, sustainable fuel, and autonomous vehicles" %>
           </div>
 
           <div class="field">
-            <%= f.label :calendly_url %><br />
-            <%= f.text_field :calendly_url, autofocus: true %>
+            <%= f.label :calendly_url %><i> (Calendly is third party calendar service used to display your availability and easily schedule phone calls. <%= link_to "Create an account here.", "https://calendly.com/", class: "animated-underline", target: "_blank" %>)</i><br />
+            <%= f.text_field :calendly_url, autofocus: true, placeholder: "http://" %>
           </div>
 
-          <div class="field">
-            <%= f.label :catalant_url %><br />
-            <%= f.text_field :catalant_url, autofocus: true %>
-          </div>
+          <div class="spacer"></div>
+          <div class="spacer"></div>
+          <h3>
+            Professional network profiles
+          </h3>
+          <p>
+            Include links to your relevant profile pages to demonstrate your expertise through past experiences and projects.
+          </p>
 
-          <div class="field">
-            <%= f.label :linkedin_url %><br />
-            <%= f.text_field :linkedin_url, autofocus: true %>
-          </div>
+          <div class="profile-fields">
+            <div class="field">
+              <%= f.label :catalant_url %><br />
+              <%= f.text_field :catalant_url, autofocus: true, placeholder: "http://" %>
+            </div>
 
-          <div class="field">
-            <%= f.label :twitter_url %><br />
-            <%= f.text_field :twitter_url, autofocus: true %>
-          </div>
+            <div class="field">
+              <%= f.label :linkedin_url %><br />
+              <%= f.text_field :linkedin_url, autofocus: true, placeholder: "http://" %>
+            </div>
 
-          <div class="field">
-            <%= f.label :medium_url %><br />
-            <%= f.text_field :medium_url, autofocus: true %>
-          </div>
+            <div class="field">
+              <%= f.label :twitter_url %><br />
+              <%= f.text_field :twitter_url, autofocus: true, placeholder: "http://" %>
+            </div>
 
-          <div class="field">
-            <%= f.label :github_url %><br />
-            <%= f.text_field :github_url, autofocus: true %>
-          </div>
+            <div class="field">
+              <%= f.label :medium_url %><br />
+              <%= f.text_field :medium_url, autofocus: true, placeholder: "http://" %>
+            </div>
 
-          <div class="field">
-            <%= f.label :dribbble_url %><br />
-            <%= f.text_field :dribbble_url, autofocus: true %>
-          </div>
+            <div class="field">
+              <%= f.label :github_url %><br />
+              <%= f.text_field :github_url, autofocus: true, placeholder: "http://" %>
+            </div>
 
-          <div class="field">
-            <%= f.label :website_url %><br />
-            <%= f.text_field :website_url, autofocus: true %>
+            <div class="field">
+              <%= f.label :dribbble_url %><br />
+              <%= f.text_field :dribbble_url, autofocus: true, placeholder: "http://" %>
+            </div>
+
+            <div class="field">
+              <%= f.label :website_url %><br />
+              <%= f.text_field :website_url, autofocus: true, placeholder: "http://" %>
+            </div>
           </div>
 
 
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
             <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
           <% end %>
+
+          <div class="spacer"></div>
+          <div class="spacer"></div>
+          <h3>
+            Change your password
+          </h3>
+          <p>
+            Change your password by entering a new password below.
+          </p>
 
           <div class="field">
             <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
@@ -103,13 +123,22 @@
             <%= f.password_field :password_confirmation, autocomplete: "off" %>
           </div>
 
+          <div class="spacer"></div>
+          <div class="spacer"></div>
+          <h3>
+            Confirm your changes
+          </h3>
+          <p>
+            Enter your current password to save the changes to your account.
+          </p>
+
           <div class="field">
-            <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+            <%= f.label :current_password %><br />
             <%= f.password_field :current_password, autocomplete: "off" %>
           </div>
 
           <div class="actions">
-            <%= f.submit "Submit" %>
+            <%= f.submit "Save Changes" %>
           </div>
         <% end %>
       </div>
