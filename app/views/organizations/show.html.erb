@@ -2,9 +2,6 @@
 
 <div class="section cards">
     <div class="container">
-
-
-
         <div class="row">
           <div class="one-card column">
             <div class="card dark">
@@ -16,9 +13,12 @@
                 <p class="clamped-text">
                     <%= @organization.description %>
                 </p>
+                <p>
+                  Cause: <span class="dark-paragraph"><%= @organization.cause %></span>
+                </p>
                 <div class="links">
                     <% if @organization.website %>
-                        <%= link_to "Visit Website", @organization.website, target: "_blank", class: "animated-underline" %>
+                        <%= link_to "Visit Website", @organization.website, target: "_blank", class: "animated-underline standard-link" %>
                     <% end %>
                 </div>
                 <% if Membership.where(user_id: current_user.id, organization_id: @organization.id).exists? %>
@@ -28,8 +28,6 @@
             </div>
           </div
         </div>
-
-
 
         <div class="row">
           <% @organization.memberships.each do |membership| %>

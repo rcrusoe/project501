@@ -1,19 +1,39 @@
 <%= render 'shared/navbar' %>
 
-<div class="small-section cards">
-  <div class="container">
-    <div class="row">
-      <div class="six offset-by-three columns">
-        <h3>
-          Register your organization
-        </h3>
-        <div class="divider"></div>
-        <p class="dark-paragraph">
-            Setup a profile for your non-profit organization to solicit help from people willing to volunteer their expertise.
-        </p>
+<% if Membership.where(user_id: current_user.id).exists? %>
+
+  <div class="small-section cards">
+    <div class="container">
+      <div class="row">
+        <div class="six offset-by-three columns">
+          <h3>
+            You already belong to an organization.
+          </h3>
+          <div class="divider"></div>
+          <p class="dark-paragraph">
+            It looks like you already belong to an organization. We aim to review and approve organizations with 24 hours. You may view or edit your organization <%= link_to "here", organization_path(Organization.find_by_id(Membership.where(user_id: current_user.id).first.id)), class: "inline-link" %>
+          </p>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<%= render 'form' %>
+<% else %>
+  <div class="small-section cards">
+    <div class="container">
+      <div class="row">
+        <div class="six offset-by-three columns">
+          <h3>
+            Register your organization
+          </h3>
+          <div class="divider"></div>
+          <p class="dark-paragraph">
+              Setup a profile for your non-profit organization to solicit help from people willing to volunteer their expertise.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%= render 'form' %>
+<% end %>

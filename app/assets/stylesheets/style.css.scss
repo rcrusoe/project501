@@ -75,6 +75,10 @@ a {
   text-decoration: none;
 }
 
+.nav-link {
+  font-size: 2rem;
+}
+
 .standard-link {
   font-size: 1.8rem;
 }
@@ -160,10 +164,10 @@ p a,
     position: absolute;
     top: -5px;
     width: calc(100% - 3px);
-    transition: left .4s ease, top .4s ease;
+    transition: left .2s ease, top .2s ease;
   }
 
-  transition: padding .4s ease, margin .4s ease;
+  transition: padding .2s ease, margin .2s ease;
 
   &:hover {
     padding: .75rem 1.5rem;
@@ -203,10 +207,10 @@ p a,
     position: absolute;
     top: -5px;
     width: calc(100% - 3px);
-    transition: left .4s ease, top .4s ease;
+    transition: left .2s ease, top .2s ease;
   }
 
-  transition: padding .4s ease, margin .4s ease;
+  transition: padding .2s ease, margin .2s ease;
 
   &:hover {
     padding: .65rem 1.5rem;
@@ -312,7 +316,8 @@ label {
   margin: 0 0 1rem;
 }
 
-input {
+input,
+select {
   height: 5rem;
 }
 
@@ -322,9 +327,13 @@ textarea {
   min-width: 100%;
 }
 
-input,
-textarea {
+select {
+  background: none;
+}
 
+input,
+textarea,
+select {
   @include prefix(box-sizing, border-box, forwards moz ms o webkit);
   border: 2px solid $black;
   border-radius: 5px;
@@ -336,6 +345,12 @@ textarea {
     background-color: $blue-20;
     outline: none;
   }
+}
+
+#project_deadline_1i,
+#project_deadline_2i,
+#project_deadline_3i {
+  width: 33%;
 }
 
 .field {

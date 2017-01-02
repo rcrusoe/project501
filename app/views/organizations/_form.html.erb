@@ -25,12 +25,16 @@
             <%= f.text_field :website %>
           </div>
           <div class="field">
-            <%= f.label :location %><br>
+            <%= f.label :location %> <i>(optional)</i><br>
             <%= f.text_field :location %>
           </div>
           <div class="field">
             <%= f.label :description %><br>
             <%= f.text_area :description %>
+          </div>
+          <div class="field">
+            <%= f.label :cause %><br>
+            <%= f.select :cause, [['Select One', ''], 'Aging', 'Animal Welfare, Rights, and Protection', 'Arts and Culture', 'At-Risk Youth', 'Childhood Nutrition/Health', 'Climate Change', 'Criminal Justice', 'Disaster Relief', 'Education', 'Homelessness', 'Immigration', 'International Development', 'LGBT Equality and Support', 'Medical Research', 'Mental Health', 'Microfinance', 'People With Disabilities', 'Reproductive Health, Rights, and Justice', 'Violence Against Women', 'Water, Sanitation, and Hygiene', 'Workforce Development', 'Other'] %>
           </div>
           <div class="actions">
             <%= f.submit %>

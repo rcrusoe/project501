@@ -11,4 +11,9 @@ class Organization < ApplicationRecord
         self.website = 'http://' + self.website
     end
   end
+
+  validates :name,  presence: true
+  validates :website,  presence: true
+  validates :description,  presence: true
+  validates :cause,  presence: true
 end

@@ -32,11 +32,11 @@
         </div>
         <div class="field">
           <%= f.label :category %><br>
-          <%= f.text_field :category %>
+          <%= f.select :category, [['Select One', ''], 'Community Outreach', 'Design and Creative', 'Finance and Accounting', 'Fundraising', 'Legal', 'Marketing', 'Mobile Development', 'Operations', 'Web Development', 'Writing', 'Other'] %>
         </div>
         <div class="field">
-          <%= f.label :deadline %><br>
-          <%= f.date_select :deadline %>
+          <%= f.label :Deadline %> <i>(optional)</i><br>
+          <%= f.date_select :deadline, :prompt => { :day => 'Select day', :month => 'Select month', :year => 'Select year' } %>
         </div>
 
         <div class="actions">
