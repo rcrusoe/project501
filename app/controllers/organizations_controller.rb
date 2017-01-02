@@ -1,6 +1,10 @@
 class OrganizationsController < ApplicationController
   before_action :set_organization, only: [:show, :edit, :update, :destroy]
 
+  skip_before_action :authenticate_user!
+  before_filter :store_location
+  before_filter :auth_user
+
   # GET /organizations
   # GET /organizations.json
   def index

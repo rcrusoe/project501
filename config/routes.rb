@@ -4,8 +4,8 @@ Rails.application.routes.draw do
     root to: 'users#show', as: :authenticated_root
   end
 
-  devise_for :users, :controllers => { :registrations => :registrations }
-  resources :users, :only => [:show, :index]
+  devise_for :users, controllers: { registrations: :registrations, sessions: :sessions }
+  resources :users, only: [:show, :index]
 
   resources :projects do
     member do
