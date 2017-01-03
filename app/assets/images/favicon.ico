@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="756px" height="284px" viewBox="0 0 756 284" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.1 (35376) - http://www.bohemiancoding.com/sketch -->
+    <title>favicon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="branding" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard-Copy" transform="translate(-3178.000000, -1823.000000)">
+            <g id="favicon" transform="translate(3136.000000, 1547.000000)">
+                <rect id="Rectangle-2" x="0" y="0" width="843" height="843"></rect>
+                <g id="logo2-copy" transform="translate(0.000000, 136.000000)">
+                    <polygon id="Path-2" fill="#78CCCE" points="727.294452 211.682077 780.224663 413.757157 781.021745 170.603377"></polygon>
+                    <ellipse id="Oval-5" fill="#FF6F3D" cx="584" cy="281" rx="87" ry="133"></ellipse>
+                    <polygon id="Rectangle-9" fill="#FBD96D" transform="translate(371.930718, 359.792154) rotate(45.000000) translate(-371.930718, -359.792154) " points="328.797204 274.330213 368.112758 274.330213 415.064232 322.831446 415.064232 386.488473 354.628944 445.254094 328.797204 445.254094"></polygon>
+                    <text id="P501" font-family="BrandonGrotesque-Light, Brandon Grotesque" font-size="400" font-weight="300" fill="#2A3E41">
+                        <tspan x="0.5" y="420">P501</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

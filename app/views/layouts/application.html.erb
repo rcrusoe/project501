@@ -1,10 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Project501</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+  <!-- SEO Stuff -->
+  <title>Project501 - Volunteer your expertise to non-profits</title>
+  <%= favicon_link_tag 'favicon.ico' %>
+  <meta name="description" content="Project 501 is a gig platform for people to volunteer their expertise to non-profit organizations.">
+  <meta name="author" content="Robinson Greig">
+  <meta name="keywords" content="volunteer, gig economy, non-profits, experts, freelance, philantropy">
+  <meta property="og:title" content="Project 501 - Volunteer your expertise to non-profits"/>
+  <meta property="og:description" content="Project 501 is a gig platform for people to volunteer their expertise to non-profit organizations."/>
+  <meta property="og:url" content="http://www.project501.com/"/>
+  <meta property="og:image" content="<%= image_url 'banner-image.png' %>"/>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="http://www.project501.com/">
+  <meta name="twitter:title" content="Project 501 - Volunteer your expertise to non-profits">
+  <meta name="twitter:description" content="Project 501 is a gig platform for people to volunteer their expertise to non-profit organizations.">
+  <meta property="twitter:image:src" content="<%= image_url 'banner-image.png' %>"/>
   <%= csrf_meta_tags %>
+
+  <!-- Stylesheets -->
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+
+  <!-- Scripts -->
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
   <!-- Mobile Viewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
