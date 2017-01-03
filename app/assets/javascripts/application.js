@@ -12,5 +12,62 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
+
+$(function() {
+    $(window).bind('scroll load', function() {
+
+        $('.card').each( function(i){
+
+            var bottom_of_object = $(this).position().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+            /* Add to bottom of window to start fading slightly before item comes into view*/
+            bottom_of_window = bottom_of_window + 200;
+
+            if( bottom_of_window > bottom_of_object ){
+                $(this).addClass('in-view');
+            }
+        });
+
+        $('.card').each( function(i){
+
+            var top_of_object = $(this).position().top;
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+            /* Add to bottom of window to start fading slightly before item comes into view*/
+            bottom_of_window = bottom_of_window;
+
+            if( bottom_of_window < top_of_object ){
+                $(this).removeClass('in-view');
+            }
+        });
+
+        $('.animate-in').each( function(i){
+
+            var bottom_of_object = $(this).position().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+            /* Add to bottom of window to start fading slightly before item comes into view*/
+            bottom_of_window = bottom_of_window + 200;
+
+            if( bottom_of_window > bottom_of_object ){
+                $(this).addClass('in-view');
+            }
+        });
+
+        $('.animate-in').each( function(i){
+
+            var top_of_object = $(this).position().top;
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+            /* Add to bottom of window to start fading slightly before item comes into view*/
+            bottom_of_window = bottom_of_window;
+
+            if( bottom_of_window < top_of_object ){
+                $(this).removeClass('in-view');
+            }
+        });
+
+    });
+});

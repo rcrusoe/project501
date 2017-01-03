@@ -261,9 +261,22 @@ p a,
   margin-bottom: 4rem;
   width: 100%;
 
+
   .content {
     padding: 5rem 4rem 4rem;
   }
+}
+
+.card,
+.animate-in {
+  @include prefix(transform, translate(0, 40px), forwards moz ms o webkit);
+  opacity: 0;
+}
+
+.in-view {
+  opacity: 1;
+  transform: translateX(0) translateY(0) translateZ(0) scaleX(1) scaleY(1) scaleZ(1);
+  transition: width .4s ease 0s, opacity 1200ms, transform 1800ms;
 }
 
 .dark {
