@@ -36,12 +36,29 @@
 }
 
 .how-it-works-section {
-  align-items: center;
-  display: flex;
-  margin-top: 10rem;
+  margin-top: 6rem;
+  display: inline-block;
 }
 
 .how-it-works-image {
-  width: 90%;
+  display: none;
 }
+
+@media (min-width: 780px) {
+  .how-it-works-section {
+    align-items: center;
+    display: flex;
+    margin-top: 15rem;
+
+    &:first-of-type {
+      margin-top: 10rem;
+    }
+  }
+
+  .how-it-works-image {
+    display: block;
+    width: 90%;
+  }
+}
+
 
