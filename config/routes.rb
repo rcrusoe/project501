@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   resources :organizations
   resources :personal_messages, only: [:new, :create]
   resources :conversations, only: [:index, :show]
+  get '/invite', to: 'home#invite'
 end

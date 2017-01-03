@@ -1,35 +1,28 @@
-<p id="notice"><%= notice %></p>
+<%= render 'shared/navbar' %>
 
-<h1>Listing Organizations</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Website</th>
-      <th>Location</th>
-      <th>Description</th>
-      <th>Approved</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @organizations.each do |organization| %>
-      <tr>
-        <td><%= organization.name %></td>
-        <td><%= organization.website %></td>
-        <td><%= organization.location %></td>
-        <td><%= organization.description %></td>
-        <td><%= organization.approved %></td>
-        <td><%= link_to 'Show', organization %></td>
-        <td><%= link_to 'Edit', edit_organization_path(organization) %></td>
-        <td><%= link_to 'Destroy', organization, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Organization', new_organization_path %>
+<div class="section cards">
+  <div class="container">
+    <div class="row">
+      <% @organizations.each do |organization| %>
+        <% if organization.approved? %>
+          <div class="two-cards columns">
+            <div class="card dark">
+              <div class="content">
+                <h3 class="clamped-text one-line">
+                  <%= link_to organization.name, organization %>
+                </h3>
+                <div class="divider"></div>
+                <p class="clamped-text four-lines">
+                  <%= organization.description %>
+                </p>
+                <p class="dark-paragraph clamped-text one-line no-bottom-margin">
+                  <%= organization.cause %>
+                </p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

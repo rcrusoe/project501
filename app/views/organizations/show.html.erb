@@ -17,9 +17,9 @@
                   Cause: <span class="dark-paragraph"><%= @organization.cause %></span>
                 </p>
                 <div class="links">
-                    <% if @organization.website %>
-                        <%= link_to "Visit Website", @organization.website, target: "_blank", class: "animated-underline standard-link" %>
-                    <% end %>
+                  <% if @organization.website %>
+                      <%= link_to "Visit Website", @organization.website, target: "_blank", class: "animated-underline standard-link" %>
+                  <% end %>
                 </div>
                 <% if Membership.where(user_id: current_user.id, organization_id: @organization.id).exists? %>
                   <%= link_to "Edit Organization Profile", edit_organization_path, class: "button-secondary"%>

@@ -307,6 +307,10 @@ p a,
   }
 }
 
+.no-bottom-margin {
+  margin-bottom: 0;
+}
+
 
 // Form Elements
 
@@ -373,15 +377,6 @@ select {
   }
 }
 
-.user-profile-cta {
-  background-color: $blue-20;
-  padding: 2rem;
-
-  p {
-    color: $red;
-  }
-}
-
 
 // Responsiveness
 
@@ -434,6 +429,27 @@ select {
   .edit-profile {
     display: inline-block;
     margin: 2rem 1rem 0 0;
+  }
+}
+
+.user-profile-cta {
+  background-color: $blue-20;
+  padding: 2rem;
+
+  p {
+    color: $red;
+  }
+}
+
+.project-card {
+  .button-secondary {
+    display: inline-block;
+  }
+
+  .role-status {
+    display: inline-block;
+    float: right;
+    margin: .6rem 0 0;
   }
 }
 

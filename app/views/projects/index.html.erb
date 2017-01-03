@@ -4,11 +4,11 @@
   <div class="container">
     <div class="row">
       <% @projects.each do |project| %>
-        <div class="three-cards columns" style="float: none; display: inline-block;">
+        <div class="two-cards columns" style="float: none; display: inline-block;">
           <div class="card">
             <div class="content">
               <h3 class="clamped-text one-line">
-                <%= link_to project.title, project, class: "animated-underline" %>
+                <%= link_to project.title, project %>
               </h3>
               <div class="divider"></div>
               <p class="clamped-text four-lines">
@@ -33,7 +33,7 @@
           <p>
               Reach out to non-profit organizations who haven’t joined Project 501 yet. Offer your services and invite them to join the platform.
           </p>
-          <%= link_to "Browse Organizations", organizations_path, class: "button-secondary"%>
+          <%= link_to "Browse Organizations", invite_path, class: "button-secondary"%>
       </div>
 
       <div class="seven columns large-screen-only">
