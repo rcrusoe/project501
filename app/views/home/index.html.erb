@@ -123,108 +123,19 @@
 
 <div class="section cards">
     <div class="container">
-        <div class="row home-experts">
-
-            <div class="five columns">
-                <h2>
-                    A community of 30,000 experts
+        <div class="row">
+            <div class="eight columns offset-by-two">
+                <h2 class="centered-text">
+                    Post a project for your non-profit organization.
                 </h2>
-                <p>
-                    Connect with a community of business specialists, designers, and software developers who are willing and able to lend a hand to your organization.
+                <p class="centered-text">
+                    Connect with marketing specialists, web designers, and variety of other experts willing and able to help your organization.
                 </p>
-                <%= link_to "Post a Project", new_organization_path, class: "button-secondary"%>
-            </div>
-
-            <div class="seven columns home-expert-photos large-screen-only">
-                <%= image_tag("expert2.png", class: "home-expert-photo expert-photo-2") %>
-                <%= image_tag("expert1.png", class: "home-expert-photo") %>
-                <%= image_tag("expert4.png", class: "home-expert-photo") %>
-            </div>
-
-        </div>
-
-        <div class="row home-past-projects">
-            <div class="three-cards columns">
-                <div class="card">
-                    <div class="content">
-                        <h3>
-                            Fundraising
-                        </h3>
-                        <div class="divider"></div>
-                        <p clamped-text four-lines>
-                            Identify and apply for grant applications to help your organization find the funds it needs to continue operations.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="three-cards columns">
-                <div class="card">
-                    <div class="content">
-                        <h3>
-                            Marketing
-                        </h3>
-                        <div class="divider"></div>
-                        <p clamped-text four-lines>
-                            Define and deliver an inspiring message that helps your organization increase its reach into new communities.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="three-cards columns">
-                <div class="card">
-                    <div class="content">
-                        <h3>
-                            Web Design
-                        </h3>
-                        <div class="divider"></div>
-                        <p clamped-text four-lines>
-                            Design a delightful web experience that helps mobilize your community of supporters and spread your message.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="three-cards columns">
-                <div class="card">
-                    <div class="content">
-                        <h3>
-                            Mobile Development
-                        </h3>
-                        <div class="divider"></div>
-                        <p clamped-text four-lines>
-                            Develop a powerful mobile experience to help you track the progress your organization has made in key areas.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="three-cards columns">
-                <div class="card">
-                    <div class="content">
-                        <h3>
-                            Operations
-                        </h3>
-                        <div class="divider"></div>
-                        <p clamped-text four-lines>
-                            Develop a internal system to help your organization scale effectively as the team grows in size.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="three-cards columns">
-                <div class="card">
-                    <div class="content">
-                        <h3>
-                            Writing
-                        </h3>
-                        <div class="divider"></div>
-                        <p clamped-text four-lines>
-                            Build up a library of collateral to help with community outreach, social media marketing, grant applications, and more.
-                        </p>
-                    </div>
-                </div>
+                <%= link_to "Join as an Organization", new_organization_path, class: "button-primary", style: "margin: auto;"%>
+                <div class="spacer"></div>
+                <p class="centered-text">
+                    Or, <%= link_to "join as an expert", new_user_registration_path, class: "inline-link" %> to volunteer your expertise.
+                </p>
             </div>
         </div>
     </div>

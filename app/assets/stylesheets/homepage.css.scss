@@ -11,26 +11,6 @@
 
 }
 
-.home-experts {
-  align-items: center;
-  display: flex;
-
-  .home-expert-photos {
-    padding-right: 1rem;
-  }
-
-  .home-expert-photo {
-    box-shadow: 1rem 1rem 0 0 $blue-60;
-    display: inline-block;
-    float: right;
-    margin: 1.5rem 0 1.5rem 3rem;
-  }
-
-  .expert-photo-2 {
-    margin-top: 9rem;
-  }
-}
-
 .home-past-projects {
   margin-top: 10rem;
 }
