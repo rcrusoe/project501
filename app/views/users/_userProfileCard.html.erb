@@ -20,11 +20,13 @@
                         Elsewhere:
                     </p>
                 <% else %>
-                    <div class="user-profile-cta">
-                        <p>
-                            Your profile is looking pretty empty. Complete your profile to unlock the ability to reach out to organizations and apply to projects.
-                        </p>
-                    </div>
+                    <% if @user == current_user %>
+                        <div class="user-profile-cta">
+                            <p>
+                                Your profile is looking pretty empty. Complete your profile to unlock the ability to reach out to organizations and apply to projects.
+                            </p>
+                        </div>
+                    <% end %>
                 <% end %>
                 <% if @user.catalant_url? %>
                     <p>
