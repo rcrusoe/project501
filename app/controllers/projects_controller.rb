@@ -31,6 +31,15 @@ class ProjectsController < ApplicationController
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
         format.json { render :show, status: :created, location: @project }
         @project.roles.create(user_id: current_user.id, status: "Owner")
+        project_info = {
+          pretext: "A new #{@project.category} project has been created.",
+          fallback: "#{@project.title}: #{@project.description}",
+          title: "#{@project.title}",
+          title_link: "#{project_url(@project)}",
+          text: "#{@project.description}",
+          color: "#BDD6DD",
+        }
+        PROJECT501_NOTIFIER.ping(attachments: [project_info])
       else
         format.html { render :new }
         format.json { render json: @project.errors, status: :unprocessable_entity }

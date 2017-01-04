@@ -35,6 +35,15 @@ class OrganizationsController < ApplicationController
         format.html { redirect_to @organization, notice: 'Organization was successfully created.' }
         format.json { render :show, status: :created, location: @organization }
         @organization.memberships.create(user_id: current_user.id)
+        organization_info = {
+          pretext: "A new organization has been created.",
+          fallback: "#{@organization.name}: #{@organization.description}",
+          title: "#{@organization.name}",
+          title_link: "#{organization_url(@organization)}",
+          text: "#{@organization.description}",
+          color: "#BDD6DD",
+        }
+        PROJECT501_NOTIFIER.ping(attachments: [organization_info])
       else
         format.html { render :new }
         format.json { render json: @organization.errors, status: :unprocessable_entity }
