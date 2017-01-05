@@ -14,6 +14,11 @@ class OrganizationsController < ApplicationController
   # GET /organizations/1
   # GET /organizations/1.json
   def show
+    @organization = Organization.friendly.find(params[:id])
+    @organization = Organization.friendly.find(params[:id])
+    if request.path != organization_path(@organization)
+      redirect_to @organization, status: :moved_permanently
+    end
   end
 
   # GET /organizations/new
@@ -78,7 +83,7 @@ class OrganizationsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_organization
-      @organization = Organization.find(params[:id])
+      @organization = Organization.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

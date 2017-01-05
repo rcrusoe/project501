@@ -7,5 +7,8 @@ class Project < ApplicationRecord
   validates :title,  presence: true
   validates :description,  presence: true
   validates :category,  presence: true
+
+  extend FriendlyId
+  friendly_id :title, use: [:slugged, :history]
 end
 

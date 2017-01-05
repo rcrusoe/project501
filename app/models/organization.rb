@@ -16,4 +16,7 @@ class Organization < ApplicationRecord
   validates :website,  presence: true
   validates :description,  presence: true
   validates :cause,  presence: true
+
+  extend FriendlyId
+  friendly_id :name, use: [:slugged, :history]
 end

@@ -25,6 +25,9 @@ class User < ApplicationRecord
     end
   end
 
+  extend FriendlyId
+  friendly_id :name, use: [:slugged, :history]
+
   def sanitize_urls
     unless  self.calendly_url.blank? || self.calendly_url.include?('http://') || self.calendly_url.include?('https://')
       self.calendly_url = 'http://' + self.calendly_url

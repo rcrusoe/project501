@@ -9,6 +9,9 @@ gem 'figaro'
 # sends notifications to slack
 gem 'slack-notifier'
 
+# creates unique and readble ids
+gem 'friendly_id'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
 # Use postgresql as the database for Active Record
