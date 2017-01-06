@@ -15,8 +15,14 @@ class PersonalMessagesController < ApplicationController
     if @personal_message.save!
       # Deliver the notification email
       @topic = Project.find_by_id(@conversation.project_id)
-      @author = current_user
-      UserNotifierMailer.send_signup_email(@author, @receiver, @conversation, @topic, @personal_message).deliver
+      @message_author = current_user
+      if current_user.id == @conversation.author_id
+        @message_receiver = User.find_by_id(@conversation.receiver_id)
+      else
+        @message_receiver = User.find_by_id(@conversation.author_id)
+      end
+      #currently confusing conversation receiver and message receiver, so short term hack to fix that
+      UserNotifierMailer.send_signup_email(@message_author, @message_receiver, @conversation, @topic, @personal_message).deliver
     end
 
     if @project

@@ -6,9 +6,9 @@
   <body style="background-color: #fafafa; color: #2A2F2F; padding: 80px; font-family: 'brandon-grotesque', 'avenir', sans-serif;">
     <div style="background-color: white; padding: 20px; margin-bottom: 100px;">
         <h3 style="font-weight: bold; font-size: 20px;"><%= @topic.title %></h3>
-        <p style="color: #A9A9A9; font-size: 16px;">New message from <%= @author.name %></p>
+        <p style="color: #A9A9A9; font-size: 16px;">New message from <%= @message_author.name %></p>
         <hr style="border: 0; height: 1px; background-color: #BDD6DD;">
-        <p style="font-weight: bold; font-size: 16px;"><%= @author.name %></p>
+        <p style="font-weight: bold; font-size: 16px;"><%= @message_author.name %></p>
         <p style="font-size: 16px;"><%= @personal_message.body %></p>
         <hr style="border: 0; height: 1px; background-color: #BDD6DD;">
         <p style="text-align: center; font-weight: bold; font-size: 16px;"><%= link_to "Reply on platform", conversation_url(@conversation) %></p>
