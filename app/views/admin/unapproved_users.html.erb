@@ -15,7 +15,16 @@
                 <p class="clamped-text four-lines no-bottom-margin">
                   <%= user.tagline %>
                 </p>
-                <%= link_to "View Profile", user, class: "button-secondary" %>
+                <%= form_for @personal_message do |f| %>
+                  <%= hidden_field_tag 'receiver_id', user.id %>
+                  <%= hidden_field_tag 'project_id', 1 %>
+
+                  <%= f.text_area :body, placeholder: "Contact the user..." %>
+
+                  <div class="actions application-button">
+                    <%= f.submit "Send Message"%>
+                  </div>
+                <% end %>
               </div>
             </div>
           </div>
