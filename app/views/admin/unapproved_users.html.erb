@@ -1,0 +1,26 @@
+<%= render 'shared/navbar' %>
+
+<div class="section cards">
+  <div class="container">
+    <div class="row">
+      <% @users.each do |user| %>
+        <% if user.approved == false %>
+          <div class="two-cards columns">
+            <div class="card dark">
+              <div class="content">
+                <h3 class="clamped-text one-line">
+                  <%= link_to user.name, user %>
+                </h3>
+                <div class="divider"></div>
+                <p class="clamped-text four-lines no-bottom-margin">
+                  <%= user.tagline %>
+                </p>
+                <%= link_to "View Profile", user, class: "button-secondary" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
