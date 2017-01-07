@@ -8,20 +8,49 @@
         </h3>
         <div class="spacer"></div>
         <div class="row">
-            <div class="four columns">
-                <div class="card">
-                    <div class="content">
-                      <h3 class="clamped-text one-line">
-                        <%= link_to Project.find_by_id(@conversation.project_id).title, project_path(Project.find_by_id(@conversation.project_id)), class: "animated-underline" %>
-                      </h3>
-                      <div class="divider"></div>
-                      <p class="clamped-text four-lines">
-                        <%= Project.find_by_id(@conversation.project_id).description %>
-                      </p>
-                      <%= link_to "View Project", project_path(Project.find_by_id(@conversation.project_id)), class: "button-secondary" %>
+            <% if Role.where(user_id: current_user.id, project_id: Project.find_by_id(@conversation.project_id)).first.status == "Owner" %>
+                <div class="four columns">
+                    <div class="card">
+                        <div class="content">
+                                                  <h3 class="clamped-text one-line">
+                            <%= link_to Project.find_by_id(@conversation.project_id).title, project_path(Project.find_by_id(@conversation.project_id)), class: "animated-underline" %>
+                          </h3>
+                          <div class="divider"></div>
+                          <p class="clamped-text four-lines">
+                            <%= Project.find_by_id(@conversation.project_id).description %>
+                          </p>
+                          <h3 class="clamped-text one-line">
+                            <%= link_to User.find_by_id(@conversation.author_id).name, user_path(User.find_by_id(@conversation.author_id)), class: "animated-underline" %>
+                          </h3>
+                          <div class="divider"></div>
+                          <p class="clamped-text four-lines">
+                            <%= User.find_by_id(@conversation.author_id).tagline %>
+                          </p>
+                          <% if User.find_by_id(@conversation.author_id).calendly_url? %>
+                            <p>
+                                <%= User.find_by_id(@conversation.author_id).first_name %> is available for a call: <%= link_to "Schedule Call", User.find_by_id(@conversation.author_id).calendly_url, target: "_blank" %>
+                            </p>
+                          <% end %>
+                          <%= link_to "View Profile", user_path(User.find_by_id(@conversation.author_id)), class: "button-secondary" %>
+                        </div>
                     </div>
                 </div>
-            </div>
+            <% else %>
+                <div class="four columns">
+                    <div class="card">
+                        <div class="content">
+                          <h3 class="clamped-text one-line">
+                            <%= link_to Project.find_by_id(@conversation.project_id).title, project_path(Project.find_by_id(@conversation.project_id)), class: "animated-underline" %>
+                          </h3>
+                          <div class="divider"></div>
+                          <p class="clamped-text four-lines">
+                            <%= Project.find_by_id(@conversation.project_id).description %>
+                          </p>
+                          <%= link_to "View Project", project_path(Project.find_by_id(@conversation.project_id)), class: "button-secondary" %>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
 
             <div class="seven columns offset-by-one">
                 <div id="conversation-body">
