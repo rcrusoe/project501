@@ -19,6 +19,9 @@
       <p>
         <%= Organization.find_by_id(membership.organization_id).description %>
       </p>
+      <p>
+        Cause: <%= Organization.find_by_id(Membership.where(user_id: Role.where(project_id: @project, status: "Owner").first.user_id).first.organization_id).cause %>
+      </p>
     <% end %>
   <% end %>
 <% end %>

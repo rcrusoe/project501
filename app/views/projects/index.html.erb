@@ -4,20 +4,30 @@
   <div class="container">
     <div class="row">
       <% @projects.each do |project| %>
-        <div class="two-cards columns" style="float: none; display: inline-block;">
-          <div class="card">
-            <div class="content">
-              <h3 class="clamped-text one-line">
-                <%= link_to project.title, project %>
-              </h3>
-              <div class="divider"></div>
-              <p class="clamped-text four-lines">
-                <%= project.description %>
-              </p>
-              <%= link_to "View Project", project, class: "button-secondary" %>
+        <% unless project.id == 1 %>
+          <div class="two-cards columns" style="float: none; display: inline-block;">
+            <div class="card">
+              <div class="content">
+                <h3 class="clamped-text one-line">
+                  <%= link_to project.title, project %>
+                </h3>
+                <div class="divider"></div>
+                <p class="clamped-text four-lines">
+                  <%= project.description %>
+                </p>
+                <p>
+                  Cause: <%= Organization.find_by_id(Membership.where(user_id: Role.where(project_id: project, status: "Owner").first.user_id).first.organization_id).cause %>
+                  <br>
+                  Need: <%= project.category %>
+                </p>
+                <p>
+
+                </p>
+                <%= link_to "View Project", project, class: "button-secondary" %>
+              </div>
             </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
     </div>
   </div>

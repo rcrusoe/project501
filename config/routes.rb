@@ -17,5 +17,4 @@ Rails.application.routes.draw do
   resources :personal_messages, only: [:new, :create]
   resources :conversations, only: [:index, :show]
   get '/invite', to: 'home#invite'
-  get '/unapproved-users', to:'admin#unapproved_users'
 end

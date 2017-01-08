@@ -9,7 +9,7 @@ class RegistrationsController < Devise::RegistrationsController
           pretext: "A user has updated their account.",
           fallback: "#{@user.name}: #{@user.tagline}",
           title: "#{@user.name}",
-          title_link: "#{project_url(@user)}",
+          title_link: "#{user_url(@user)}",
           text: "#{@user.tagline}",
           color: "#BDD6DD",
         }
