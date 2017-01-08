@@ -22,7 +22,7 @@ class PersonalMessagesController < ApplicationController
         @message_receiver = User.find_by_id(@conversation.author_id)
       end
       #currently confusing conversation receiver and message receiver, so short term hack to fix that
-      UserNotifierMailer.send_signup_email(@message_author, @message_receiver, @conversation, @topic, @personal_message).deliver
+      UserNotifierMailer.send_message_email(@message_author, @message_receiver, @conversation, @topic, @personal_message).deliver
     end
 
     if @project

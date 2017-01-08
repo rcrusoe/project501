@@ -1,5 +1,6 @@
 class OrganizationsController < ApplicationController
   before_action :set_organization, only: [:show, :edit, :update, :destroy]
+  after_action :send_welcome_message, only: :create
 
   skip_before_action :authenticate_user!
   before_filter :store_location
@@ -89,5 +90,24 @@ class OrganizationsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def organization_params
       params.require(:organization).permit(:name, :website, :location, :description, :approved, :cause)
+    end
+
+    def personal_message_params
+      params.require(:personal_message).permit(:body)
+    end
+
+    def send_welcome_message
+      @user = User.find_by_id(Membership.where(organization_id: @organization.id).first.user_id)
+      @conversation = Conversation.where(receiver_id: @user.id, project_id: 1).first
+      @personal_message = User.find_by_id(1).personal_messages.build(body: "Your organization application has been received. Someone from our team will review your application in the next 24 hours. Once we approve your organization, you will be able to post a project to the community on behalf of your organization. Feel free to shoot over a reply if you have any questions.")
+      @personal_message.conversation_id = @conversation.id
+      if @personal_message.save!
+        # Deliver the notification email
+        @topic = Project.find_by_id(@conversation.project_id)
+        @message_author = User.find_by_id(1)
+        @message_receiver = @user
+        #currently confusing conversation receiver and message receiver, so short term hack to fix that
+        UserNotifierMailer.send_message_email(@message_author, @message_receiver, @conversation, @topic, @personal_message).deliver
+      end
     end
 end
