@@ -6,18 +6,21 @@
             Help grow Project 501 by contacting non-profit organizations and inviting them to join the platform.
         </h1>
         <div class="row">
-            <% @organizations.each do |name, description, url| %>
+            <% @organizations.each do |name, description, cause, url| %>
                 <div class="two-cards columns">
-                    <div class="card dark">
+                    <div class="card dark project-card">
                       <div class="content">
                         <h3 class="clamped-text one-line">
                           <%= link_to name, url, target: "_blank" %>
                         </h3>
                         <div class="divider"></div>
-                        <p class="clamped-text four-lines">
+                        <p class="clamped-text two-lines">
                           <%= description %>
                         </p>
                         <%= link_to "Visit Website", url, target: "_blank", class: "button-secondary" %>
+                        <p class="role-status">
+                            <%= cause %>
+                        </p>
                       </div>
                     </div>
                 </div>

@@ -295,15 +295,20 @@ p a,
   overflow: hidden;
 }
 
-.four-lines {
-  height: 11.2rem;
-  -webkit-line-clamp: 4;
-}
-
 .one-lines,
 .one-line {
   height: 2.8rem;
   -webkit-line-clamp: 1;
+}
+
+.two-lines {
+  height: 5.6rem;
+  -webkit-line-clamp: 2;
+}
+
+.four-lines {
+  height: 11.2rem;
+  -webkit-line-clamp: 4;
 }
 
 .small-avatar {
