@@ -14,9 +14,6 @@
         <p>
             Send a quick introductory message to express your interest in helping this organization.
         </p>
-        <h3>
-          Introduce yourself:
-        </h3>
         <%= form_for @personal_message do |f| %>
           <% @project.roles.each do |role| %>
             <% if role.status == "Owner" %>
@@ -29,7 +26,7 @@
           <%= f.text_area :body, placeholder: "Briefly describe your background and why you are interested in this project." %>
 
           <div class="actions application-button">
-            <%= f.submit "Apply to Project"%>
+            <%= f.submit "Send Message"%>
           </div>
         <% end %>
       </div>

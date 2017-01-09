@@ -8,7 +8,7 @@
     <div class="card">
       <div class="content">
         <p>
-          Thank you for expressing your interest in this project. The organization will reach out to you shortly.
+          Thank you for expressing your interest in this project. The organization should reply to you soon, or you may <%= link_to "send them another message", Conversation.where(project_id: @project, author_id: current_user).first, class: "inline-link" %>.
         </p>
       </div>
     </div>

@@ -1,58 +1,32 @@
 <div class="row">
-  <div class="twelve columns">
+  <div class="eight columns">
     <%= render 'projectDetails' %>
   </div>
-</div>
 
-<div class="row">
-  <div class="spacer"></div>
-  <div class="twelve columns">
-    <h3>
-      Review Candidates
-    </h3>
-    <div class="divider"></div>
-    <p>
-      View their profiles and request a phone call to determine who may be a good fit for this project.
-    </p>
+  <div class="three-cards columns">
+    <div class="card">
+      <div class="content">
+        <h3>
+          Review Candidates
+        </h3>
+        <div class="divider"></div>
+        <% if @project.applications.count == 0 %>
+          <p>
+            No volunteers have contacted you about this project yet.
+          </p>
+        <% else %>
+          <% @project.applications.each do |application| %>
+            <p>
+              <%= User.find_by_id(application.user_id).name %> (<%= link_to "view conversation", Conversation.where(project_id: @project, author_id: User.find_by_id(application.user_id)).first %>)
+            </p>
+          <% end %>
+        <% end %>
+        <div class="divider"></div>
+        <p>
+          Need to make some changes to the project description?
+        </p>
+        <%= link_to "Edit Project", edit_project_path(@project), class: "button-secondary"%>
+      </div>
+    </div>
   </div>
-</div>
-
-<div class="row">
-  <% @project.roles.each do |role| %>
-    <% if role.status == "Volunteer" %>
-      <div class="three-cards columns">
-        <div class="card dark">
-          <div class="content">
-            <%= image_tag ("avatar.svg"), class: "avatar floated-avatar" %>
-            <h3>
-              <%= User.find_by_id(role.user_id).first_name %> <%= User.find_by_id(role.user_id).last_name %>
-            </h3>
-            <p>
-              <%= User.find_by_id(role.user_id).tagline %>
-            </p>
-            <h3>
-              <%= link_to "View Profile", user_path(User.find_by_id(role.user_id).id), class: "animated-underline"%>
-            </h3>
-          </div>
-        </div>
-      </div>
-    <% elsif role.status == "Applicant" %>
-      <div class="four columns">
-        <div class="card">
-          <div class="content">
-            <%= image_tag ("avatar.svg"), class: "avatar floated-avatar" %>
-            <h3>
-              <%= User.find_by_id(role.user_id).first_name %> <%= User.find_by_id(role.user_id).last_name %>
-            </h3>
-            <p>
-              <%= User.find_by_id(role.user_id).tagline %>
-            </p>
-            <h3>
-              <%= link_to "View Profile", user_path(User.find_by_id(role.user_id).id), class: "animated-underline"%>
-            </h3>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
 </div>
