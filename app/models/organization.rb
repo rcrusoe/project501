@@ -19,4 +19,8 @@ class Organization < ApplicationRecord
 
   extend FriendlyId
   friendly_id :name, use: [:slugged, :history]
+
+  def member
+    User.find_by_id(Membership.where(organization_id: self).first.user_id)
+  end
 end

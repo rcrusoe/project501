@@ -1,19 +1,41 @@
 <%= render 'shared/navbar' %>
 
-<div class="small-section cards">
-  <div class="container">
-    <div class="row">
-      <div class="six offset-by-three columns">
-        <h3>
-          Describe your organization's need
-        </h3>
-        <div class="divider"></div>
-        <p class="dark-paragraph">
-          Describe what your organization needs help with and get matched with experts willing and able to help.
-        </p>
+<% if @project.owner == current_user %>
+
+  <div class="small-section cards">
+    <div class="container">
+      <div class="row">
+        <div class="six offset-by-three columns">
+          <h3>
+            Describe your organization's need
+          </h3>
+          <div class="divider"></div>
+          <p class="dark-paragraph">
+            Describe what your organization needs help with and get matched with experts willing and able to help.
+          </p>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<%= render 'form' %>
+  <%= render 'form' %>
+
+<% else %>
+
+  <div class="small-section cards">
+    <div class="container">
+      <div class="row">
+        <div class="six offset-by-three columns">
+          <h3>
+            You are not the owner of this project
+          </h3>
+          <div class="divider"></div>
+          <p class="dark-paragraph">
+            You seem to have stumbled somewhere you shouldn't have. Only the person who published this project may edit the project. If you need some help, please feel free to <%= link_to "contact us", "mailto:team@project501.com", class: "inline-link", target: "_blank" %>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<% end %>

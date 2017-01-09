@@ -1,19 +1,41 @@
 <%= render 'shared/navbar' %>
 
-<div class="small-section cards">
-  <div class="container">
-    <div class="row">
-      <div class="six offset-by-three columns">
-        <h3>
-          Edit Organization Profile
-        </h3>
-        <div class="divider"></div>
-        <p class="dark-paragraph">
-          A full description of your organization will increase chances that experts apply to work on your projects.
-        </p>
+<% if @organization.member == current_user %>
+
+  <div class="small-section cards">
+    <div class="container">
+      <div class="row">
+        <div class="six offset-by-three columns">
+          <h3>
+            Edit Organization Profile
+          </h3>
+          <div class="divider"></div>
+          <p class="dark-paragraph">
+            A full description of your organization will increase chances that experts apply to work on your projects.
+          </p>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<%= render 'form' %>
+  <%= render 'form' %>
+
+<% else %>
+
+  <div class="small-section cards">
+    <div class="container">
+      <div class="row">
+        <div class="six offset-by-three columns">
+          <h3>
+            You are not a member of this organization
+          </h3>
+          <div class="divider"></div>
+          <p class="dark-paragraph">
+            You seem to have stumbled somewhere you shouldn't have. Only members of this organization may edit the organization profile. If you need some help, please feel free to <%= link_to "contact us", "mailto:team@project501.com", class: "inline-link", target: "_blank" %>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<% end %>
