@@ -347,6 +347,7 @@ textarea {
   height: 15rem;
   max-width: 100%;
   min-width: 100%;
+  padding-top: 1rem;
 }
 
 select {
@@ -361,7 +362,6 @@ select {
   border-radius: 5px;
   color: $black;
   padding-left: 1rem;
-  padding-top: 1rem;
   width: 100%;
 
   &:focus {

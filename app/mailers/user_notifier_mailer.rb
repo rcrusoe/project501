@@ -9,7 +9,21 @@ class UserNotifierMailer < ApplicationMailer
     @topic = topic
     @personal_message = personal_message
     @from =  "Project 501 <" + @conversation.id.to_s + "@project501.com>"
-    mail( to: @message_receiver.email,
-    subject: "New message from " + @message_author.name, from: @from )
+    mail(
+      to: @message_receiver.email,
+      subject: "New message from " + @message_author.name,
+      from: @from
+    )
+  end
+
+  def send_project_digest_email(user, projects)
+    @recipient  = user
+    @from       = "team@project501.com"
+    @projects = projects
+    mail(
+      to: @recipient.email,
+      subject: "New opportunities to volunteer on P501",
+      from: @from
+    )
   end
 end
