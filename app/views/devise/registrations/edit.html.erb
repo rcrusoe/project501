@@ -35,50 +35,34 @@
                id="avatar-image"
                data-shubox-progress='0'
                data-shubox-uploader-name="production-avatar-image">
-               <%= image_tag ("avatar.svg"), class: "image-preview", id: "image-preview" %>
+               <%= image_tag ("avatar.svg"), id: "image-preview" %>
                <p>
                  Drag and drop a new profile photo
                </p>
           </div>
 
-          <script>
-            new Shubox(
-              '#avatar-image', {
-                previewsContainer: false,
-                success: function(file){
-                  img = new Image();
-                  img.onload = function(){
-                    $("#image-preview").attr('src', file.s3url);
-                  };
-                  img.src = file.s3url;
-                },
-                error: function(file, message){
-                  alert("Oops! There was an error: \n" + message);
-                }
-              }
-            );
-          </script>
+          <%= hidden_field_tag 'avatar_url', id: 'avatar-url' %>
 
           <div class="profile-fields">
             <div class="field">
               <%= f.label :first_name %><br />
-              <%= f.text_field :first_name, autofocus: true, placeholder: "Elon" %>
+              <%= f.text_field :first_name, placeholder: "Elon" %>
             </div>
 
             <div class="field">
               <%= f.label :last_name %><br />
-              <%= f.text_field :last_name, autofocus: true, placeholder: "Musk" %>
+              <%= f.text_field :last_name, placeholder: "Musk" %>
             </div>
           </div>
 
           <div class="field">
             <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true %>
+            <%= f.email_field :email %>
           </div>
 
           <div class="field">
             <%= f.label :about_me %><br />
-            <%= f.text_field :tagline, autofocus: true, placeholder: "Tinkerer passionate about space travel, sustainable fuel, and autonomous vehicles" %>
+            <%= f.text_field :tagline, placeholder: "Tinkerer passionate about space travel, sustainable fuel, and autonomous vehicles" %>
           </div>
 
           <div class="spacer"></div>
@@ -93,38 +77,38 @@
           <div class="profile-fields">
             <div class="field">
               <%= f.label :linkedin_url %><br />
-              <%= f.text_field :linkedin_url, autofocus: true, placeholder: "https://www.linkedin.com/in/" %>
+              <%= f.text_field :linkedin_url, placeholder: "https://www.linkedin.com/in/" %>
             </div>
 
             <div class="field">
               <%= f.label :twitter_url %><br />
-              <%= f.text_field :twitter_url, autofocus: true, placeholder: "https://twitter.com/" %>
+              <%= f.text_field :twitter_url, placeholder: "https://twitter.com/" %>
             </div>
 
             <div class="field">
               <%= f.label :medium_url %><br />
-              <%= f.text_field :medium_url, autofocus: true, placeholder: "https://medium.com/" %>
+              <%= f.text_field :medium_url, placeholder: "https://medium.com/" %>
             </div>
 
             <div class="field">
               <%= f.label :github_url %><br />
-              <%= f.text_field :github_url, autofocus: true, placeholder: "https://github.com/" %>
+              <%= f.text_field :github_url, placeholder: "https://github.com/" %>
             </div>
 
             <div class="field">
               <%= f.label :dribbble_url %><br />
-              <%= f.text_field :dribbble_url, autofocus: true, placeholder: "https://dribbble.com/" %>
+              <%= f.text_field :dribbble_url, placeholder: "https://dribbble.com/" %>
             </div>
 
             <div class="field">
               <%= f.label :portfolio_url %><br />
-              <%= f.text_field :website_url, autofocus: true, placeholder: "http://yourwebsite.com" %>
+              <%= f.text_field :website_url, placeholder: "http://yourwebsite.com" %>
             </div>
           </div>
 
           <div class="field">
             <%= f.label :calendly_url %><i> (Calendly is third party calendar service used to display your availability and easily schedule phone calls. <%= link_to "Create an account here.", "https://calendly.com/", class: "animated-underline", target: "_blank" %>)</i><br />
-            <%= f.text_field :calendly_url, autofocus: true, placeholder: "https://calendly.com/username/30min" %>
+            <%= f.text_field :calendly_url, placeholder: "https://calendly.com/username/30min" %>
           </div>
 
 
@@ -177,3 +161,22 @@
     </div>
   </div>
 </div>
+
+<script>
+  new Shubox(
+    '#avatar-image', {
+      previewsContainer: false,
+      success: function(file){
+        img = new Image();
+        img.onload = function(){
+          $("#image-preview").attr('src', file.s3url);
+          $("#avatar-url").value = file.s3url;
+        };
+        img.src = file.s3url;
+      },
+      error: function(file, message){
+        alert("Oops! There was an error: \n" + message);
+      }
+    }
+  );
+</script>

@@ -416,12 +416,11 @@ select {
     margin: 0 1rem;
     z-index: -1;
   }
-}
 
-.avatar-preview {
-  height: 3.7rem;
-  width: 3.7rem;
-  z-index: -1;
+  img {
+    height: 3.7rem;
+    z-index: -1;
+  }
 }
 
 // Responsiveness
