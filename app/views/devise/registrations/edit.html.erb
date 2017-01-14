@@ -34,7 +34,7 @@
           <div class="field avatar-upload avatar-image"
                id="avatar-image"
                data-shubox-progress='0'
-               data-shubox-uploader-name="production-avatar-image">
+               data-shubox-uploader-name="avatar">
                <%= image_tag ("avatar.svg"), id: "image-preview" %>
                <p>
                  Drag and drop a new profile photo
@@ -170,7 +170,7 @@
         img = new Image();
         img.onload = function(){
           $("#image-preview").attr('src', file.s3url);
-          $("#avatar-url").value = file.s3url;
+          $("#avatar-url").val = file.s3url;
         };
         img.src = file.s3url;
       },
