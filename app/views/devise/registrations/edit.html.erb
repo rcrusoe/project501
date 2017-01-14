@@ -31,25 +31,15 @@
             Edit your basic information.
           </p>
 
-          <input type="text" class="text file_url" id="file_url" name="file_url"
-            value=""
-            placeholder="Try it! Drag and drop or click in here!"
-            data-shubox-uploader-name="production-sample-upload">
-
-          <script>
-            new Shubox(
-              '#file_url', {
-                textBehavior: 'append',
-                success: function(file){
-                  $('.user-ux form input')
-                    .after('<div class="input-upload-success">🎉 SUCCESS!</div>');
-                },
-                error: function(file, message){
-                  alert("Oops! There was an error: \n" + message);
-                }
-              }
-            );
-          </script>
+          <div class="field avatar-upload avatar-image"
+               id="avatar-image"
+               data-shubox-progress='0'
+               data-shubox-uploader-name="production-avatar-image">
+               <div class="avatar-preview"></div>
+               <p>
+                 Drag and drop a new profile photo
+               </p>
+          </div>
 
           <script>
             new Shubox(
@@ -58,7 +48,7 @@
                 success: function(file){
                   img = new Image();
                   img.onload = function(){
-                    $('.avatar-image').append('<img src="'+ file.s3url + '">');
+                    $('.avatar-preview').style("background-image: '+ file.s3url +'");
                   };
                   img.src = file.s3url;
                 },
