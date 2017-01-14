@@ -48,7 +48,7 @@
                 success: function(file){
                   img = new Image();
                   img.onload = function(){
-                    $('.avatar-preview').style("background-image: '+ file.s3url +'");
+                    $('.avatar-preview').style.backgroundImage = "'+ file.s3url + '";
                   };
                   img.src = file.s3url;
                 },
