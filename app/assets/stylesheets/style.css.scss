@@ -407,9 +407,9 @@ select {
 }
 
 .avatar-upload {
-  display: flex;
   align-items: center;
   border: 2px dashed $black;
+  display: flex;
   padding: 1rem;
 
   p {
@@ -418,7 +418,9 @@ select {
   }
 
   img {
+    border-radius: 50%;
     height: 3.7rem;
+    width: 3.7rem;
     z-index: -1;
   }
 }
