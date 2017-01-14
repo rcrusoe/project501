@@ -9,14 +9,14 @@
         </h3>
         <div class="divider"></div>
         <p class="dark-paragraph">
-          Apply to join as an expert to connect with organizations that need your help.
+          Complete your volunteer profile to connect with organizations that need your help.
         </p>
       </div>
     </div>
   </div>
 </div>
 
-<div class="small-section">
+<div class="small-section edit-profile">
   <div class="container">
     <div class="row">
       <div class="six offset-by-three columns">
@@ -24,29 +24,71 @@
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
           <%= devise_error_messages! %>
 
+          <h3>
+            Basic Info
+          </h3>
+          <p>
+            Edit your basic information.
+          </p>
+
+          <input type="text" class="text file_url" id="file_url" name="file_url"
+            value=""
+            placeholder="Try it! Drag and drop or click in here!"
+            data-shubox-uploader-name="production-sample-upload">
+
+          <script>
+            new Shubox(
+              '#file_url', {
+                textBehavior: 'append',
+                success: function(file){
+                  $('.user-ux form input')
+                    .after('<div class="input-upload-success">🎉 SUCCESS!</div>');
+                },
+                error: function(file, message){
+                  alert("Oops! There was an error: \n" + message);
+                }
+              }
+            );
+          </script>
+
+          <script>
+            new Shubox(
+              '#avatar-image', {
+                previewsContainer: false,
+                success: function(file){
+                  img = new Image();
+                  img.onload = function(){
+                    $('.avatar-image').append('<img src="'+ file.s3url + '">');
+                  };
+                  img.src = file.s3url;
+                },
+                error: function(file, message){
+                  alert("Oops! There was an error: \n" + message);
+                }
+              }
+            );
+          </script>
+
+          <div class="profile-fields">
+            <div class="field">
+              <%= f.label :first_name %><br />
+              <%= f.text_field :first_name, autofocus: true, placeholder: "Elon" %>
+            </div>
+
+            <div class="field">
+              <%= f.label :last_name %><br />
+              <%= f.text_field :last_name, autofocus: true, placeholder: "Musk" %>
+            </div>
+          </div>
+
           <div class="field">
             <%= f.label :email %><br />
             <%= f.email_field :email, autofocus: true %>
           </div>
 
           <div class="field">
-            <%= f.label :first_name %><br />
-            <%= f.text_field :first_name, autofocus: true, placeholder: "Elon" %>
-          </div>
-
-          <div class="field">
-            <%= f.label :last_name %><br />
-            <%= f.text_field :last_name, autofocus: true, placeholder: "Musk" %>
-          </div>
-
-          <div class="field">
             <%= f.label :about_me %><br />
             <%= f.text_field :tagline, autofocus: true, placeholder: "Tinkerer passionate about space travel, sustainable fuel, and autonomous vehicles" %>
-          </div>
-
-          <div class="field">
-            <%= f.label :calendly_url %><i> (Calendly is third party calendar service used to display your availability and easily schedule phone calls. <%= link_to "Create an account here.", "https://calendly.com/", class: "animated-underline", target: "_blank" %>)</i><br />
-            <%= f.text_field :calendly_url, autofocus: true, placeholder: "http://" %>
           </div>
 
           <div class="spacer"></div>
@@ -60,39 +102,39 @@
 
           <div class="profile-fields">
             <div class="field">
-              <%= f.label :catalant_url %><br />
-              <%= f.text_field :catalant_url, autofocus: true, placeholder: "http://" %>
-            </div>
-
-            <div class="field">
               <%= f.label :linkedin_url %><br />
-              <%= f.text_field :linkedin_url, autofocus: true, placeholder: "http://" %>
+              <%= f.text_field :linkedin_url, autofocus: true, placeholder: "https://www.linkedin.com/in/" %>
             </div>
 
             <div class="field">
               <%= f.label :twitter_url %><br />
-              <%= f.text_field :twitter_url, autofocus: true, placeholder: "http://" %>
+              <%= f.text_field :twitter_url, autofocus: true, placeholder: "https://twitter.com/" %>
             </div>
 
             <div class="field">
               <%= f.label :medium_url %><br />
-              <%= f.text_field :medium_url, autofocus: true, placeholder: "http://" %>
+              <%= f.text_field :medium_url, autofocus: true, placeholder: "https://medium.com/" %>
             </div>
 
             <div class="field">
               <%= f.label :github_url %><br />
-              <%= f.text_field :github_url, autofocus: true, placeholder: "http://" %>
+              <%= f.text_field :github_url, autofocus: true, placeholder: "https://github.com/" %>
             </div>
 
             <div class="field">
               <%= f.label :dribbble_url %><br />
-              <%= f.text_field :dribbble_url, autofocus: true, placeholder: "http://" %>
+              <%= f.text_field :dribbble_url, autofocus: true, placeholder: "https://dribbble.com/" %>
             </div>
 
             <div class="field">
-              <%= f.label :website_url %><br />
-              <%= f.text_field :website_url, autofocus: true, placeholder: "http://" %>
+              <%= f.label :portfolio_url %><br />
+              <%= f.text_field :website_url, autofocus: true, placeholder: "http://yourwebsite.com" %>
             </div>
+          </div>
+
+          <div class="field">
+            <%= f.label :calendly_url %><i> (Calendly is third party calendar service used to display your availability and easily schedule phone calls. <%= link_to "Create an account here.", "https://calendly.com/", class: "animated-underline", target: "_blank" %>)</i><br />
+            <%= f.text_field :calendly_url, autofocus: true, placeholder: "https://calendly.com/username/30min" %>
           </div>
 
 
