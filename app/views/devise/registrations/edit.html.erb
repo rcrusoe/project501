@@ -41,7 +41,7 @@
                </p>
           </div>
 
-          <%= hidden_field_tag 'avatar_url', 'test', id: "avatar-url" %>
+          <%= hidden_field_tag 'avatar_url', '' %>
 
           <div class="profile-fields">
             <div class="field">
@@ -171,7 +171,7 @@
         img = new Image();
         img.onload = function(){
           $("#image-preview").attr('src', file.s3url);
-          $("#avatar-url").val(file.s3url);
+          $("#avatar_url").val(file.s3url);
         };
         img.src = file.s3url;
       },
