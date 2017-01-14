@@ -35,7 +35,7 @@
                id="avatar-image"
                data-shubox-progress='0'
                data-shubox-uploader-name="production-avatar-image">
-               <div class="avatar-preview"></div>
+               <%= image_tag ("avatar.svg"), class: "image-preview", id: "image-preview" %>
                <p>
                  Drag and drop a new profile photo
                </p>
@@ -48,7 +48,7 @@
                 success: function(file){
                   img = new Image();
                   img.onload = function(){
-                    $('.avatar-preview').style.backgroundImage = "'+ file.s3url + '";
+                    $("#image-preview").attr('src', file.s3url);
                   };
                   img.src = file.s3url;
                 },
