@@ -311,10 +311,6 @@ p a,
   -webkit-line-clamp: 4;
 }
 
-.small-avatar {
-  height: 3rem;
-}
-
 .floated-avatar {
   float: left;
   margin-right: 1rem;
@@ -632,7 +628,7 @@ select {
   .message-body {
     color: $black;
     display: block;
-    margin: .5rem 0 2rem 4rem;
+    margin: .5rem 0 2rem 4.7rem;
     width: calc(100% - 4rem);
   }
 }

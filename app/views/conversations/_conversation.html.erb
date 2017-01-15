@@ -1,9 +1,9 @@
 <%= link_to conversation_path(conversation), class: "conversation" do %>
     <div class="person">
         <% if conversation.with(current_user).avatar_url? %>
-            <%= image_tag conversation.with(current_user).avatar_url, class: "floated-avatar" %>
+            <%= image_tag conversation.with(current_user).avatar_url, class: "floated-avatar avatar" %>
         <% else %>
-            <%= image_tag "avatar.svg", class: "floated-avatar" %>
+            <%= image_tag "avatar.svg", class: "floated-avatar avatar" %>
         <% end %>
         <h3><%= conversation.with(current_user).name %></h3>
     </div>
