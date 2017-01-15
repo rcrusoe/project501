@@ -173,7 +173,7 @@
         img = new Image();
         img.onload = function(){
           $("#image-preview").attr('src', file.s3url);
-          $("#avatar_url:hidden").val(file.s3url);
+          $("#avatar_url").val(file.s3url);
         };
         img.src = file.s3url;
       },
