@@ -1,11 +1,13 @@
 <div class="personal-message">
     <div class="message-heading">
-        <% if personal_message.user.avatar_url? %>
-            <%= image_tag personal_message.user.avatar_url, class: "floated-avatar avatar" %>
-        <% else %>
-            <%= image_tag "avatar.svg", class: "floated-avatar avatar" %>
+        <%= link_to personal_message.user do %>
+            <% if personal_message.user.avatar_url? %>
+                <%= image_tag personal_message.user.avatar_url, class: "floated-avatar avatar" %>
+            <% else %>
+                <%= image_tag "avatar.svg", class: "floated-avatar avatar" %>
+            <% end %>
+            <h3><%= personal_message.user.name %></h3>
         <% end %>
-        <h3><%= personal_message.user.name %></h3>
         <p class="timestamp"><%= time_ago_in_words(personal_message.created_at) %> ago</p>
     </div>
     <p class="message-body"><%= personal_message.body %></p>
