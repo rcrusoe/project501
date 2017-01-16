@@ -11,6 +11,18 @@
 
 }
 
+.homepage-h2 {
+  @media (min-width: 550px) {
+    text-align: center;
+  }
+}
+
+.section-divider {
+  @media (min-width: 550px) {
+    margin: auto;
+  }
+}
+
 .home-past-projects {
   margin-top: 10rem;
 }
@@ -18,10 +30,6 @@
 .how-it-works-section {
   margin-top: 6rem;
   display: inline-block;
-}
-
-.how-it-works-image {
-  display: none;
 }
 
 @media (min-width: 780px) {
@@ -34,10 +42,46 @@
       margin-top: 10rem;
     }
   }
+}
 
-  .how-it-works-image {
+.community {
+  padding-top: 2rem;
+
+  .marketing-avatar {
+    border-radius: 50%;
     display: block;
+    width: 55%;
+    border: 4px solid #bdd6dd
+  }
+
+  .volunteer {
+    margin-top: 4rem;
+    display: inline-block;
+    width: 45%;
+    @media (min-width: 780px) {
+      width: 33%;
+    }
+    @media (min-width: 960px) {
+      width: 16.4%;
+    }
+
+    h3 {
+      margin-top: 1em;
+    }
+    p {
+      margin: 0;
+    }
   }
 }
 
+.marketing-footer {
+  margin: 2rem 0;
 
+  .right {
+    float: right;
+
+    h3 {
+      margin-right: 3rem;
+    }
+  }
+}

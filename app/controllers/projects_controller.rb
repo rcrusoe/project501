@@ -1,10 +1,11 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy, :submit_application]
+  skip_before_action :authenticate_user!, only: [:index]
 
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    @projects = Project.order(created_at: :desc)
   end
 
   # GET /projects/1

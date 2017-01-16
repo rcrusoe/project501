@@ -161,7 +161,11 @@
           </div>
 
           <div class="actions">
-            <%= f.submit "Save Changes" %>
+            <% if current_user.approved? %>
+              <%= f.submit "Save Changes" %>
+            <% else %>
+              <%= f.submit "Submit for Review" %>
+            <% end %>
           </div>
         <% end %>
       </div>

@@ -64,20 +64,18 @@
                     </div>
                 <% else %>
                     <% if @user == current_user %>
-                        <div class="user-profile-cta">
-                            <p>
-                                Your profile is looking a bit empty. <br>
+                        <p>
+                            Your profile is still pending review. We aim to review all profiles within 1-4 hours, so sit tight! <br>
 
-                                Complete your profile by adding a tagline and a link to showcase your experience.
-                            </p>
-                            <div class="current-user-links">
-                                <% if @user == current_user %>
-                                    <%= link_to "Complete Profile", edit_user_registration_path, class: "button-secondary edit-profile"%>
-                                    <p>
-                                        <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "animated-underline"  %>
-                                    </p>
-                                <% end %>
-                            </div>
+                            Complete your profile to ensure that your profile will be approved.
+                        </p>
+                        <div class="current-user-links">
+                            <% if @user == current_user %>
+                                <%= link_to "Complete Profile", edit_user_registration_path, class: "button-secondary edit-profile"%>
+                                <p>
+                                    <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "animated-underline"  %>
+                                </p>
+                            <% end %>
                         </div>
                     <% end %>
                 <% end %>

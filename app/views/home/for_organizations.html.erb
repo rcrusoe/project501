@@ -1,0 +1,95 @@
+<%= render 'shared/navbar' %>
+
+<div class="section cards">
+    <div class="container">
+        <div class="row">
+            <div class="twelve columns">
+                <h2 class="centered-text" style="margin-bottom: 4rem;">
+                    Find the expertise you need from a community of skilled volunteers.
+                </h2>
+            </div>
+        </div>
+
+        <div class="spacer"></div>
+
+        <div class="row">
+            <div class="four columns">
+                <h3>
+                    1. Post a project
+                </h3>
+                <p>
+                    Describe a challenge or task that your organization needs help with. Volunteer projects can be as small as a quick phone call, or as large as a multi-week effort.
+                </p>
+            </div>
+            <div class="four columns">
+                <h3>
+                    2. Connect with volunteers
+                </h3>
+                <p>
+                    Once posted, your project will be visible to hundreds of volunteers. If a volunteer is intersted in your project, they introduce themselves.
+                </p>
+            </div>
+            <div class="four columns">
+                <h3>
+                    3. Choose the right volunteer
+                </h3>
+                <p>
+                    You'll be able to review each candidate by chatting with them and viewing their past work. You get to choose which volunteer you'd like to work with.
+                </p>
+            </div>
+        </div>
+
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+
+        <div class="row" style="background-color: #2A2F2F;">
+            <div class="two-cards columns">
+                <div class="card">
+                    <div class="content">
+                        <h3>
+                            Have questions?
+                        </h3>
+                        <div class="divider"></div>
+                        <p>
+                            If you have any questions about how the platform works, don't hesitate to reach out and say hello!
+                        </p>
+                        <%= mail_to "team@project501.com", "Email Us", target: "_blank", class: "button-secondary" %>
+                    </div>
+                </div>
+            </div>
+            <div class="two-cards columns">
+                <div class="card">
+                    <div class="content">
+                        <h3>
+                            Ready to get started?
+                        </h3>
+                        <div class="divider"></div>
+                        <p>
+                            Sign up to post a project, connect with skilled volunteers, and propel your organization forward.
+                        </p>
+                        <%= link_to "Get Started", new_organization_path, class: "button-primary"%>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="marketing-footer">
+    <div class="container">
+        <div class="row" style="overflow: hidden;">
+            <div class="six columns">
+                <h3>
+                    Made with 🐶 in Cambridge, MA.
+                </h3>
+            </div>
+            <div class="six columns">
+                <div class="right">
+                    <h3>
+                        <%= mail_to "team@project501.com", "Contact Us", target: "_blank" %>
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -139,13 +139,13 @@ p a,
 .button-primary,
 .button-secondary {
   color: $black;
-  width: auto;
   display: table;
   font-family: "brandon-grotesque", sans-serif;
   font-size: 2rem;
   font-weight: 500;
   line-height: 1;
   text-decoration: none;
+  width: auto;
 }
 
 .button-primary, {
@@ -157,6 +157,7 @@ p a,
   &:before {
     background: transparent;
     border: 2px solid $black;
+    cursor: pointer;
     content: '';
     display: block;
     height: calc(100% - 3px);
@@ -187,6 +188,26 @@ p a,
     background-color: $yellow;
     cursor: pointer;
     transition: background-color .4s ease;
+  }
+}
+
+.button-inverse {
+  border: 2px solid $white;
+  color: $white;
+  display: table;
+  font-family: "brandon-grotesque", sans-serif;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 1;
+  margin-top: 4rem;
+  padding: 6px 15px;
+  text-decoration: none;
+  width: auto;
+
+  &:hover {
+    border: 2px solid $yellow;
+    color: $yellow;
+    transition: border .4s ease, color .4s ease;
   }
 }
 
@@ -321,6 +342,10 @@ p a,
   }
 }
 
+.no-top-margin {
+  margin-top: 0;
+}
+
 .no-bottom-margin {
   margin-bottom: 0;
 }
@@ -432,6 +457,14 @@ select {
   }
 }
 
+.larger-than-mobile-only {
+  display: none;
+
+  @media (min-width: 550px){
+    display: inline-block;
+  }
+}
+
 .mobile-only {
   display: visible;
   @media (min-width: 550px) {
@@ -526,14 +559,15 @@ select {
 }
 
 .invitation {
-  width: 100%;
   float: right;
+  width: 100%;
 }
 
 .avatar {
+  border: 2px solid $blue-60;
+  border-radius: 50%;
   height: 3.7rem;
   width: 3.7rem;
-  border-radius: 50%;
 }
 
 
@@ -635,6 +669,29 @@ select {
 
 .message-reply {
   height: 6.6rem;
+}
+
+
+// for-organizations
+
+.hero {
+  align-items: center;
+  background-image: image-url('hero-character.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  display: flex;
+  height: 200px;
+  width: 100%;
+  @media (min-width: 550px) {
+    height: 300px;
+  }
+  @media (min-width: 780px) {
+    height: 70vh;
+  }
+
+  h2 {
+    color: $white;
+  }
 }
 
 
