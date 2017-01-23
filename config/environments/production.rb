@@ -85,4 +85,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_mailer.default_url_options = {:host => "project501.com"}
+
+  # configure app to use SSL
+  config.force_ssl = true
 end
