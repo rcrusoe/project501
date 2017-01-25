@@ -22,10 +22,19 @@
           <% end %>
         <% end %>
         <div class="divider"></div>
-        <p>
-          Need to make some changes to the project description?
-        </p>
-        <%= link_to "Edit Project", edit_project_path(@project), class: "button-secondary"%>
+        <% if @project.active? %>
+          <p>
+            Need to make some changes to the project description?
+          </p>
+          <%= link_to "Edit Project", edit_project_path(@project), class: "button-secondary"%>
+          <p>
+            If you are no longer looking for a volunteer for this project, you may <%= link_to "close the project", close_project_path, class: "inline-link" %>.
+          </p>
+        <% else %>
+          <p>
+            This project has been closed. To begin receiving applications from volunteers again, you may <%= link_to "open the project", open_project_path, class: "inline-link" %> again.
+          </p>
+        <% end %>
       </div>
     </div>
   </div>

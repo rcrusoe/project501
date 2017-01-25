@@ -27,6 +27,52 @@ class ProjectsController < ApplicationController
   def edit
   end
 
+  def close_project
+    @project = Project.friendly.find(params[:id])
+    @project.active = false
+    respond_to do |format|
+      if @project.save
+        format.html { redirect_to @project, notice: 'The project has successfully been closed.' }
+        format.json { render :show, status: :created, location: @project }
+        project_info = {
+          pretext: "A project has been closed.",
+          fallback: "#{@project.title}: #{@project.description}",
+          title: "#{@project.title}",
+          title_link: "#{project_url(@project)}",
+          text: "#{@project.description}",
+          color: "#BDD6DD",
+        }
+        PROJECT501_NOTIFIER.ping(attachments: [project_info])
+      else
+        format.html { redirect_to @project, notice: 'There was a problem closing this project.' }
+        format.json { render json: @project.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def open_project
+    @project = Project.friendly.find(params[:id])
+    @project.active = true
+    respond_to do |format|
+      if @project.save
+        format.html { redirect_to @project, notice: 'The project has successfully been re-opened.' }
+        format.json { render :show, status: :created, location: @project }
+        project_info = {
+          pretext: "A project has been re-opened.",
+          fallback: "#{@project.title}: #{@project.description}",
+          title: "#{@project.title}",
+          title_link: "#{project_url(@project)}",
+          text: "#{@project.description}",
+          color: "#BDD6DD",
+        }
+        PROJECT501_NOTIFIER.ping(attachments: [project_info])
+      else
+        format.html { redirect_to @project, notice: 'There was a problem re-opening this project.' }
+        format.json { render json: @project.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # POST /projects
   # POST /projects.json
   def create

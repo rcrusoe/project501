@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row">
       <% @projects.each do |project| %>
-        <% unless project.id == 1 %>
+        <% unless project.id == 1 || project.active == false %>
           <div class="two-cards columns" style="float: none; display: inline-block;">
             <div class="card">
               <div class="content">
