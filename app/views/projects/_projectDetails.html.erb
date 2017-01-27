@@ -3,6 +3,7 @@
 </h2>
 <div class="divider"></div>
 
+<!-- project details -->
 <p>
   <%= @project.description %>
 </p>
@@ -10,18 +11,13 @@
   Project Category: <%= @project.category %>
 </p>
 
-<% @project.roles.each do |role| %>
-  <% if role.status == "Owner" %>
-    <% User.find_by_id(role.user_id).memberships.each do |membership| %>
-      <h3>
-        <%= link_to Organization.find_by_id(membership.organization_id).name, organization_path(Organization.find_by_id(membership.organization_id).id), class: "animated-underline"%>
-      </h3>
-      <p>
-        <%= Organization.find_by_id(membership.organization_id).description %>
-      </p>
-      <p>
-        Cause: <%= Organization.find_by_id(Membership.where(user_id: Role.where(project_id: @project, status: "Owner").first.user_id).first.organization_id).cause %>
-      </p>
-    <% end %>
-  <% end %>
-<% end %>
+<!-- organization details -->
+<h3>
+  <%= link_to @project.organization.name, organization_path(@project.organization), class: "animated-underline" %>
+</h3>
+<p>
+  <%= @project.organization.description %>
+</p>
+<p>
+  <%= @project.organization.cause %>
+</p>
