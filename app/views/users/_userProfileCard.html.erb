@@ -1,9 +1,16 @@
 <div class="one-card column">
     <div class="card dark">
         <div class="content">
-            <h3>
-                <%= @user.name %>
-            </h3>
+            <div class="user">
+                <% if @user.avatar_url? %>
+                    <div class="floated-avatar avatar" style="background-image: url(<%= @user.avatar_url %>)"></div>
+                <% else %>
+                      <%= image_tag "avatar.svg", class: "floated-avatar avatar" %>
+                <% end %>
+                <h3>
+                    <%= @user.name %>
+                </h3>
+            </div>
             <div class="divider"></div>
             <p>
                 <%= @user.tagline %>
