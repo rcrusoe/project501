@@ -18,7 +18,7 @@
           <% @project.applications.each do |application| %>
             <div class="project-applicant">
               <% if User.find_by_id(application.user_id).avatar_url? %>
-                <div class="floated-avatar avatar" style="background-image: url(<%= User.find_by_id(application.user_id).avatar_url)%>"></div>
+                <div class="floated-avatar avatar" style="background-image: url(<%= User.find_by_id(application.user_id).avatar_url %>)"></div>
               <% else %>
                 <%= image_tag "avatar.svg", class: "floated-avatar avatar" %>
               <% end %>
