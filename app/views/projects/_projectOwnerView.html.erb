@@ -16,7 +16,7 @@
           </p>
         <% else %>
           <% @project.applications.each do |application| %>
-            <%= link_to "view conversation", Conversation.where(project_id: @project, author_id: User.find_by_id(application.user_id)).first, do %>
+            <%= link_to Conversation.where(project_id: @project, author_id: User.find_by_id(application.user_id)).first do %>
               <div class="project-applicant">
                 <% if User.find_by_id(application.user_id).avatar_url? %>
                   <div class="floated-avatar avatar" style="background-image: url(<%= User.find_by_id(application.user_id).avatar_url %>)"></div>
