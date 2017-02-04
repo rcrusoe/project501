@@ -2,7 +2,9 @@
     <div class="message-heading">
         <%= link_to personal_message.user do %>
             <% if personal_message.user.avatar_url? %>
-                <%= image_tag personal_message.user.avatar_url, class: "floated-avatar avatar" %>
+                <%= link_to current_user do %>
+                    <div class="floated-avatar avatar" style="background-image: url(personal_message.user.avatar_url)"></div>
+                <% end %>
             <% else %>
                 <%= image_tag "avatar.svg", class: "floated-avatar avatar" %>
             <% end %>
