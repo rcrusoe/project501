@@ -13,7 +13,7 @@
             <%= link_to project_url(project), style: "text-decoration: none;" do %>
             <p style="font-weight: bold; font-size: 16px; margin-bottom: 0.5em; color: #2a2f2f;"><%= project.title %></p>
             <p style="font-size: 16px; color: #A9A9A9; margin: 0;"><%= project.category %></p>
-            <p style="font-size: 16px; margin-bottom: 2em; color: #2a2f2f;"><%= project.description %></p>
+            <p style="font-size: 16px; margin-bottom: 2em; color: #2a2f2f;"><%= h(project.description).gsub(/\n/, '<br/>').html_safe %></p>
             <% end %>
         <% end %>
     </div>

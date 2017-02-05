@@ -5,7 +5,7 @@
 
 <!-- project details -->
 <p>
-  <%= @project.description %>
+  <%= h(@project.description).gsub(/\n/, '<br/>').html_safe %>
 </p>
 <p>
   Project Category: <%= @project.category %>

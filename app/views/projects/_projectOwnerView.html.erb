@@ -1,50 +1,44 @@
-<div class="row">
-  <div class="eight columns">
-    <%= render 'projectDetails' %>
-  </div>
-
-  <div class="three-cards columns">
-    <div class="card">
-      <div class="content">
-        <h3>
-          Review Candidates
-        </h3>
-        <div class="divider"></div>
-        <% if @project.applications.count == 0 %>
-          <p>
-            No volunteers have contacted you about this project yet.
-          </p>
-        <% else %>
-          <% @project.applications.each do |application| %>
-            <%= link_to Conversation.where(project_id: @project, author_id: User.find_by_id(application.user_id)).first do %>
-              <div class="project-applicant">
-                <% if User.find_by_id(application.user_id).avatar_url? %>
-                  <div class="floated-avatar avatar" style="background-image: url(<%= User.find_by_id(application.user_id).avatar_url %>)"></div>
-                <% else %>
-                  <%= image_tag "avatar.svg", class: "floated-avatar avatar" %>
-                <% end %>
-                <p class="dark-paragraph animated-underline">
-                  <%= User.find_by_id(application.user_id).name %>
-                </p>
-              </div>
-            <% end %>
+<div class="three-cards columns">
+  <div class="card">
+    <div class="content">
+      <h3>
+        Review Candidates
+      </h3>
+      <div class="divider"></div>
+      <% if @project.applications.count == 0 %>
+        <p>
+          No volunteers have contacted you about this project yet.
+        </p>
+      <% else %>
+        <% @project.applications.each do |application| %>
+          <%= link_to Conversation.where(project_id: @project, author_id: User.find_by_id(application.user_id)).first do %>
+            <div class="project-applicant">
+              <% if User.find_by_id(application.user_id).avatar_url? %>
+                <div class="floated-avatar avatar" style="background-image: url(<%= User.find_by_id(application.user_id).avatar_url %>)"></div>
+              <% else %>
+                <%= image_tag "avatar.svg", class: "floated-avatar avatar" %>
+              <% end %>
+              <p class="dark-paragraph animated-underline">
+                <%= User.find_by_id(application.user_id).name %>
+              </p>
+            </div>
           <% end %>
         <% end %>
-        <div class="divider"></div>
-        <% if @project.active? %>
-          <p>
-            Need to make some changes to the project description?
-          </p>
-          <%= link_to "Edit Project", edit_project_path(@project), class: "button-secondary"%>
-          <p>
-            If you are no longer looking for a volunteer for this project, you may <%= link_to "close the project", close_project_path, class: "inline-link" %>.
-          </p>
-        <% else %>
-          <p>
-            This project has been closed. To begin receiving applications from volunteers again, you may <%= link_to "open the project", open_project_path, class: "inline-link" %> again.
-          </p>
-        <% end %>
-      </div>
+      <% end %>
+      <div class="divider"></div>
+      <% if @project.active? %>
+        <p>
+          Need to make some changes to the project description?
+        </p>
+        <%= link_to "Edit Project", edit_project_path(@project), class: "button-secondary"%>
+        <p>
+          If you are no longer looking for a volunteer for this project, you may <%= link_to "close the project", close_project_path, class: "inline-link" %>.
+        </p>
+      <% else %>
+        <p>
+          This project has been closed. To begin receiving applications from volunteers again, you may <%= link_to "open the project", open_project_path, class: "inline-link" %> again.
+        </p>
+      <% end %>
     </div>
   </div>
 </div>

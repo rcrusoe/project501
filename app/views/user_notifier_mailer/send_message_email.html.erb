@@ -10,7 +10,7 @@
         <p style="color: #A9A9A9; font-size: 16px; margin: 0.5em 0;">New message from <%= @message_author.name %></p>
         <hr style="border: 0; height: 1px; background-color: #BDD6DD; margin: 2em 0;">
         <p style="font-weight: bold; font-size: 16px;"><%= @message_author.name %></p>
-        <p style="font-size: 16px;"><%= @personal_message.body %></p>
+        <p style="font-size: 16px;"><%= h(@personal_message.body).gsub(/\n/, '<br/>').html_safe %></p>
         <hr style="border: 0; height: 1px; background-color: #BDD6DD;">
         <p style="text-align: center; font-weight: bold; font-size: 16px;"><%= link_to "Reply on platform", conversation_url(@conversation) %></p>
     </div>

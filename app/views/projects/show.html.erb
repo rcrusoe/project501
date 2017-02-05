@@ -2,22 +2,29 @@
 
 <div class="section cards">
   <div class="container">
+    <div class="row">
 
-    <% if Role.where(user_id: current_user.id, project_id: @project.id).exists? %>
-      <% if Role.where(user_id: current_user.id, project_id: @project.id).first.status == "Owner" %>
-        <%= render(:partial => 'projectOwnerView') %>
-      <% elsif Role.where(user_id: current_user.id, project_id: @project.id).first.status == "Applicant" %>
-        <%= render(:partial => 'projectApplicantView') %>
-      <% elsif Role.where(user_id: current_user.id, project_id: @project.id).first.status == "Volunteer" %>
-        <%= render(:partial => 'projectVolunteerView') %>
-      <% end %>
-    <% else %>
-      <% if current_user.approved? %>
-        <%= render(:partial => 'projectVisitorView') %>
+      <!-- project details -->
+      <div class="eight columns">
+        <%= render 'projectDetails' %>
+      </div>
+
+      <!-- project sidebar, based on user state -->
+      <% if Role.where(user_id: current_user.id, project_id: @project.id).exists? %>
+        <% if Role.where(user_id: current_user.id, project_id: @project.id).first.status == "Owner" %>
+          <%= render(:partial => 'projectOwnerView') %>
+        <% elsif Role.where(user_id: current_user.id, project_id: @project.id).first.status == "Applicant" %>
+          <%= render(:partial => 'projectApplicantView') %>
+        <% elsif Role.where(user_id: current_user.id, project_id: @project.id).first.status == "Volunteer" %>
+          <%= render(:partial => 'projectVolunteerView') %>
+        <% end %>
       <% else %>
-        <%= render(:partial => 'unapprovedVisitorView') %>
+        <% if current_user.approved? %>
+          <%= render(:partial => 'projectVisitorView') %>
+        <% else %>
+          <%= render(:partial => 'unapprovedVisitorView') %>
+        <% end %>
       <% end %>
-    <% end %>
-
+    </div>
   </div>
 </div>`
