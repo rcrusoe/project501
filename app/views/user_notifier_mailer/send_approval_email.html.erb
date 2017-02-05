@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body style="background-color: #fafafa; color: #2A2F2F; padding: 5%; font-family: 'brandon-grotesque', 'avenir', 'Helvetica', sans-serif;">
+    <%= image_tag ('logo2.png'), style: "height: auto; width: 30%; max-width: 130px; display: block; margin: 15px auto 30px;" %>
+    <div style="background-color: white; padding: 30px; margin-bottom: 100px;">
+        <h3 style="font-weight: bold; font-size: 20px; margin: 0;"><%= @topic %></h3>
+        <p style="color: #A9A9A9; font-size: 16px; margin: 0.5em 0;">New message from <%= @message_author.name %></p>
+        <hr style="border: 0; height: 1px; background-color: #BDD6DD; margin: 2em 0;">
+        <p style="font-weight: bold; font-size: 16px;"><%= @message_author.name %></p>
+        <p style="font-size: 16px;"><%= @personal_message.body %></p>
+        <hr style="border: 0; height: 1px; background-color: #BDD6DD;">
+        <p style="text-align: center; font-weight: bold; font-size: 16px;"><%= link_to "Browse volunteer opportunities", projects_url %></p>
+    </div>
+    <p style="text-align: center; font-size: 16px;">Need some help? Contact us at <a href="mailto:team@project501.com">team@project501.com</a></p>
+  </body>
+</html>

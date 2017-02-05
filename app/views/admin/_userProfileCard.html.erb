@@ -1,0 +1,74 @@
+<div class="one-card column">
+    <div class="card dark">
+        <div class="content">
+            <div class="user">
+
+                <% if user.avatar_url? %>
+                    <div class="floated-avatar avatar" style="background-image: url(<%= user.avatar_url %>)"></div>
+                <% else %>
+                      <%= image_tag "avatar.svg", class: "floated-avatar avatar" %>
+                <% end %>
+                <h3>
+                    <%= user.name %>
+                </h3>
+            </div>
+            <div class="divider"></div>
+            <p>
+                <%= user.tagline %>
+            </p>
+            <div class="links">
+                <% if user.linkedin_url? ||
+                      user.twitter_url? ||
+                      user.medium_url? ||
+                      user.github_url? ||
+                      user.github_url? ||
+                      user.dribbble_url? ||
+                      user.website_url? %>
+                    <p>
+                        Elsewhere:
+                    </p>
+                    <% if user.catalant_url? %>
+                        <p>
+                        <%= link_to "Catalant", user.catalant_url, target: "_blank" %>
+                        </p>
+                    <% end %>
+                    <% if user.linkedin_url? %>
+                        <p>
+                        <%= link_to "LinkedIn", user.linkedin_url, target: "_blank" %>
+                        </p>
+                    <% end %>
+                    <% if user.twitter_url? %>
+                        <p>
+                        <%= link_to "Twitter", user.twitter_url, target: "_blank" %>
+                        </p>
+                    <% end %>
+                    <% if user.medium_url? %>
+                        <p>
+                        <%= link_to "Medium", user.medium_url, target: "_blank" %>
+                        </p>
+                    <% end %>
+                    <% if user.github_url? %>
+                        <p>
+                        <%= link_to "Github", user.github_url, target: "_blank" %>
+                        </p>
+                    <% end %>
+                    <% if user.dribbble_url? %>
+                        <p>
+                        <%= link_to "Dribbble", user.dribbble_url, target: "_blank" %>
+                        </p>
+                    <% end %>
+                    <% if user.website_url? %>
+                        <p>
+                        <%= link_to "Website", user.website_url, target: "_blank" %>
+                        </p>
+                    <% end %>
+                <% end %>
+
+                <%= link_to "Approve Volunteer", approve_user_path(user), class: "button-secondary"%>
+                <p>
+                    Updated <%= time_ago_in_words(user.updated_at) %> ago
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

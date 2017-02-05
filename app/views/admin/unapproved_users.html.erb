@@ -1,0 +1,13 @@
+<%= render 'shared/navbar' %>
+
+<div class="section cards">
+  	<div class="container">
+     	<% @users.each do |user| %>
+     		<% if user.approved == false %>
+     			<div class="row">
+     				<%= render 'userProfileCard', user: user %>
+     			</div>
+          	<% end %>
+      	<% end %>
+    </div>
+</div>
