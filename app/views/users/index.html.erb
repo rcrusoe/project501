@@ -16,7 +16,7 @@
               <div class="content">
                 <div class="user">
                   <% if user.avatar_url? %>
-                      <div class="floated-avatar avatar" style="background-image: url(<%= @user.avatar_url %>)"></div>
+                      <div class="floated-avatar avatar" style="background-image: url(<%= user.avatar_url %>)"></div>
                   <% else %>
                         <%= image_tag "avatar.svg", class: "floated-avatar avatar" %>
                   <% end %>
