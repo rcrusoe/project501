@@ -3,14 +3,27 @@
 <div class="section cards">
   <div class="container">
     <div class="row">
+      <h2 style = "color: #a9a9a9">
+        Connect with <span style="color: #28586f"><%= User.where(approved: true).count %> volunteers</span>
+      </h2>
+      <div class="spacer"></div>
+    </div>
+    <div class="row">
       <% @users.each do |user| %>
         <% if user.approved? %>
-          <div class="two-cards columns">
+          <div class="three-cards columns">
             <div class="card dark">
               <div class="content">
-                <h3 class="clamped-text one-line">
-                  <%= link_to user.name, user %>
-                </h3>
+                <div class="user">
+                  <% if user.avatar_url? %>
+                      <div class="floated-avatar avatar" style="background-image: url(<%= @user.avatar_url %>)"></div>
+                  <% else %>
+                        <%= image_tag "avatar.svg", class: "floated-avatar avatar" %>
+                  <% end %>
+                  <h3>
+                      <%= link_to user.name, user, class: "animated-underline" %>
+                  </h3>
+              </div>
                 <div class="divider"></div>
                 <p class="clamped-text four-lines no-bottom-margin">
                   <%= user.tagline %>
