@@ -10,7 +10,7 @@
     </div>
     <div class="row">
       <% @users.each do |user| %>
-        <% if user.approved? %>
+        <% unless user.id == 1 || user.approved == false %>
           <div class="three-cards columns">
             <div class="card dark">
               <div class="content">
@@ -28,7 +28,6 @@
                 <p class="clamped-text four-lines no-bottom-margin">
                   <%= user.tagline %>
                 </p>
-                <%= link_to "View Profile", user, class: "button-secondary" %>
               </div>
             </div>
           </div>
