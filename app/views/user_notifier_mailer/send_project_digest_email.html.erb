@@ -6,13 +6,13 @@
   <body style="background-color: #fafafa; color: #2A2F2F; padding: 5%; font-family: 'brandon-grotesque', 'avenir', 'Helvetica', sans-serif;">
     <%= image_tag ('logo2.png'), style: "height: auto; width: 30%; max-width: 130px; display: block; margin: 15px auto 30px;" %>
     <div style="background-color: white; padding: 30px; margin-bottom: 100px;">
-        <h3 style="font-weight: bold; font-size: 20px; margin: 0;">Opportunities to Volunteer</h3>
-        <p style="color: #A9A9A9; font-size: 16px; margin: 0.5em 0;">Here are the latest projects posted this week.</p>
+        <h3 style="font-weight: bold; font-size: 20px; margin: 0;">Volunteer your expertise</h3>
+        <p style="color: #A9A9A9; font-size: 16px; margin: 0.5em 0;">Below are the latest opportunities to volunteer your expertise on Project 501.</p>
         <hr style="border: 0; height: 1px; background-color: #BDD6DD; margin: 2em 0;">
         <% @projects.recent.each do |project| %>
             <%= link_to project_url(project), style: "text-decoration: none;" do %>
             <p style="font-weight: bold; font-size: 16px; margin-bottom: 0.5em; color: #2a2f2f;"><%= project.title %></p>
-            <p style="font-size: 16px; color: #A9A9A9; margin: 0;"><%= project.category %></p>
+            <p style="font-size: 16px; color: #A9A9A9; margin: 0;"><%= project.organization.name %></p>
             <p style="font-size: 16px; margin-bottom: 2em; color: #2a2f2f;"><%= h(project.description).gsub(/\n/, '<br/>').html_safe %></p>
             <% end %>
         <% end %>

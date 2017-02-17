@@ -36,7 +36,7 @@ class UserNotifierMailer < ApplicationMailer
     @projects = projects
     mail(
       to: @recipient.email,
-      subject: "New opportunities to volunteer on P501",
+      subject: "[Project 501] New opportunities to volunteer your skills",
       from: @from
     )
   end
