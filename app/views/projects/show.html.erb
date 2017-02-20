@@ -10,20 +10,24 @@
       </div>
 
       <!-- project sidebar, based on user state -->
-      <% if Role.where(user_id: current_user.id, project_id: @project.id).exists? %>
-        <% if Role.where(user_id: current_user.id, project_id: @project.id).first.status == "Owner" %>
-          <%= render(:partial => 'projectOwnerView') %>
-        <% elsif Role.where(user_id: current_user.id, project_id: @project.id).first.status == "Applicant" %>
-          <%= render(:partial => 'projectApplicantView') %>
-        <% elsif Role.where(user_id: current_user.id, project_id: @project.id).first.status == "Volunteer" %>
-          <%= render(:partial => 'projectVolunteerView') %>
+      <% if current_user %>
+        <% if Role.where(user_id: current_user.id, project_id: @project.id).exists? %>
+          <% if Role.where(user_id: current_user.id, project_id: @project.id).first.status == "Owner" %>
+            <%= render(partial: 'projectOwnerView') %>
+          <% elsif Role.where(user_id: current_user.id, project_id: @project.id).first.status == "Applicant" %>
+            <%= render(partial: 'projectApplicantView') %>
+          <% elsif Role.where(user_id: current_user.id, project_id: @project.id).first.status == "Volunteer" %>
+            <%= render(partial: 'projectVolunteerView') %>
+          <% end %>
+        <% else %>
+          <% if current_user.approved? %>
+            <%= render(partial: 'projectVisitorView') %>
+          <% else %>
+            <%= render(partial: 'unapprovedVisitorView') %>
+          <% end %>
         <% end %>
       <% else %>
-        <% if current_user.approved? %>
-          <%= render(:partial => 'projectVisitorView') %>
-        <% else %>
-          <%= render(:partial => 'unapprovedVisitorView') %>
-        <% end %>
+        <%= render(partial: 'loggedOutView') %>
       <% end %>
     </div>
   </div>

@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy, :submit_application]
-  skip_before_action :authenticate_user!, only: [:index]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   # GET /projects
   # GET /projects.json
@@ -11,7 +11,9 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-    @personal_message = current_user.personal_messages.build
+    if current_user
+      @personal_message = current_user.personal_messages.build
+    end
     @project = Project.friendly.find(params[:id])
     if request.path != project_path(@project)
       redirect_to @project, status: :moved_permanently
