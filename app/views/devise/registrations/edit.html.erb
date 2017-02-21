@@ -53,12 +53,12 @@
           <div class="profile-fields">
             <div class="field">
               <%= f.label :first_name %><br />
-              <%= f.text_field :first_name, placeholder: "Elon" %>
+              <%= f.text_field :first_name, placeholder: "Albert" %>
             </div>
 
             <div class="field">
               <%= f.label :last_name %><br />
-              <%= f.text_field :last_name, placeholder: "Musk" %>
+              <%= f.text_field :last_name, placeholder: "Einstein" %>
             </div>
           </div>
 
@@ -68,8 +68,35 @@
           </div>
 
           <div class="field">
+            <%= f.label :location %><br />
+            <%= f.text_field :location, placeholder: "Cambridge, MA" %>
+          </div>
+
+          <div class="field">
             <%= f.label :about_me %><br />
-            <%= f.text_field :tagline, placeholder: "Tinkerer passionate about space travel, sustainable fuel, and autonomous vehicles" %>
+            <%= f.text_area :tagline, placeholder: "A theoretical physicist with bad hair.", class: "about-me-textarea" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :availability %><br />
+            <div class="radio">
+              <div class="radio-option">
+                <%= f.radio_button(:availability, "not available") %>
+                <%= f.label(:availability_not_available, "Not currently available for a project.") %>
+              </div>
+              <div class="radio-option">
+                <%= f.radio_button(:availability, "light") %>
+                <%= f.label(:availability_light, "Available for a small weekend project.") %>
+              </div>
+              <div class="radio-option">
+                <%= f.radio_button(:availability, "medium") %>
+                <%= f.label(:availability_medium, "Available for an ongoing nights/weekend project.") %>
+              </div>
+              <div class="radio-option">
+                <%= f.radio_button(:availability, "heavy") %>
+                <%= f.label(:availability_heavy, "Available for a short-term full-time project.") %>
+              </div>
+            </div>
           </div>
 
           <div class="spacer"></div>

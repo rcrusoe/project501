@@ -430,9 +430,9 @@ select {
 .avatar-upload {
   align-items: center;
   border: 2px dashed $black;
+  border-radius: 5px;
   display: flex;
   padding: 1rem;
-  border-radius: 5px;
 
   p {
     margin: 0 1rem;
@@ -444,6 +444,30 @@ select {
     height: 3.7rem;
     width: 3.7rem;
     z-index: -1;
+  }
+}
+
+.about-me-textarea {
+  height: 6.6rem;
+  resize: none;
+}
+
+.radio {
+  label {
+    font-family: 'vollkorn', serif;
+    font-size: 1.8rem;
+    line-height: 2.8rem;
+    margin-bottom: 0;
+  }
+
+  input {
+    margin-right: 1rem;
+    width: auto;
+  }
+
+  .radio-option {
+    align-items: center;
+    display: flex;
   }
 }
 
@@ -495,12 +519,20 @@ select {
   margin-bottom: 2rem;
 }
 
+.inline-icon {
+  align-items: center;
+  display: flex;
+
+  img {
+    margin-right: 0.5rem;
+  }
+}
+
 .links {
-  margin-bottom: 2rem;
+  margin: 2rem 0;
 
   p {
-    display: inline;
-    margin: 1rem 1rem 0 0;
+    margin: 0;
   }
 }
 

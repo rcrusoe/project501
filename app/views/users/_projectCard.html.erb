@@ -1,17 +1,16 @@
-<div class="two-cards columns">
-    <div class="card project-card">
-        <div class="content">
-            <h3 class="clamped-text one-line">
-                <%= link_to Project.find_by_id(role.project_id).title, project_path(Project.find_by_id(role.project_id).id), class: "animated-underline"%>
-            </h3>
-            <div class="divider"></div>
-            <p class="clamped-text four-lines">
-                <%= Project.find_by_id(role.project_id).description %>
-            </p>
-            <%= link_to "View Project", project_path(Project.find_by_id(role.project_id).id), class: "button-secondary"%>
-            <p class="role-status">
-                <span class="large-screen-only">Project</span> <%= role.status %>
-            </p>
-        </div>
+<div class="card project-card">
+    <div class="content">
+        <h3 class="clamped-text one-line">
+            <%= link_to Project.find_by_id(role.project_id).title, project_path(Project.find_by_id(role.project_id).id), class: "animated-underline"%>
+        </h3>
+        <div class="divider"></div>
+        <p class="clamped-text four-lines">
+            <%= Project.find_by_id(role.project_id).description %>
+        </p>
+        <%= link_to "View Project", project_path(Project.find_by_id(role.project_id).id), class: "button-secondary"%>
+        <p class="role-status">
+            <span class="large-screen-only">Project</span> <%= role.status %>
+        </p>
     </div>
 </div>
+

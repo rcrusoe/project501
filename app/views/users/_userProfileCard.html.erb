@@ -12,10 +12,32 @@
                 </h3>
             </div>
             <div class="divider"></div>
-            <p>
+            <p class="dark-paragraph">
                 <%= @user.tagline %>
             </p>
+            <p class="no-top-margin no-bottom-margin">
+                Availability<br>
+                <span class="dark-paragraph">
+                <% if @user.availability == "not available" %>
+                    Not currently available for a project.
+                <% elsif @user.availability == "light" %>
+                    Available for a small weekend project.
+                <% elsif @user.availability == "medium" %>
+                    Available for an ongoing nights/weekend project.
+                <% else %>
+                    Available for a short-term full-time project.
+                <% end %>
+                </span>
+            </p>
             <div class="links">
+                <% if @user.location? %>
+                    <div class="inline-icon">
+                        <%= image_tag ("location.svg") %>
+                        <p class="dark-paragraph">
+                            <%= @user.location %>
+                        </p>
+                    </div>
+                <% end %>
                 <% if @user.linkedin_url? ||
                       @user.twitter_url? ||
                       @user.medium_url? ||
@@ -23,42 +45,39 @@
                       @user.github_url? ||
                       @user.dribbble_url? ||
                       @user.website_url? %>
-                    <p>
-                        Elsewhere:
-                    </p>
                     <% if @user.catalant_url? %>
                         <p>
-                        <%= link_to "Catalant", @user.catalant_url, target: "_blank" %>
+                        <%= link_to "Catalant", @user.catalant_url, target: "_blank", class: "inline-link" %>
                         </p>
                     <% end %>
                     <% if @user.linkedin_url? %>
                         <p>
-                        <%= link_to "LinkedIn", @user.linkedin_url, target: "_blank" %>
+                        <%= link_to "LinkedIn", @user.linkedin_url, target: "_blank", class: "inline-link" %>
                         </p>
                     <% end %>
                     <% if @user.twitter_url? %>
                         <p>
-                        <%= link_to "Twitter", @user.twitter_url, target: "_blank" %>
+                        <%= link_to "Twitter", @user.twitter_url, target: "_blank", class: "inline-link" %>
                         </p>
                     <% end %>
                     <% if @user.medium_url? %>
                         <p>
-                        <%= link_to "Medium", @user.medium_url, target: "_blank" %>
+                        <%= link_to "Medium", @user.medium_url, target: "_blank", class: "inline-link" %>
                         </p>
                     <% end %>
                     <% if @user.github_url? %>
                         <p>
-                        <%= link_to "Github", @user.github_url, target: "_blank" %>
+                        <%= link_to "Github", @user.github_url, target: "_blank", class: "inline-link" %>
                         </p>
                     <% end %>
                     <% if @user.dribbble_url? %>
                         <p>
-                        <%= link_to "Dribbble", @user.dribbble_url, target: "_blank" %>
+                        <%= link_to "Dribbble", @user.dribbble_url, target: "_blank", class: "inline-link" %>
                         </p>
                     <% end %>
                     <% if @user.website_url? %>
                         <p>
-                        <%= link_to "Website", @user.website_url, target: "_blank" %>
+                        <%= link_to "Website", @user.website_url, target: "_blank", class: "inline-link" %>
                         </p>
                     <% end %>
                     <div class="current-user-links">
@@ -86,7 +105,6 @@
                         </div>
                     <% end %>
                 <% end %>
-
             </div>
         </div>
     </div>

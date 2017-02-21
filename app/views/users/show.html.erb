@@ -3,14 +3,14 @@
 <div class="section cards">
     <div class="container">
         <div class="row">
-            <%= render 'userProfileCard' %>
+            <div class="two-cards columns">
+                <%= render 'userProfileCard' %>
+            </div>
+            <div class="two-cards columns">
+                <% @user.roles.each do |role| %>
+                    <%= render 'projectCard', role: role %>
+                <% end %>
+            </div>
         </div>
-
-        <div class="row">
-            <% @user.roles.each do |role| %>
-                <%= render 'projectCard', role: role %>
-            <% end %>
-        </div>
-
     </div>
 </div>
