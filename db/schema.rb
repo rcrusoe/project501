@@ -15,6 +15,20 @@ ActiveRecord::Schema.define(version: 20170221112426) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "bootsy_image_galleries", force: :cascade do |t|
+    t.string   "bootsy_resource_type"
+    t.integer  "bootsy_resource_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "bootsy_images", force: :cascade do |t|
+    t.string   "image_file"
+    t.integer  "image_gallery_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "conversations", force: :cascade do |t|
     t.integer  "author_id"
     t.integer  "receiver_id"
@@ -90,12 +104,12 @@ ActiveRecord::Schema.define(version: 20170221112426) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "",    null: false
-    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "email",                  default: "",      null: false
+    t.string   "encrypted_password",     default: "",      null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,     null: false
+    t.integer  "sign_in_count",          default: 0,       null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
@@ -104,8 +118,8 @@ ActiveRecord::Schema.define(version: 20170221112426) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
     t.string   "first_name"
     t.string   "last_name"
     t.string   "tagline"
@@ -120,9 +134,9 @@ ActiveRecord::Schema.define(version: 20170221112426) do
     t.boolean  "approved",               default: false
     t.string   "slug"
     t.string   "avatar_url"
-    t.boolean  "admin",                  default: false, null: false
+    t.boolean  "admin",                  default: false,   null: false
     t.string   "location"
-    t.string   "availability"
+    t.string   "availability",           default: "light"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree

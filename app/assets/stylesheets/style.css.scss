@@ -744,3 +744,20 @@ select {
     text-align: center;
   }
 }
+
+// admin
+
+table {
+  width: 100%;
+}
+
+tr {
+  border-bottom: 1px solid black;
+}
+
+th,
+td {
+  font-size: 1.8rem;
+  line-height: 4rem;
+  text-align: left;
+}

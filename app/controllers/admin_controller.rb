@@ -5,6 +5,10 @@ class AdminController < ApplicationController
     	@users = User.order(updated_at: :desc)
     end
 
+    def projects
+    	@projects = Project.order(created_at: :desc)
+    end
+
     def is_admin?
       redirect_to root_path unless current_user.admin? 
     end

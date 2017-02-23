@@ -1,0 +1,26 @@
+<%= render 'shared/navbar' %>
+
+<div class="section">
+	<div class="container">
+		<div class="row">
+			<div class="ten columns offset-by-one">
+				<table>
+					<tr>
+						<th>Title</th>
+						<th>Active?</th>
+						<th>Volunteers</th>
+						<th></th>
+					</tr>
+					<% @projects.each do |project| %>
+						<tr>
+							<td><%= project.title %></td>
+							<td><%= project.active? %></td>
+							<td><%= project.applications.count %></td>
+							<td><%= link_to "Edit", edit_project_path(project), class: "inline-link animated-underline" %></td>
+						</tr>
+					<% end %>
+				</table>
+			</div>
+		</div>	
+	</div>
+</div>
