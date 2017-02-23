@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  root 'home#index'
+  root 'projects#index'
   authenticated :user do
     root to: 'users#show', as: :authenticated_root
   end

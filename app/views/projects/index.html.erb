@@ -3,32 +3,57 @@
 <div class="section cards">
   <div class="container">
     <div class="row">
-      <% @projects.each do |project| %>
-        <% unless project.id == 1 || project.active == false %>
-          <div class="two-cards columns" style="float: none; display: inline-block;">
-            <div class="card">
-              <div class="content">
-                <h3 class="clamped-text one-line">
-                  <%= link_to project.title, project %>
-                </h3>
-                <div class="divider"></div>
-                <p class="clamped-text four-lines">
-                  <%= project.description %>
-                </p>
-                <p>
-                  Cause: <%= project.organization.cause %>
-                  <br>
-                  Need: <%= project.category %>
-                </p>
-                <p>
+      <div class="eight columns offset-by-two">
+        <h1>
+          Help build a better democracy.
+        </h1>
+        <div class="card dark">
+          <div class="content">
+            <p>
+              Thousands of people go to work every day to defend our rights, protect at-risk populations and organizations, and provide opportunities and resources for those in need. <br><br>
 
-                </p>
-                <%= link_to "View Project", project, class: "button-secondary" %>
-              </div>
-            </div>
+              Whether you care about immigration, civic engagement, education, jobs, or the environment, there are lawyers, non-profits and activists who are working to solve problems and they need your help. Connect with the people who have dedicated their lives to serving the people, and be of service to them.<br><br>
+
+              Thank you for volunteering to help build the tools that will make the world a better place.
+            </p>
           </div>
-        <% end %>
-      <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="eight columns offset-by-two">
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+        <h2 class="centered-text">
+          Current opportunities to volunteer your expertise:
+        </h2>
+        <div class="spacer"></div>
+        <% @projects.each do |project| %>
+          <% unless project.id == 1 || project.active == false %>
+              <div class="card">
+                <div class="content">
+                  <h3 class="clamped-text one-line">
+                    <%= link_to project.title, project %>
+                  </h3>
+                  <div class="divider"></div>
+                  <p class="clamped-text four-lines">
+                    <%= project.description %>
+                  </p>
+                  <p>
+                    Cause: <%= project.organization.cause %>
+                    <br>
+                    Need: <%= project.category %>
+                  </p>
+                  <p>
+
+                  </p>
+                  <%= link_to "View Project", project, class: "button-secondary" %>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
