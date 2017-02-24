@@ -4,20 +4,58 @@
 <div class="divider"></div>
 
 <!-- project details -->
-<p>
+<p class="no-bottom-margin">
+	Brief Summary
+</p>
+<p class="dark-paragraph no-top-margin">
   <%= h(@project.description).gsub(/\n/, '<br/>').html_safe %>
 </p>
-<p>
-  Project Category: <%= @project.category %>
+<% if @project.problem? %>
+	<p class="no-bottom-margin">
+		Problem
+	</p>
+	<p class="dark-paragraph no-top-margin">
+	  <%= h(@project.problem).gsub(/\n/, '<br/>').html_safe %>
+	</p>
+<% end %>
+<% if @project.goal? %>
+	<p class="no-bottom-margin">
+		Goal
+	</p>
+	<p class="dark-paragraph no-top-margin">
+	  <%= h(@project.goal).gsub(/\n/, '<br/>').html_safe %>
+	</p>
+<% end %>
+<% if @project.required_roles? %>
+	<p class="no-bottom-margin">
+		Team Needs
+	</p>
+	<p class="dark-paragraph no-top-margin">
+	  <%= @project.required_roles %>
+	</p>
+<% end %>
+<p class="no-bottom-margin">
+	Category
+</p>
+<p class="dark-paragraph no-top-margin">
+	<%= @project.category %>
 </p>
 
+<div class="spacer"></div>
 <!-- organization details -->
 <h3>
   <%= link_to @project.organization.name, organization_path(@project.organization), class: "animated-underline" %>
 </h3>
-<p>
-  <%= @project.organization.description %>
+<div class="divider"></div>
+<p class="no-bottom-margin">
+	About Us
 </p>
-<p>
-  Organization Cause: <%= @project.organization.cause %>
+<p class="dark-paragraph no-top-margin">
+  <%= h(@project.organization.description).gsub(/\n/, '<br/>').html_safe %>
+</p>
+<p class="no-bottom-margin">
+	Cause
+</p>
+<p class="dark-paragraph no-top-margin">
+	<%= @project.organization.cause %>
 </p>

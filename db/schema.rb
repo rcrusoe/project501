@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170221112426) do
+ActiveRecord::Schema.define(version: 20170224032739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,10 +88,14 @@ ActiveRecord::Schema.define(version: 20170221112426) do
     t.text     "description"
     t.string   "category"
     t.date     "deadline"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.string   "slug"
-    t.boolean  "active",      default: true
+    t.boolean  "active",         default: true
+    t.text     "required_roles"
+    t.text     "problem"
+    t.text     "goal"
+    t.string   "status"
     t.index ["slug"], name: "index_projects_on_slug", using: :btree
   end
 
