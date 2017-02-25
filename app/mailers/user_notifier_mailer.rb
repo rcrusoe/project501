@@ -8,7 +8,7 @@ class UserNotifierMailer < ApplicationMailer
     @conversation = conversation
     @topic = topic
     @personal_message = personal_message
-    @from =  "Project 501 <team@project501.com>"
+    @from =  "Tech Reserve <hi@techreserve.org>"
     mail(
       to: @message_receiver.email,
       subject: "New message from " + @message_author.name,
@@ -22,7 +22,7 @@ class UserNotifierMailer < ApplicationMailer
     @conversation = conversation
     @topic = topic
     @personal_message = personal_message
-    @from =  "Project 501 <team@project501.com>"
+    @from =  "Tech Reserve <hi@techreserve.org>"
     mail(
       to: @message_receiver.email,
       subject: "New message from " + @message_author.name,
@@ -32,11 +32,11 @@ class UserNotifierMailer < ApplicationMailer
 
   def send_project_digest_email(user, projects)
     @recipient  = user
-    @from =  "Project 501 <team@project501.com>"
+    @from =  "Tech Reserve <hi@techreserve.org>"
     @projects = projects
     mail(
       to: @recipient.email,
-      subject: "[Project 501] New opportunities to volunteer your skills",
+      subject: "[Tech Reserve] New opportunities to volunteer your skills",
       from: @from
     )
   end

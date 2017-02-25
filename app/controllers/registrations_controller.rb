@@ -28,7 +28,7 @@ class RegistrationsController < Devise::RegistrationsController
       @conversation = Conversation.create(author_id: 1,
                                           receiver_id: @user.id,
                                           project_id: 1)
-      @personal_message = User.find_by_id(1).personal_messages.build(body: "Welcome to Project 501! Once you complete your volunteer profile, head over to the Projects page to find organizations you may be able to help. If you ever have any questions, you may contact the P501 team by replying here or emailing us at team@project501.com.")
+      @personal_message = User.find_by_id(1).personal_messages.build(body: "Welcome to Tech Reserve! Once you complete your volunteer profile, head over to the Projects page to find organizations you may be able to help. If you ever have any questions, you may contact the Tech Reserve team by replying here or emailing us at hi@techreserve.org.")
       @personal_message.conversation_id = @conversation.id
       if @personal_message.save!
         # Deliver the notification email

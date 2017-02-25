@@ -3,7 +3,7 @@
         <div class="twelve columns navbar">
 
             <% if user_signed_in? %>
-                <%= link_to image_tag("logo1.png", class: "logo"), current_user, class: "centered-logo" %>
+                <%= link_to "Dashboard", current_user, class: "animated-underline nav-link" %>
                 <div class="right mobile-hidden">
                     <%= link_to "Projects", projects_path, class: "animated-underline nav-link" %>
                     <%= link_to "Post Project", new_project_path, class: "button-primary"%>
@@ -18,9 +18,9 @@
                 </div>
 
             <% else %>
-                <%= link_to image_tag("logo1.png", class: "logo"), root_path %>
+                <%= link_to "View Projects", root_path, class: "animated-underline nav-link" %>
                 <div class="right">
-                    <span class="mobile-hidden" style="margin-right: 3rem"><%= link_to "Submit Idea", new_organization_path, class: "animated-underline nav-link" %></span>
+                    <span class="mobile-hidden" style="margin-right: 3rem"><%= link_to "Submit Project", new_organization_path, class: "animated-underline nav-link" %></span>
                     <%= link_to "Login", new_user_session_path, class: "animated-underline nav-link"%>
                     <%= link_to "Join", new_user_registration_path, class: "button-primary"%>
                 </div>
