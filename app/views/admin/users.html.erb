@@ -20,7 +20,6 @@
 						<th>Website</th>
 						<th>Apps</th>
 						<th></th>
-						<th></th>
 					</tr>
 					<% @users.each do |user| %>
 						<tr>
@@ -62,7 +61,6 @@
 									<%= link_to "Approve", approve_user_path(user), class: "inline-link animated-underline" %>
 								<% end %>
 							</td>
-							<td><%= link_to "Edit", edit_user_path(user), class: "ranimated-underline" %></td>
 						</tr>
 					<% end %>
 				</table>
