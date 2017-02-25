@@ -1,5 +1,3 @@
-<%= render 'shared/navbar' %>
-
 <% if Membership.where(user_id: current_user.id).exists? %>
 
   <div class="small-section cards">
