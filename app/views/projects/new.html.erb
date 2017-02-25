@@ -1,42 +1,19 @@
 <%= render 'shared/navbar' %>
 
-<% if current_user.organizations.approved.exists? %>
-
-  <div class="small-section cards">
-    <div class="container">
-      <div class="row">
-        <div class="six offset-by-three columns">
-          <h3>
-            Describe your organization's need
-          </h3>
-          <div class="divider"></div>
-          <p class="dark-paragraph">
-            Describe what your organization needs help with and get matched with experts willing and able to help.
-          </p>
-        </div>
+<div class="small-section cards">
+  <div class="container">
+    <div class="row">
+      <div class="six offset-by-three columns">
+        <h3>
+          Describe your organization's need
+        </h3>
+        <div class="divider"></div>
+        <p class="dark-paragraph">
+          Describe what your organization needs help with and get matched with experts willing and able to help.
+        </p>
       </div>
     </div>
   </div>
+</div>
 
-  <%= render 'form' %>
-
-<% else %>
-
-  <div class="small-section cards">
-    <div class="container">
-      <div class="row">
-        <div class="six offset-by-three columns">
-          <h3>
-            You are not a member of an approved organization
-          </h3>
-          <div class="divider"></div>
-          <p class="dark-paragraph">
-            Only members of an approved organization may post a project to the community. Register and submit an organization for review to continue.
-          </p>
-          <%= link_to "Register an Organization", new_organization_path, class: "button-secondary" %>
-        </div>
-      </div>
-    </div>
-  </div>
-
-<% end %>
+<%= render 'form' %>

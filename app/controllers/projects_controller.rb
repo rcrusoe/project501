@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy, :submit_application]
+  before_action :require_organization, only: [:new]
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   # GET /projects
@@ -147,5 +148,9 @@ class ProjectsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
       params.require(:project).permit(:title, :description, :category, :deadline, :required_roles, :problem, :goal, :status)
+    end
+
+    def require_organization
+      redirect_to new_organization_path unless current_user.organizations.exists?
     end
 end

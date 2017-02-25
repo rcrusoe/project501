@@ -29,7 +29,7 @@
         </h2>
         <div class="spacer"></div>
         <% @projects.each do |project| %>
-          <% unless project.id == 1 || project.active == false %>
+          <% unless project.id == 1 || project.active == false || project.organization.approved == false %>
               <div class="card">
                 <div class="content">
                   <h3 class="clamped-text one-line">
@@ -41,9 +41,6 @@
                   </p>
                   <p>
                     Team Needs: <%= project.required_roles %>
-                  </p>
-                  <p>
-
                   </p>
                   <%= link_to "View Project", project, class: "button-secondary" %>
                 </div>
