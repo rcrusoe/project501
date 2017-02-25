@@ -29,4 +29,5 @@ Rails.application.routes.draw do
   get '/for-organizations', to: 'home#for_organizations'
   get '/admin/unapproved_users'
   get '/admin/projects'
+  get '/admin/users'
 end

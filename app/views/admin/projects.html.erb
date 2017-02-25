@@ -1,7 +1,13 @@
 <div class="section">
 	<div class="container">
 		<div class="row">
-			<div class="ten columns offset-by-one">
+			<div class="twelve columns">
+				<h1 class="no-top-margin">
+					<%= link_to "Projects", admin_projects_path, class: "animated-underline nav-link" %> | <%= link_to "Users", admin_users_path, class: "animated-underline nav-link" %>
+				</h1>
+				<h2>
+					<%= @projects.count %> Projects
+				</h2>
 				<table>
 					<tr>
 						<th>Title</th>
@@ -11,7 +17,7 @@
 					</tr>
 					<% @projects.each do |project| %>
 						<tr>
-							<td><%= link_to project.title, project_path(project), class: "inline-link animated-underline" %></td>
+							<td><%= link_to project.title, project_path(project), class: "animated-underline" %></td>
 							<td><%= project.active? %></td>
 							<td><%= project.applications.count %></td>
 							<td><%= link_to "Edit", edit_project_path(project), class: "inline-link animated-underline" %></td>

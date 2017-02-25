@@ -17,6 +17,10 @@ class User < ApplicationRecord
 
   has_many :personal_messages, dependent: :destroy
 
+  def applications
+    Role.where(user_id: self, status: "Applicant")
+  end
+
   def name
     if first_name? && last_name?
       first_name + ' ' + last_name

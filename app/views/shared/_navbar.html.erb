@@ -1,10 +1,12 @@
 <div class="container nav">
     <div class="row">
         <div class="twelve columns navbar">
-
             <% if user_signed_in? %>
                 <%= link_to image_tag("logo1.png", class: "logo"), current_user, class: "centered-logo" %>
                 <div class="right mobile-hidden">
+                    <% if current_user.admin? %>
+                        <%= link_to "Admin", admin_projects_path, class: "animated-underline nav-link" %>
+                    <% end %>
                     <%= link_to "Projects", projects_path, class: "animated-underline nav-link" %>
                     <%= link_to "Post Project", new_project_path, class: "button-primary"%>
                     <%= link_to image_tag("inbox.svg", class: "inbox"), conversations_path %>

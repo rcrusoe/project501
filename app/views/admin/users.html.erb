@@ -1,0 +1,72 @@
+<div class="section">
+	<div class="container">
+		<div class="row">
+			<div class="twelve columns">
+				<h1 class="no-top-margin">
+					<%= link_to "Projects", admin_projects_path, class: "animated-underline nav-link" %> | <%= link_to "Users", admin_users_path, class: "animated-underline nav-link" %>
+				</h1>
+				<h2>
+					<%= @users.count %> Users
+				</h2>
+				<table>
+					<tr>
+						<th>Name</th>
+						<th>Email</th>
+						<th>LinkedIn</th>
+						<th>Twitter</th>
+						<th>Medium</th>
+						<th>Github</th>
+						<th>Dribbble</th>
+						<th>Website</th>
+						<th>Apps</th>
+						<th></th>
+						<th></th>
+					</tr>
+					<% @users.each do |user| %>
+						<tr>
+							<td><%= link_to user.name, user_path(user), class: "animated-underline" %></td>
+							<td><%= user.email %></td>
+							<td>
+								<% if user.linkedin_url? %>
+									<%= link_to "View", user.linkedin_url, class: "animated-underline" %>
+								<% end %>
+							</td>
+							<td>
+								<% if user.twitter_url? %>
+									<%= link_to "View", user.twitter_url, class: "animated-underline" %>
+								<% end %>
+							</td>
+							<td>
+								<% if user.medium_url? %>
+									<%= link_to "View", user.medium_url, class: "animated-underline" %>
+								<% end %>
+							</td>
+							<td>
+								<% if user.github_url? %>
+									<%= link_to "View", user.github_url, class: "animated-underline" %>
+								<% end %>
+							</td>
+							<td>
+								<% if user.dribbble_url? %>
+									<%= link_to "View", user.dribbble_url, class: "animated-underline" %>
+								<% end %>
+							</td>
+							<td>
+								<% if user.website_url? %>
+									<%= link_to "View", user.website_url, class: "animated-underline" %>
+								<% end %>
+							</td>
+							<td><%= user.applications.count %></td>
+							<td>
+								<% if user.approved == false %>
+									<%= link_to "Approve", approve_user_path(user), class: "inline-link animated-underline" %>
+								<% end %>
+							</td>
+							<td><%= link_to "Edit", edit_user_path(user), class: "ranimated-underline" %></td>
+						</tr>
+					<% end %>
+				</table>
+			</div>
+		</div>	
+	</div>
+</div>
