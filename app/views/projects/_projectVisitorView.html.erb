@@ -2,11 +2,11 @@
   <div class="card">
     <div class="content">
       <h3>
-        Interested in helping with this?
+        Interested in helping?
       </h3>
       <div class="divider"></div>
       <p>
-          Send a quick introductory message to express your interest in helping this organization.
+          Send a quick message to introduce yourself and describe how you can help.
       </p>
       <%= form_for @personal_message do |f| %>
         <% @project.roles.each do |role| %>
@@ -17,7 +17,7 @@
 
         <%= hidden_field_tag 'project_id', @project.id %>
 
-        <%= f.text_area :body, placeholder: "Briefly describe how you can help this project." %>
+        <%= f.text_area :body, placeholder: "I can help with ..." %>
 
         <div class="actions application-button">
           <%= f.submit "Send Message"%>
