@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get "/projects/:project_name/applicants", to: "projects#applicants"
+
   resources :organizations
   resources :personal_messages, only: [:new, :create]
   resources :conversations, only: [:index, :show]

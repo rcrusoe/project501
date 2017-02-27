@@ -26,6 +26,10 @@ class ProjectsController < ApplicationController
     @project = Project.new
   end
 
+  def applicants
+    print "hit this endpoint"
+  end
+
   # GET /projects/1/edit
   def edit
   end

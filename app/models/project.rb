@@ -21,6 +21,10 @@ class Project < ApplicationRecord
     Role.where(project_id: self, status: "Applicant")
   end
 
+  def applicants
+    print "test"
+  end
+
   def organization
     Organization.find_by_id(Membership.where(user_id: self.owner).first.organization_id)
   end
