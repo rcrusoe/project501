@@ -14,15 +14,19 @@ class Project < ApplicationRecord
   friendly_id :title, use: [:slugged, :history]
 
   def owner
-    User.find_by_id(Role.where(project_id: self, status: "Owner").first.user_id)
+    User.find_by_id(self.roles.where(:status => "Owner").first.user_id)
   end
 
   def applications
-    Role.where(project_id: self, status: "Applicant")
+    self.roles.where(:status => "Applicant")
   end
 
   def applicants
-    print "test"
+    applicant_ids = []
+    self.applications.to_a.each do |applicant|
+      applicant_ids.append(applicant.user_id)
+    end
+    User.find(applicant_ids)
   end
 
   def organization
@@ -30,6 +34,12 @@ class Project < ApplicationRecord
   end
 
   scope :recent, ->{ where("projects.created_at > ?", 1.week.ago) }
+
+
+# SELECT * FROM Users INNER JOIN (SELECT * FROM role WHERE project_id = self.project_id AND status = Applicant) as t ON Users.id = t.user_id
+#
+#
+#
 
 end
 

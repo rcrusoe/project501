@@ -26,8 +26,11 @@ class ProjectsController < ApplicationController
     @project = Project.new
   end
 
+  # GET /projects/:project_name/applicants
   def applicants
-    print "hit this endpoint"
+    project = Project.friendly.find(params[:project_name])
+    @users = project.applicants
+    render :template => "admin/users"
   end
 
   # GET /projects/1/edit
