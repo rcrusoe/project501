@@ -33,11 +33,5 @@ class Project < ApplicationRecord
 
   scope :recent, ->{ where("projects.created_at > ?", 1.week.ago) }
 
-
-# SELECT * FROM Users INNER JOIN (SELECT * FROM role WHERE project_id = self.project_id AND status = Applicant) as t ON Users.id = t.user_id
-#
-#
-#
-
 end
 

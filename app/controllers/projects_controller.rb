@@ -33,7 +33,7 @@ class ProjectsController < ApplicationController
     render :template => "projects/applicants"
   end
 
-  # GET /projects/make-member/:id
+  # GET /projects/make-member/:project_id/:user_id
   def make_member
     @project = Project.friendly.find(params[:project_id])
     Role.where(:project_id => params[:project_id], :user_id => params[:user_id]).update(:status => "Team Member")
