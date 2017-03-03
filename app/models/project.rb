@@ -22,10 +22,8 @@ class Project < ApplicationRecord
   end
 
   def applicants
-    applicant_ids = []
-    self.applications.to_a.each do |applicant|
-      applicant_ids.append(applicant.user_id)
-    end
+    # todo: figure out how to replace with a join between project.applications and User on user_id = id
+    applicant_ids = self.applications.to_a.map { |applicant| applicant.user_id }
     User.find(applicant_ids)
   end
 

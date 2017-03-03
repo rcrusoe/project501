@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   end
 
   get "/projects/:project_name/applicants", to: "projects#applicants"
+  get "/projects/make-member/:project_id/:user_id", to: "projects#make_member", as: 'projects_make_member'
 
   resources :organizations
   resources :personal_messages, only: [:new, :create]

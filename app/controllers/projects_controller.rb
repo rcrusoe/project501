@@ -28,9 +28,17 @@ class ProjectsController < ApplicationController
 
   # GET /projects/:project_name/applicants
   def applicants
-    project = Project.friendly.find(params[:project_name])
-    @users = project.applicants
-    render :template => "admin/users"
+    @project = Project.friendly.find(params[:project_name])
+    @users = @project.applicants
+    render :template => "projects/applicants"
+  end
+
+  # GET /projects/make-member/:id
+  def make_member
+    @project = Project.friendly.find(params[:project_id])
+    Role.where(:project_id => params[:project_id], :user_id => params[:user_id]).update(:status => "Team Member")
+    @users = @project.applicants 
+    render :template => "projects/applicants"
   end
 
   # GET /projects/1/edit
