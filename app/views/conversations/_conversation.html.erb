@@ -1,21 +1,15 @@
-<% if current_user.id == 1 %>
-    <%= link_to conversation_path(conversation), class: "conversation" do %>
+<%= link_to conversation_path(conversation), class: "conversation" do %>
+    <div class="person">
+        <% if conversation.with(current_user).avatar_url? %>
+            <div class="floated-avatar avatar" style="background-image: url(<%= conversation.with(current_user).avatar_url %>)"></div>
+        <% else %>
+            <%= image_tag "avatar.svg", class: "floated-avatar avatar" %>
+        <% end %>
         <h3><%= conversation.with(current_user).name %></h3>
-    <% end %>
-<% else %>
-    <%= link_to conversation_path(conversation), class: "conversation" do %>
-        <div class="person">
-            <% if conversation.with(current_user).avatar_url? %>
-                <div class="floated-avatar avatar" style="background-image: url(<%= conversation.with(current_user).avatar_url %>)"></div>
-            <% else %>
-                <%= image_tag "avatar.svg", class: "floated-avatar avatar" %>
-            <% end %>
-            <h3><%= conversation.with(current_user).name %></h3>
-        </div>
-        <div class="conversation-details">
-            <p class="clamped-text one-line conversation-project"><%= Project.find_by_id(conversation.project_id).title %></p>
-            <p class="timestamp"><%= time_ago_in_words(conversation.personal_messages.last.updated_at) %> ago</p>
-            <p class="last-message-preview clamped-text one-line"><%= conversation.personal_messages.last.body %></p>
-        </div>
-    <% end %>
+    </div>
+    <div class="conversation-details">
+        <p class="clamped-text one-line conversation-project"><%= Project.find_by_id(conversation.project_id).title %></p>
+        <p class="timestamp"><%= time_ago_in_words(conversation.personal_messages.last.updated_at) %> ago</p>
+        <p class="last-message-preview clamped-text one-line"><%= conversation.personal_messages.last.body %></p>
+    </div>
 <% end %>
