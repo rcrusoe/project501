@@ -41,9 +41,11 @@
                   <p class="clamped-text four-lines">
                     <%= project.description %>
                   </p>
-                  <p>
-                    Team Needs: <%= project.required_roles %>
-                  </p>
+                  <% if project.required_roles %>
+                      <p>
+                        Team Needs: <%= project.required_roles %>
+                      </p>
+                  <% end %>
                   <%= link_to "View Project", project, class: "button-secondary" %>
                 </div>
               </div>
