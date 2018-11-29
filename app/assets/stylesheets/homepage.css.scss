@@ -17,6 +17,14 @@
   }
 }
 
+.section--dark {
+  background: $blue-100;
+
+  h2 {
+    color: $white;
+  }
+}
+
 .section-divider {
   @media (min-width: 550px) {
     margin: auto;

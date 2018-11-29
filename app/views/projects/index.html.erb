@@ -21,7 +21,6 @@
             </h1>
             <%= link_to "Join as a Volunteer", new_user_registration_path, class: "button-primary"%>
         </div>
-
         <div class="row">
             <div class="eight columns offset-by-two" style="margin-bottom: 4rem;">
                 <h2 class="homepage-h2">
@@ -29,7 +28,6 @@
                 </h2>
             </div>
         </div>
-
         <div class="row">
             <div class="two-cards columns">
                 <div class="card">
@@ -60,43 +58,41 @@
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 
-<div class="section">
-    <div class="container">
+<div class="section section--dark">
+  <div class="container">
+    <div class="row">
       <div class="row">
-        <div class="eight columns offset-by-two">
-          <h2 class="centered-text">
-            Current opportunities to volunteer your expertise:
-          </h2>
-          <div class="spacer"></div>
-          <% @projects.each do |project| %>
-            <% unless project.id == 1 || project.active == false || project.organization.approved == false %>
-                <div class="card">
-                  <div class="content">
-                    <h3 class="clamped-text one-line">
-                      <%= link_to project.title, project %>
-                    </h3>
-                    <div class="divider"></div>
-                    <p class="clamped-text four-lines">
-                      <%= project.description %>
-                    </p>
-                    <% if project.required_roles %>
-                        <p>
-                          Team Needs: <%= project.required_roles %>
-                        </p>
-                    <% end %>
-                    <%= link_to "View Project", project, class: "button-secondary" %>
-                  </div>
+        <h2 class="centered-text">
+          Current opportunities to volunteer your expertise:
+        </h2>
+        <div class="spacer"></div>
+        <% @projects.each do |project| %>
+          <% unless project.id == 1 || project.active == false || project.organization.approved == false %>
+              <div class="card">
+                <div class="content">
+                  <h3 class="clamped-text one-line">
+                    <%= link_to project.title, project %>
+                  </h3>
+                  <div class="divider"></div>
+                  <p class="clamped-text four-lines">
+                    <%= project.description %>
+                  </p>
+                  <% if project.required_roles %>
+                      <p>
+                        Team Needs: <%= project.required_roles %>
+                      </p>
+                  <% end %>
+                  <%= link_to "View Project", project, class: "button-secondary" %>
                 </div>
-              <% end %>
+              </div>
             <% end %>
-          </div>
-        </div>
+          <% end %>
       </div>
     </div>
+  </div>
 </div>
 
 <div class="section cards">
