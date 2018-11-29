@@ -1,0 +1,260 @@
+<div class="hero">
+    <div class="container">
+        <div class="row">
+            <div class="six columns offset-by-six">
+                <div class="larger-than-mobile-only">
+                    <h2 style="text-align: left;">
+                        Project 501 matches non-profit organizations with talented professionals who want to donate their skills.
+                    </h2>
+                    <%= link_to "Join as a Volunteer", new_user_registration_path, class: "button-inverse"%>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section cards">
+    <div class="container">
+        <div class="mobile-only" style="margin-bottom: 10rem;">
+            <h1 style=" text-align: left;">
+                Project 501 matches non-profit organizations with talented professionals who want to donate their skills.
+            </h1>
+            <%= link_to "Join as a Volunteer", new_user_registration_path, class: "button-primary"%>
+        </div>
+        <div class="row">
+            <div class="eight columns offset-by-two" style="margin-bottom: 4rem;">
+                <h2 class="homepage-h2">
+                    Skill-based volunteer projects offer meaningful opportunities for volunteers to make an impact.
+                </h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="two-cards columns">
+                <div class="card">
+                    <div class="content">
+                        <h3>
+                            Find help for your organization
+                        </h3>
+                        <div class="divider"></div>
+                        <p>
+                            Connect with skilled volunteers to setup a phone consultation or tackle a larger project.
+                        </p>
+                        <%= link_to "Learn More", for_organizations_path, class: "button-secondary"%>
+                    </div>
+                </div>
+            </div>
+            <div class="two-cards columns">
+                <div class="card">
+                    <div class="content">
+                        <h3>
+                            Make an impact
+                        </h3>
+                        <div class="divider"></div>
+                        <p>
+                            Make an impact by offering your creative, technical, or business expertise to non-profits.
+                        </p>
+                        <%= link_to "Browse opportunities to help", projects_path, class: "button-secondary"%>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section section--dark">
+  <div class="container">
+    <div class="row">
+      <div class="row">
+        <h2 class="centered-text">
+          Current opportunities to volunteer your expertise:
+        </h2>
+        <div class="spacer"></div>
+        <% @projects.each do |project| %>
+          <% unless project.id == 1 || project.active == false || project.organization.approved == false %>
+              <div class="card">
+                <div class="content">
+                  <h3 class="clamped-text one-line">
+                    <%= link_to project.title, project %>
+                  </h3>
+                  <div class="divider"></div>
+                  <p class="clamped-text four-lines">
+                    <%= project.description %>
+                  </p>
+                  <% if project.required_roles %>
+                      <p>
+                        Team Needs: <%= project.required_roles %>
+                      </p>
+                  <% end %>
+                  <%= link_to "View Project", project, class: "button-secondary" %>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section cards">
+    <div class="container">
+        <h2 class="homepage-h2">
+            How It Works
+        </h2>
+
+        <div class="row how-it-works-section">
+            <div class="four columns offset-by-one">
+                <h3>Browse opportunities to help</h3>
+                <p class="dark-paragraph">
+                    Comb through a list of projects to find organizations you can help. Opportunities to help may be as small as a quick phone call or as large as a multi-week effort.
+                </p>
+            </div>
+            <div class="three-cards columns offset-by-two how-it-works-image">
+                <div class="card">
+                  <div class="content">
+                    <h3 class="clamped-text one-line">
+                      Campaign Marketing Strategy
+                    </h3>
+                    <div class="divider"></div>
+                    <p class="clamped-text four-lines dark-paragraph">
+                      We're launching a new campaign in a few months to help match high school students with paid internships. We need someome who can prepare a strategy to help us find companies willing to host and help train students.
+                    </p>
+                    <p class="no-bottom-margin">
+                        Cause
+                    </p>
+                    <p class="dark-paragraph clamped-text one-line no-bottom-margin no-top-margin">
+                      At-Risk Youth
+                    </p>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row how-it-works-section">
+            <div class="four columns how-it-works-image larger-than-mobile-only offset-by-one">
+                <div class="personal-message animate-in">
+                    <div class="message-heading">
+                        <%= image_tag ("profile-3.png"), class: "floated-avatar avatar" %>
+                        <h3>Maria S.</h3>
+                        <p class="timestamp">8 minutes ago</p>
+                    </div>
+                    <p class="message-body">Hi there - I'm interested in helping. I used to work with an at-risk youth organization in Austin, so I'm familiar with the challenges.</p>
+                </div>
+                <div class="personal-message animate-in">
+                    <div class="message-heading">
+                        <%= image_tag ("profile-7.png"), class: "floated-avatar avatar" %>
+                        <h3>Jessica O.</h3>
+                        <p class="timestamp">2 minutes ago</p>
+                    </div>
+                    <p class="message-body">Hi Maria! Could we hop on the phone later this week?</p>
+                </div>
+            </div>
+            <div class="four columns offset-by-two">
+                <h3>Apply to projects</h3>
+                <p class="dark-paragraph">
+                    When you find an opportunity that you're interested in, reach out to the organization to offer your help.
+                </p>
+            </div>
+            <div class="four columns how-it-works-image mobile-only">
+                <div class="personal-message animate-in">
+                    <div class="message-heading">
+                        <%= image_tag ("profile-3.png"), class: "floated-avatar avatar" %>
+                        <h3>Maria S.</h3>
+                        <p class="timestamp">8 minutes ago</p>
+                    </div>
+                    <p class="message-body">Hi there - I'm interested in helping. I used to work with an at-risk youth organization in Austin, so I'm familiar with the challenges.</p>
+                </div>
+                <div class="personal-message animate-in">
+                    <div class="message-heading">
+                        <%= image_tag ("profile-7.png"), class: "floated-avatar avatar" %>
+                        <h3>Jessica O.</h3>
+                        <p class="timestamp">2 minutes ago</p>
+                    </div>
+                    <p class="message-body">Hi Maria! Could we hop on the phone later this week?</p>
+                </div>
+            </div>
+        </div>
+        <div class="row how-it-works-section">
+            <div class="four columns offset-by-one">
+                <h3>The organization selects a volunteer</h3>
+                <p class="dark-paragraph">
+                    Organizations are able to view their volunteers' profiles and chat with them to decide who might be the best match for the project.
+                </p>
+            </div>
+            <div class="three-cards columns offset-by-two how-it-works-image">
+                <div class="card">
+                  <div class="content">
+                    <h3 class="clamped-text one-line">
+                      Maria S.
+                    </h3>
+                    <div class="divider"></div>
+                    <p class="clamped-text four-lines">
+                      Boston-based marketing strategist, passionate about equal opportunity and environmental protection.
+                    </p>
+                    <p class="clamped-text one-line no-bottom-margin">
+                      Elsewhere: <%= link_to 'Linkedin', root_path %>, <%= link_to 'Medium', root_path %>
+                    </p>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="margin: 10rem 0 4rem 0";>
+            <div class="twelve-columns">
+                <h2 class="homepage-h2">
+                    It's time to do a little good.
+                </h2>
+            </div>
+        </div>
+
+        <div class="row" style="background-color: #2A2F2F;">
+            <div class="two-cards columns">
+                <div class="card">
+                    <div class="content">
+                        <h3>
+                            Find help for your organization
+                        </h3>
+                        <div class="divider"></div>
+                        <p>
+                            Connect with skilled volunteers to setup a phone consultation or tackle a larger project.
+                        </p>
+                        <%= link_to "Learn More", for_organizations_path, class: "button-secondary"%>
+                    </div>
+                </div>
+            </div>
+            <div class="two-cards columns">
+                <div class="card">
+                    <div class="content">
+                        <h3>
+                            Make an impact
+                        </h3>
+                        <div class="divider"></div>
+                        <p>
+                            Make an impact by offering your creative, technical, or business expertise to non-profits.
+                        </p>
+                        <%= link_to "Join as a Volunteer", new_user_registration_path, class: "button-primary"%>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="marketing-footer">
+    <div class="container">
+        <div class="row" style="overflow: hidden;">
+            <div class="six columns">
+                <h3>
+                    Made with 🐶 in Cambridge, MA.
+                </h3>
+            </div>
+            <div class="six columns">
+                <div class="right">
+                    <h3>
+                        <%= mail_to "team@project501.com", "Contact Us", target: "_blank" %>
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
